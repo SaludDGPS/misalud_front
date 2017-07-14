@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>GobMXMiSalud</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="import" href="bower_components/polymer/polymer.html">
+        <link rel="import" href="bower_components/gobmx-navbar/gobmx-navbar.html">
+        <link rel="import" href="bower_components/gobmx-footer/gobmx-footer.html">
+
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <gobmx-navbar></gobmx-navbar>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid misalud-navbar">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="misalud-navbar" data-target="#misalud-navbar" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="img/ic-logo.png"></a>
+                </div>
+                <div class="collapse navbar-collapse" id="misalud-navbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="materna.html">Materna</a></li>
+                        <li><a href="registrate.html">Regístrate</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="site-banner">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <img src="img/ic-logo-white.png" alt="MiSalud">
+                        <p>Información móvil y personalizada para mantenerte sano</p>
+                        <button type="button" class="banner-btn" data-toggle="modal" data-target="#videoModal">Ver video</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="site-register">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<form id="register-form" class="form register-form">
+	                        <div class="row">
+	                            <div class="col-md-4">
+	                                <div class="form-group fixed">
+	                                    <label for="info">¿Qué información deseas recibir?</label>
+	                                    <select name="info" id="info" class="form-control custom-select">
+	                                        <option value="Materno - Infantil">Materno - Infantil</option>
+	                                        <option value="Cronicas">Crónicas (próximamente)</option>
+	                                    </select>
+	                                </div>
+	                            </div>
+	                            <div class="col-md-4">
+	                                <div class="form-group fixed">
+	                                    <label for="media">¿Por qué medio quieres recibir la información?</label>
+	                                    <select name="media" id="media" class="form-control custom-select">
+		                                    <option value="sms">SMS</option>
+	                                        <option value="facebook">Facebook</option>
+	                                        <option value="App">App misalud (próximamente)</option>
+	                                        <option value="Twitter DM">Twitter - menajes directos</option>
+	                                    </select>
+	                                </div>
+	                            </div>
+	                            <div class="col-md-4">
+	                                <div class="form-group form-submit">
+	                                    <input type="text" name="contact-name" id="contact-name" class="form-control" placeholder="Nombre">
+	                                    <input type="tel" name="phone-number" id="phone-number" class="form-control" placeholder="Número telefónico">
+	                                    <input type="submit" class="btn btn-primary" value="Registrarme">
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </form>
+					</div>
+				</div>
+			</div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>¿Qué es?</h1>
+                    <p><span class="highlight">mi<strong>salud</strong></span> es una nueva manera de proveer servicios públicos de salud a través de tu celular. Mediante mensajes de texto - SMS, Facebook Messenger, Twitter y el app <span class="highlight">mi<strong>salud</strong></span> -, podrás acceder a la información en el momento que la necesitas, para ayudarte a tomar las mejores decisiones de salud. ¡Inscríbete y prueba!</p>
+                </div>
+            </div>
+        </div>
+        <div id="sms-section" class="highlight-section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="img/ic-messages.png">
+                        <h3>Recibe consejos<br />de salud</h3>
+                        <img src="img/img-advise.png">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="img/ic-reminders.png">
+                        <h3>Recordatorios de citas<br />y controles médicos</h3>
+                        <img src="img/img-reminders.png">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="img/ic-info.png">
+                        <h3>Información sobre potenciales<br />señales de alarma</h3>
+                        <img src="img/img-alarm.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>¿Quién puede participar?</h1>
+                    <p>Actualmente <span class="highlight">mi<strong>salud</strong></span> puede ayudarte si tienes alguna de las siguientes condiciones</p>
+                    <div class="col-md-6">
+                        <div class="site-widget">
+                            <h2>Salud materna e infantil</h2>
+                            <p>Si actualmente estás embarazada o tienes un hijo con hasta dos años de vida</p>
+                            <img src="img/ic-child.png">
+                            <a href="materna.html" class="read-more">Ver más</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="site-widget">
+                            <h2>Enfermedades crónicas</h2>
+                            <p>Si has sido diagnosticado con Diabetes mellitus o hipertensión, sobrepeso o obesidad</p>
+                            <img src="img/ic-diseases.png">
+                            <a href="#" class="read-more">Próximamente</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <gobmx-footer></gobmx-footer>
+        <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div style="position:relative;height:0;padding-bottom:56.25%"><iframe width="560" height="315" src="https://www.youtube.com/embed/kYWNCUSxAfc" frameborder="0" allowfullscreen></iframe></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="bower_components/underscore/underscore-min.js"></script>
+        <script src="bower_components/bootstrap-year-calendar/js/bootstrap-year-calendar.min.js"></script>
+        <script src="bower_components/moment/min/moment.min.js"></script>
+        <script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+        <script src='bower_components/webcomponentsjs/webcomponents-lite.min.js'></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

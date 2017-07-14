@@ -1,0 +1,138 @@
+@import url( https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic );
+@import url( https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic );
+
+/**********************************
+    General Styles
+**********************************/
+.container-fluid                                { max-width: 1100px; margin: 0 auto; }
+body                                            { padding-top: 100px; font-family: "Roboto"; font-size: 18px; font-weight: 300; line-height: 1.5em; color: #000; }
+gobmx-navbar                                    { width: 100%; position: fixed; top: 0; z-index: 9999; }
+img                                             { max-width: 100%; }
+#site-banner                                    { padding: 90px 0; background: url(../img/ic-bg.png) no-repeat; text-align: center; }
+#site-banner img                                { margin-bottom: 20px; }
+#site-banner a.banner-btn,
+#site-banner button                             { margin-right: 10px; padding: 10px 20px; background-color: transparent; border: 1px solid #fff; border-radius: 10px; font-family: "Roboto"; font-size: 21px; color: #fff; }
+#site-banner button:last-child                  { margin-right: 0; }
+.highlight-section                              { padding: 30px 0; background-color: #DAF8EC; position: relative; }
+.modal-dialog                                   { margin: 100px auto; }
+
+/**********************************
+    Navbar Styles
+**********************************/
+.navbar.navbar-fixed-top                        { background-color: #fff; top: 50px; }
+.navbar-default                                 { margin-bottom: 0; background-color: transparent; border-bottom: 1px solid #000; border-radius: 0; }
+.navbar-default .navbar-nav > li > a            { font-family: "Roboto"; font-size: 16px; font-weight: 300; color: #000; }
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a       { background-color: transparent; color: #0c9; }
+
+/**********************************
+    Font Styles
+**********************************/
+h1                                              { margin-bottom: 30px; padding-bottom: 10px; font-family: "Roboto"; font-weight: 600; font-size: 28px; color: #000; border-bottom: 1px solid #979797; position: relative; }
+h1:after                                        { display: block; content: ' '; width: 30px; height: 3px; background-color: #52FFBD; position: absolute; left: 0; bottom: -4px; }
+#site-banner p                                  { margin-bottom: 30px; font-family: "Roboto"; font-size: 30px; font-weight: 300; color: #fff; }
+.site-widget h2                                 { font-family: "Roboto"; font-size: 20px; font-weight: 700; line-height: 1.5em;  color: #0c9; text-transform: uppercase; text-decoration: underline; }
+#sms-section h3                                 { font-family: "Roboto"; font-size: 16px; font-weight: 700; line-height: 1.5em;  color: #0c9; }
+p                                               { margin-bottom: 20px; }
+strong                                          { font-weight: 600; }
+.highlight                                      { color: #0c9; }
+.section-title                                  { margin-bottom: 30px; padding-bottom: 10px; font-family: "Roboto"; font-weight: 300; color: #000; border-bottom: 1px solid #979797; }
+
+/**********************************
+    Forms Styles
+**********************************/
+.register-form                                  { margin: 50px 0; }
+.register-form input[type="submit"]             { display: block; width: 100%; padding: 6px 20px; background-color: #0c9; border: none; }
+.register-form #contact-name,
+.register-form #phone-number                    { display: block; margin-bottom: 10px; }
+.register-form .form-group.fixed,
+.register-form .submit-fixed 					{ height: 108px; position: relative; }
+.register-form .form-group.fixed .form-control,
+.register-form .submit-fixed input[type="submit"]	{ position: absolute; left: 0; bottom: 0; }
+
+/**********************************
+    Register Landing Styles
+**********************************/
+#site-register 									{ padding: 10px 0; background: transparent url(../img/bg_register.png) no-repeat; }
+#site-register #register-form label 			{ font-size: 14px; }
+#site-register #register-form .form-group 		{ margin-bottom: 0; }
+#site-register #register-form .form-control 	{ height: 40px; border: 1px solid #979797; box-shadow: 1px 1px 3px rgba(0,0,0,0.3); border-radius: 0; }
+#site-register #register-form .form-group.fixed,
+#site-register #register-form .submit-fixed 	{ height: 73px; }
+#site-register #register-form input[type="submit"]	{ height: 40px; border: 1px solid #fff; box-shadow: 1px 1px 3px rgba(0,0,0,0.3); border-radius: 0; }
+
+/**********************************
+    Lists Styles
+**********************************/
+ul                                              { padding-left: 20px; }
+ul > li                                         { color: #0c9; }
+ul.sidebar                                      { padding: 0; list-style: none; }
+ul.sidebar > li                                 { padding-left: 20px; line-height: 40px; border-bottom: 1px solid #979797; color: #979797; cursor: pointer; }
+ul.sidebar > li:hover                           { background-color: #0c9; color: #fff; }
+
+.register-button                                { width: 150px; height: 40px; padding-left: 40px; background-color: #0c9; border: 1px solid #000; border-right: none; text-align: left; border-bottom-left-radius: 20px; border-top-left-radius: 20px; position: fixed; right: 0; bottom: 50px; box-shadow: 0 0 3px rgba(0,0,0,0.3); }
+.register-button > a                            { font-family: 'Roboto'; font-size: 17.5px; font-weight: bold; line-height: 40px; color: #fff; }
+
+/**********************************
+    SMS Sections Styles
+**********************************/
+#sms-section                                    { margin: 30px 0; text-align: center; }
+#sms-section img                                { margin-bottom: 10px; }
+
+/**********************************
+    Widgets Styles
+**********************************/
+.site-widget                                    { margin-bottom: 30px; background-color: #DAF8EC; border-radius: 5px; text-align: center; }
+.site-widget h2,
+.site-widget p                                  { padding: 0 60px; }
+.site-widget h2                                 { padding-top: 30px; }
+.site-widget .read-more                         { display: block; margin-top: 30px; padding: 10px; background-color: #0c9; font-family: "Roboto"; font-size: 18px; font-weight: 700; text-align: center; color: #fff; border-radius: 0 0 5px 5px; }
+
+#tryit-section label                            { display: block; margin-bottom: 20px; }
+#tryit-section .input-group                     { max-width: 350px; margin-top: 10px; }
+#tryit-section .input-group .form-control       { font-family: "Roboto"; font-size: 18px; line-height: 1.5em; font-weight: 500; color: #000; text-align: center; }
+#tryit-section .input-group .input-group-addon  { background-color: #0c9; }
+#tryit-section .input-group .glyphicon          { transform: rotate(90deg); position: relative; left: 1px; top: -1px; color: #fff; }
+#tryit-tool-container                           { display: none; margin-top: 20px; padding-top: 20px; border-top: 1px solid #979797; }
+#tryit-calendar                                 { margin: 30px auto; overflow: hidden; }
+#tryit-calendar.calendar .month-container       { height: 280px; }
+#tryit-calendar.calendar .year-title            { color: #0c9; }
+#tryit-calendar.calendar .year-neighbor,
+#tryit-calendar.calendar .year-neighbor2        { color: #aaa; }
+#tryit-calendar.calendar table td.day:not(.old):not(.new)   { background-color: #fff; border: 1px solid #ccc; }
+.color-codes 									{ margin-left: 10px; }
+.color-code                                     { display: inline-block; height: 20px; margin-right: 10px; font-family: "Roboto"; font-size: 12px; font-weight: 600; line-height: 20px; color: #000; overflow: hidden; }
+.color-code > span                              { display: inline-block; width: 20px; height: 20px; margin-right: 5px; border-radius: 2px; }
+.color-code > em                                { position: relative; top: -5px; }
+#messages-container                             { position: absolute; background: #fff; top: 15%; right: 18%; bottom: 12%; left: 18%; }
+#messages-container .messages                   { width: 100%; padding: 10px; position: absolute; left: 0; right: 0; bottom: 30px; top: 0; overflow-y: scroll; }
+#messages-container .message                    { width: 60%; margin-bottom: 10px; padding: 5px; position: relative; background: #00aabb; border-radius: .4em; font-size: 10px; line-height: 1.5em; color: #fff; float: left; }
+#messages-container .response-message           { float: right; background-color: #04cbe0; }
+#messages-container .message > p                { margin-bottom: 0; }
+#messages-container .message:after              { content: ''; position: absolute; left: 0; top: 50%; width: 0; height: 0; border: 7px solid transparent; border-right-color: #00aabb; border-left: 0; border-bottom: 0; margin-top: -3.5px; margin-left: -7px; }
+#messages-container .response-message:after     { left: auto; right: 0; margin-left: 0; margin-right: -7px; border: 7px solid transparent; border-left-color: #04cbe0; border-right: 0; border-bottom: 0; clear: both; }
+#messages-container form                        { display: none; width: 100%; overflow: hidden; position: absolute; left: 0; bottom: 0; }
+#messages-container input[type="text"]          { width: 72%; padding: 3px 5px; font-family: 'Roboto'; float: left; font-size: 12px; line-height: 1; }
+#messages-container input[type="submit"]        { width: 28%; padding: 3px 5px; float: right; font-family: 'Roboto'; font-size: 10px; line-height: 1; text-align: center; position: relative; top: 3px; }
+
+.select-hidden {
+  display: none;
+  visibility: hidden;
+  padding-right: 10px;
+}
+.select 										{ cursor: pointer; display: inline-block; position: relative; font-size: 16px; color: $fff; width: 100%; height: 40px; }
+.select-styled 									{ position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-color: #fff; border: 1px solid #979797; box-shadow: 1px 1px 3px rgba(0,0,0,0.3); padding: 8px 15px; line-height: 1; text-align: center; font-style: italic; }
+.select-styled:after 							{ content: "\e114"; width: 40px; height: 40px; background-color: #0c9; position: absolute; top: -1px; right: -1px; font-family: 'Glyphicons Halflings'; text-align: center; line-height: 40px; color: #fff; font-style: normal; }
+.select-options 								{ display: none; position: absolute; top: 100%; right: 0; left: 0; z-index: 999; margin: 0; padding: 0; list-style: none; }
+.select-options li 								{ margin: 0; padding: 12px 0; text-indent: 15px; background-color: #fff; }
+.select-options li:hover 						{ background-color: #f4f4f4; }
+.select-options li[rel="hide"] 					{ display: none; }
+
+@media (min-width: 761px)                       { 
+    #tryit-section label span                   { margin-right: 50px; }
+    .navbar-default .misalud-navbar             { padding: 0 55px; }
+    .navbar-default .misalud-navbar .navbar-brand   { margin-left: -30px !important; }
+    ul.half-width                                   { overflow: hidden; }
+    ul.half-width > li                              { width: 50%; margin-bottom: 10px; float: left; }
+}

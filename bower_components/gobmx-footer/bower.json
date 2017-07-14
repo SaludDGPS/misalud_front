@@ -1,0 +1,13 @@
+{
+    "name"          : "gobmx-footer",
+    "version"       : "0.0.1",
+    "license"       : "MIT",
+    "main"          : "gobmx-footer.html",
+    "dependencies"  : {
+        "polymer"   : "Polymer/polymer#^1.1"
+    },
+    "keywords"      : [
+        "gob.mx",
+        "gobmx-footer"
+    ]
+}

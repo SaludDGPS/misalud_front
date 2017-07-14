@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>GobMXMiSalud</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="import" href="bower_components/polymer/polymer.html">
+        <link rel="import" href="bower_components/gobmx-navbar/gobmx-navbar.html">
+        <link rel="import" href="bower_components/gobmx-footer/gobmx-footer.html">
+
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <gobmx-navbar></gobmx-navbar>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid misalud-navbar">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="img/ic-logo.png"></a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="materna.html">Materna</a></li>
+                        <li class="active"><a href="registrate.html">Regístrate</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Regístrate</h1>
+                    <p>Sigue las siguientes opciones para recibir instrucciones de cómo sumarte</p>
+                    <form id="register-form" class="form register-form">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group fixed">
+                                    <label for="info">¿Qué información deseas recibir?</label>
+                                    <select name="info" id="info" class="form-control">
+                                        <option value="Materno - Infantil">Materno - Infantil</option>
+                                        <option value="Cronicas">Crónicas (próximamente)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group fixed">
+                                    <label for="media">¿Por qué medio quieres recibir la información?</label>
+                                    <select name="media" id="media" class="form-control">
+	                                    <option value="sms">SMS</option>
+                                        <option value="facebook">Facebook</option>
+                                        <option value="App">App misalud (próximamente)</option>
+                                        <option value="Twitter DM">Twitter - menajes directos</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-submit">
+                                    <label>Registro</label>
+                                    <input type="text" name="contact-name" id="contact-name" class="form-control" placeholder="Nombre">
+                                    <input type="tel" name="phone-number" id="phone-number" class="form-control" placeholder="Número telefónico">
+                                    <input type="submit" class="btn btn-primary" value="Registrarme">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <p>La información que proporciones es estrictamente confidencial y solo busca brindarte un servicio especial para ti y tu salud. Nunca recibirás información relacionada con algún partido político, religioso, vendiendo algún producto o preguntándote por tu información bancaria. <strong>Cuéntale a tu familia que estarás recibiendo y respondiendo estos mensajes de parte de<strong> misalud.</p>
+                </div>
+            </div>
+        </div>
+        <gobmx-footer></gobmx-footer>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="bower_components/underscore/underscore-min.js"></script>
+        <script src="bower_components/bootstrap-year-calendar/js/bootstrap-year-calendar.min.js"></script>
+        <script src="bower_components/moment/min/moment.min.js"></script>
+        <script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+        <script src='bower_components/webcomponentsjs/webcomponents-lite.min.js'></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

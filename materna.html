@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>GobMXMiSalud</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="import" href="bower_components/polymer/polymer.html">
+        <link rel="import" href="bower_components/gobmx-navbar/gobmx-navbar.html">
+        <link rel="import" href="bower_components/gobmx-footer/gobmx-footer.html">
+
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="bower_components/bootstrap-year-calendar/css/bootstrap-year-calendar.min.css">
+        <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <gobmx-navbar></gobmx-navbar>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid misalud-navbar">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="img/ic-logo.png"></a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="materna.html">Materna</a></li>
+                        <li><a href="registrate.html">Regístrate</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Salud materno infantil</h1>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>Tu embarazo y tu bebé son únicos y la información que debes saber durante y después de tu embarazo depende de muchas cosas como tu:</p>
+                            <ul class="half-width">
+                                <li>Historia</li>
+                                <li>Edad</li>
+                                <li>Número de hijos</li>
+                                <li>Historial médico</li>
+                                <li>Etapa de tu embarazo</li>
+                                <li>Preocupaciones</li>
+                            </ul>
+                            <p>Por eso hemos desarrollado una herramienta que te ayude a tener la información que más necesitas.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="img/img-1.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>Nos estaremos comunicando contigo a través de mensajes en tu celular para recordarte de tus citas médicas, darte consejos de expertos en salud, planear el nacimiento de tu bebé y ayudarte a cuidarlo.Te estaremos acompañando todo tu embarazo y hasta los primeros dos años de vida de tu bebé. Sin embargo en cualquier momento puedes elegir dejar de recibir los mensajes.</p>
+                    <h1>¡Pruébalo!</h1>
+                    <p>Todos los mensajes y consejos que recibirás fueron escritos por doctores y expertos para ayudarte a tomar mejores decisiones sobre tu alimentación, salud y cuidado de tu bebé. Vas a recibir información de tres tipos: <strong>CONSEJOS, CONTROL DE SALUD y RECORDATORIOS</strong></p>
+                </div>
+            </div>
+        </div>
+        <div id="tryit-section" class="highlight-section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="section-title">Prueba mi<strong>salud</strong></h4>
+                        <p>Contesta alguna de las siguientes preguntas:</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <form class="form">
+                            <label for="date-period">Fecha de tu última menstruación<span class="pull-right">ó</span></label>
+                            <div class="input-group" id="date-period-picker">
+                                <input type="text" name="date-period" id="date-period" class="form-control">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <form class="form">
+                            <label for="date-baby">Fecha de nacimiento de tu bebé</label>
+                            <div class="input-group" id="date-baby-picker">
+                                <input type="text" name="date-baby" id="date-baby" class="form-control">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="tryit-tool-container" class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>Haz clíc sobre algún día del año para ver la información que estarás recibiendo y contesta el mensaje del celular.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9 col-sm-9 col-lg-9 col-xs-12">
+                                <div id="tryit-calendar"></div>
+                                <div class="color-codes">
+                                    <span class="color-code"><span style="background-color: #2bd6ce;"></span><em>Consejos</em></span>
+                                    <span class="color-code"><span style="background-color: #da48ef;"></span><em>Retos<em></span>
+                                    <span class="color-code"><span style="background-color: #8de530;"></span><em>Recordatorios</em></span>
+                                    <span class="color-code"><span style="background-color: #f4e52c;"></span><em>Planificación<em></span>
+                                    <span class="color-code"><span style="background-color: #986ae2;"></span><em>Incentivos<em></span>
+                                    <span class="color-code"><span style="background-color: #f9a35d;"></span><em>Preocupaciones<em></span>
+                                </div>
+                            </div>
+                            <div id="simulator-phone" class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
+                                <img id="phone-holder" src="img/phone.png"/>
+                                <div id="messages-container">
+                                    <div class="messages">
+                                        
+                                    </div>
+                                    <form id="chat-form" class="form">
+                                        <input type="text" id="chat-input" class="chat-input">
+                                        <input type="submit" value="Enviar">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="register-button">
+                <a href="registrate.html">Regístrate</a>
+            </div>
+        </div>
+        <gobmx-footer></gobmx-footer>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="bower_components/underscore/underscore-min.js"></script>
+        <script src="bower_components/bootstrap-year-calendar/js/bootstrap-year-calendar.min.js"></script>
+        <script src="bower_components/bootstrap-year-calendar/js/languages/bootstrap-year-calendar.es.js"></script>
+        <script src="bower_components/moment/min/moment.min.js"></script>
+        <script src="bower_components/moment/locale/es.js"></script>
+        <script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+        <script src='bower_components/webcomponentsjs/webcomponents-lite.min.js'></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
