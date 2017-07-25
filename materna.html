@@ -79,11 +79,23 @@
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-md-8">
+                        <div class="control-calendar" data-type="pregnant">
+                            <p>¿Estás embarazada?</p>
+                        </div>
+                        <div class="control-calendar" data-type="baby">
+                            <p>¿Tienes un bebé?</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="datepickers_pregnant" class="row">
+                    <div class="col-md-12">
+                        <p>Llena uno de los siguientes campos:</p>
+                    </div>
                     <div class="col-md-6">
                         <form class="form">
-                            <label for="date-period">Fecha de tu última menstruación<span class="pull-right">ó</span></label>
                             <div class="input-group" id="date-period-picker">
-                                <input type="text" name="date-period" id="date-period" class="form-control">
+                                <input type="text" name="date-period" id="date-period" class="form-control" placeholder="Fecha de última menstruación">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-chevron-right"></span>
                                 </span>
@@ -92,9 +104,23 @@
                     </div>
                     <div class="col-md-6">
                         <form class="form">
-                            <label for="date-baby">Fecha de nacimiento de tu bebé</label>
                             <div class="input-group" id="date-baby-picker">
-                                <input type="text" name="date-baby" id="date-baby" class="form-control">
+                                <input type="text" name="date-baby" id="date-baby" class="form-control" placeholder="Fecha probable de parto">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="datepickers_baby" class="row">
+                    <div class="col-md-12">
+                        <p>Escoge la fecha de nacimiento de tu bebé:</p>
+                    </div>
+                    <div class="col-md-6">
+                        <form class="form">
+                            <div class="input-group" id="date-baby-alt-picker">
+                                <input type="text" name="date-baby-alt" id="date-baby-alt" class="form-control" placeholder="Fecha de nacimiento de tu bebé">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-chevron-right"></span>
                                 </span>
@@ -142,13 +168,13 @@
             </div>
         </div>
         <gobmx-footer></gobmx-footer>
+        <script src="bower_components/moment/min/moment.min.js"></script>
+        <script src="bower_components/moment/locale/es.js"></script>
         <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="bower_components/underscore/underscore-min.js"></script>
         <script src="bower_components/bootstrap-year-calendar/js/bootstrap-year-calendar.min.js"></script>
         <script src="bower_components/bootstrap-year-calendar/js/languages/bootstrap-year-calendar.es.js"></script>
-        <script src="bower_components/moment/min/moment.min.js"></script>
-        <script src="bower_components/moment/locale/es.js"></script>
         <script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
         <script src='bower_components/webcomponentsjs/webcomponents-lite.min.js'></script>
         <script src="js/main.js"></script>
