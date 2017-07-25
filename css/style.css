@@ -5,7 +5,7 @@
     General Styles
 **********************************/
 .container-fluid                                { max-width: 1100px; margin: 0 auto; }
-body                                            { padding-top: 100px; font-family: "Roboto"; font-size: 18px; font-weight: 300; line-height: 1.5em; color: #000; }
+body                                            { padding-top: 93px; font-family: "Roboto"; font-size: 18px; font-weight: 300; line-height: 1.5em; color: #000; }
 gobmx-navbar                                    { width: 100%; position: fixed; top: 0; z-index: 9999; }
 img                                             { max-width: 100%; }
 #site-banner                                    { padding: 90px 0; background: url(../img/ic-bg.png) no-repeat; text-align: center; }
@@ -19,12 +19,14 @@ img                                             { max-width: 100%; }
 /**********************************
     Navbar Styles
 **********************************/
-.navbar.navbar-fixed-top                        { background-color: #fff; top: 50px; }
+.navbar2.navbar-fixed-top                       { background-color: #fff; top: 46px; }
 .navbar-default                                 { margin-bottom: 0; background-color: transparent; border-bottom: 1px solid #000; border-radius: 0; }
 .navbar-default .navbar-nav > li > a            { font-family: "Roboto"; font-size: 16px; font-weight: 300; color: #000; }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a       { background-color: transparent; color: #0c9; }
+.navbar-default .navbar-brand                   { padding: 15px; }
+.navbar-default .navbar-brand > img             { height: auto; }
 
 /**********************************
     Font Styles
