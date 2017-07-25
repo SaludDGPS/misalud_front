@@ -54,13 +54,14 @@ strong                                          { font-weight: 600; }
 /**********************************
     Register Landing Styles
 **********************************/
-#site-register 									{ padding: 10px 0; background: transparent url(../img/bg_register.png) no-repeat; }
+#site-register 									{ padding: 10px 0; background: transparent url(../img/bg_register.png) repeat-y; }
 #site-register #register-form label 			{ font-size: 14px; }
 #site-register #register-form .form-group 		{ margin-bottom: 0; }
 #site-register #register-form .form-control 	{ height: 40px; border: 1px solid #979797; box-shadow: 1px 1px 3px rgba(0,0,0,0.3); border-radius: 0; }
 #site-register #register-form .form-group.fixed,
 #site-register #register-form .submit-fixed 	{ height: 73px; }
 #site-register #register-form input[type="submit"]	{ height: 40px; border: 1px solid #fff; box-shadow: 1px 1px 3px rgba(0,0,0,0.3); border-radius: 0; }
+#site-register .cancel-label                    { display: inline-block; background-color: #fff; font-size: 13px; text-align: center; }
 
 /**********************************
     Lists Styles
