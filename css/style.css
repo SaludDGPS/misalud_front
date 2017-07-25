@@ -31,8 +31,8 @@ img                                             { max-width: 100%; }
 /**********************************
     Font Styles
 **********************************/
-h1                                              { margin-bottom: 30px; padding-bottom: 10px; font-family: "Roboto"; font-weight: 600; font-size: 28px; color: #000; border-bottom: 1px solid #979797; position: relative; }
-h1:after                                        { display: block; content: ' '; width: 30px; height: 3px; background-color: #52FFBD; position: absolute; left: 0; bottom: -4px; }
+h1                                              { margin-bottom: 30px; padding-left: 10px; padding-bottom: 10px; font-family: "Roboto"; font-weight: 400; font-size: 28px; color: #000; border-bottom: 1px solid #979797; position: relative; }
+h1:after                                        { display: block; content: ' '; width: 30px; height: 3px; background-color: #0c9; position: absolute; left: 0; bottom: -4px; }
 #site-banner p                                  { margin-bottom: 30px; font-family: "Roboto"; font-size: 30px; font-weight: 300; color: #fff; }
 .site-widget h2                                 { font-family: "Roboto"; font-size: 20px; font-weight: 700; line-height: 1.5em;  color: #0c9; text-transform: uppercase; text-decoration: underline; }
 #sms-section h3                                 { font-family: "Roboto"; font-size: 16px; font-weight: 700; line-height: 1.5em;  color: #0c9; }
@@ -56,18 +56,19 @@ strong                                          { font-weight: 600; }
 /**********************************
     Register Landing Styles
 **********************************/
-#site-register 									{ padding: 10px 0; background: transparent url(../img/bg_register.png) no-repeat; }
+#site-register 									{ padding: 10px 0; background: transparent url(../img/bg_register.png) repeat-y; }
 #site-register #register-form label 			{ font-size: 14px; }
 #site-register #register-form .form-group 		{ margin-bottom: 0; }
 #site-register #register-form .form-control 	{ height: 40px; border: 1px solid #979797; box-shadow: 1px 1px 3px rgba(0,0,0,0.3); border-radius: 0; }
 #site-register #register-form .form-group.fixed,
 #site-register #register-form .submit-fixed 	{ height: 73px; }
 #site-register #register-form input[type="submit"]	{ height: 40px; border: 1px solid #fff; box-shadow: 1px 1px 3px rgba(0,0,0,0.3); border-radius: 0; }
+#site-register .cancel-label                    { display: inline-block; background-color: #fff; font-size: 13px; text-align: center; }
 
 /**********************************
     Lists Styles
 **********************************/
-ul                                              { padding-left: 20px; }
+ul                                              { padding-left: 0; list-style: none; }
 ul > li                                         { color: #0c9; }
 ul.sidebar                                      { padding: 0; list-style: none; }
 ul.sidebar > li                                 { padding-left: 20px; line-height: 40px; border-bottom: 1px solid #979797; color: #979797; cursor: pointer; }
@@ -92,8 +93,8 @@ ul.sidebar > li:hover                           { background-color: #0c9; color:
 .site-widget .read-more                         { display: block; margin-top: 30px; padding: 10px; background-color: #0c9; font-family: "Roboto"; font-size: 18px; font-weight: 700; text-align: center; color: #fff; border-radius: 0 0 5px 5px; }
 
 #tryit-section label                            { display: block; margin-bottom: 20px; }
-#tryit-section .input-group                     { max-width: 350px; margin-top: 10px; }
-#tryit-section .input-group .form-control       { font-family: "Roboto"; font-size: 18px; line-height: 1.5em; font-weight: 500; color: #000; text-align: center; }
+#tryit-section .input-group                     { max-width: 250px; margin-top: 10px; box-shadow: 1px 1px 3px rgba(0,0,0,0.3); border-radius: 0px; }
+#tryit-section .input-group .form-control       { font-family: "Roboto"; font-size: 18px; line-height: 1.5em; font-weight: 500; color: #000; text-align: center; border-radius: 0; }
 #tryit-section .input-group .input-group-addon  { background-color: #0c9; }
 #tryit-section .input-group .glyphicon          { transform: rotate(90deg); position: relative; left: 1px; top: -1px; color: #fff; }
 #tryit-tool-container                           { display: none; margin-top: 20px; padding-top: 20px; border-top: 1px solid #979797; }
@@ -117,6 +118,12 @@ ul.sidebar > li:hover                           { background-color: #0c9; color:
 #messages-container form                        { display: none; width: 100%; overflow: hidden; position: absolute; left: 0; bottom: 0; }
 #messages-container input[type="text"]          { width: 72%; padding: 3px 5px; font-family: 'Roboto'; float: left; font-size: 12px; line-height: 1; }
 #messages-container input[type="submit"]        { width: 28%; padding: 3px 5px; float: right; font-family: 'Roboto'; font-size: 10px; line-height: 1; text-align: center; position: relative; top: 3px; }
+#datepickers_pregnant,
+#datepickers_baby                               { position: absolute; opacity: 0; }
+.control-calendar                               { width: calc(49% - 3px); margin-bottom: 20px; padding: 10px 0; background-color: #fff; border: 1px solid #000; float: left; cursor: pointer; }
+.control-calendar.active                        { background-color: #0c9; }
+.control-calendar > p                           { margin-bottom: 0; font-family: "Roboto"; font-size: 16px; font-weight: 300; text-align: center; }
+.control-calendar.active > p                    { font-weight: 600; color: #fff; }
 
 .select-hidden {
   display: none;

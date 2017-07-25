@@ -11,6 +11,18 @@
         <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
         <link href="https://framework-gb.cdn.gob.mx/assets/styles/main.css" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
+
+        <!-- Google Analytics -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-69802193-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+        <!-- End Google Analytics -->
     </head>
     <body>
         <nav class="navbar2 navbar-default navbar-fixed-top">
@@ -41,12 +53,12 @@
                         <div class="col-md-6">
                             <p>Tu embarazo y tu bebé son únicos y la información que debes saber durante y después de tu embarazo depende de muchas cosas como tu:</p>
                             <ul class="half-width">
-                                <li>Historia</li>
-                                <li>Edad</li>
-                                <li>Número de hijos</li>
-                                <li>Historial médico</li>
-                                <li>Etapa de tu embarazo</li>
-                                <li>Preocupaciones</li>
+                                <li>- Historia</li>
+                                <li>- Edad</li>
+                                <li>- Número de hijos</li>
+                                <li>- Historial médico</li>
+                                <li>- Etapa de tu embarazo</li>
+                                <li>- Preocupaciones</li>
                             </ul>
                             <p>Por eso hemos desarrollado una herramienta que te ayude a tener la información que más necesitas.</p>
                         </div>
@@ -60,7 +72,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <p>Nos estaremos comunicando contigo a través de mensajes en tu celular para recordarte de tus citas médicas, darte consejos de expertos en salud, planear el nacimiento de tu bebé y ayudarte a cuidarlo.Te estaremos acompañando todo tu embarazo y hasta los primeros dos años de vida de tu bebé. Sin embargo en cualquier momento puedes elegir dejar de recibir los mensajes.</p>
+                    <p>Nos estaremos comunicando contigo a través de mensajes en tu celular para recordarte de tus citas médicas, darte consejos de expertos en salud, planear el nacimiento de tu bebé y ayudarte a cuidarlo. Te queremos acompañar durante todo tu embarazo y hasta los primeros dos años de vida de tu bebé. Sin embargo en cualquier momento puedes elegir dejar de recibir los mensajes.</p>
                     <h1>¡Pruébalo!</h1>
                     <p>Todos los mensajes y consejos que recibirás fueron escritos por doctores y expertos para ayudarte a tomar mejores decisiones sobre tu alimentación, salud y cuidado de tu bebé. Vas a recibir información de tres tipos: <strong>CONSEJOS, CONTROL DE SALUD y RECORDATORIOS</strong></p>
                 </div>
@@ -75,11 +87,23 @@
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-md-8">
+                        <div class="control-calendar" data-type="pregnant">
+                            <p>¿Estás embarazada?</p>
+                        </div>
+                        <div class="control-calendar" data-type="baby">
+                            <p>¿Tienes un bebé?</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="datepickers_pregnant" class="row">
+                    <div class="col-md-12">
+                        <p>Llena uno de los siguientes campos:</p>
+                    </div>
                     <div class="col-md-6">
                         <form class="form">
-                            <label for="date-period">Fecha de tu última menstruación<span class="pull-right">ó</span></label>
                             <div class="input-group" id="date-period-picker">
-                                <input type="text" name="date-period" id="date-period" class="form-control">
+                                <input type="text" name="date-period" id="date-period" class="form-control" placeholder="Fecha de última menstruación">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-chevron-right"></span>
                                 </span>
@@ -88,9 +112,23 @@
                     </div>
                     <div class="col-md-6">
                         <form class="form">
-                            <label for="date-baby">Fecha de nacimiento de tu bebé</label>
                             <div class="input-group" id="date-baby-picker">
-                                <input type="text" name="date-baby" id="date-baby" class="form-control">
+                                <input type="text" name="date-baby" id="date-baby" class="form-control" placeholder="Fecha probable de parto">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="datepickers_baby" class="row">
+                    <div class="col-md-12">
+                        <p>Escoge la fecha de nacimiento de tu bebé:</p>
+                    </div>
+                    <div class="col-md-6">
+                        <form class="form">
+                            <div class="input-group" id="date-baby-alt-picker">
+                                <input type="text" name="date-baby-alt" id="date-baby-alt" class="form-control" placeholder="Fecha de nacimiento de tu bebé">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-chevron-right"></span>
                                 </span>
@@ -107,7 +145,6 @@
                         </div>
                         <div class="row">
                             <div class="col-md-9 col-sm-9 col-lg-9 col-xs-12">
-                                <div id="tryit-calendar"></div>
                                 <div class="color-codes">
                                     <span class="color-code"><span style="background-color: #2bd6ce;"></span><em>Consejos</em></span>
                                     <span class="color-code"><span style="background-color: #da48ef;"></span><em>Retos<em></span>
@@ -116,6 +153,7 @@
                                     <span class="color-code"><span style="background-color: #986ae2;"></span><em>Incentivos<em></span>
                                     <span class="color-code"><span style="background-color: #f9a35d;"></span><em>Preocupaciones<em></span>
                                 </div>
+                                <div id="tryit-calendar"></div>
                             </div>
                             <div id="simulator-phone" class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
                                 <img id="phone-holder" src="img/phone.png"/>
@@ -137,13 +175,13 @@
                 <a href="registrate.html">Regístrate</a>
             </div>
         </div>
+        <script src="bower_components/moment/min/moment.min.js"></script>
+        <script src="bower_components/moment/locale/es.js"></script>
         <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="bower_components/underscore/underscore-min.js"></script>
         <script src="bower_components/bootstrap-year-calendar/js/bootstrap-year-calendar.min.js"></script>
         <script src="bower_components/bootstrap-year-calendar/js/languages/bootstrap-year-calendar.es.js"></script>
-        <script src="bower_components/moment/min/moment.min.js"></script>
-        <script src="bower_components/moment/locale/es.js"></script>
         <script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
         <script src='bower_components/webcomponentsjs/webcomponents-lite.min.js'></script>
         <script src="https://framework-gb.cdn.gob.mx/gobmx.js"></script>

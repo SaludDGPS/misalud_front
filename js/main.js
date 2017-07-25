@@ -11,13 +11,12 @@ var GobMXMiSalud    = {
     setupCalendar   : function () {
         var pickerOpts  = {
             format              : 'DD/MM/YYYY',
+            collapse            : false,
             allowInputToggle    : true
         };
 
         var jQ          = $;
         var messages    = $( '#messages-container .messages' );
-        var date_period = $( '#date-period-picker' ).datetimepicker( pickerOpts );
-        var date_baby   = $( '#date-baby-picker' ).datetimepicker( pickerOpts );
         var setData     = function ( dateSet, ignoreDueDate = false ) {
             $.getJSON( 'data/misalud.json', function ( data ) {
                 var valid           = _.filter( data, function ( d ) {
@@ -157,19 +156,56 @@ var GobMXMiSalud    = {
                 });
             });
         };
+        var date_period     = $( '#date-period-picker' ).datetimepicker( pickerOpts );
+        var date_baby       = $( '#date-baby-picker' ).datetimepicker( pickerOpts );
+        var date_baby_alt   = $( '#date-baby-atl-picker' ).datetimepicker( pickerOpts );
 
-        date_period.on( 'dp.change', function ( e ) {
-            $( '#date-baby' ).val( '' );
+        $( '.control-calendar' ).click( function ( e ) {
+            var $el     = $( e.currentTarget ),
+                type    = $el.data( 'type' );
 
-            setData( moment( e.date._d ).add( 280, 'days' ).toDate() );
-        });
-        date_baby.on( 'dp.change', function ( e ) {
-            $( '#date-period' ).val( '' );
+            if ( $el.hasClass( 'active' ) ) return;
 
-            setData( e.date._d, true );
+            $( '.control-calendar.active' ).removeClass( 'active' );
+            $el.addClass( 'active' );
+
+            if ( type == 'pregnant' ) {
+                $( '#datepickers_baby' ).css({
+                    position    : 'absolute',
+                    opacity     : 0,
+                });
+                $( '#datepickers_pregnant' ).css({
+                    position    : 'relative',
+                    opacity     : 1,
+                });
+
+                date_period.on( 'dp.change', function ( e ) {
+                    $( '#date-baby' ).val( '' );
+
+                    setData( moment( e.date._d ).add( 280, 'days' ).toDate() );
+                });
+                date_baby.on( 'dp.change', function ( e ) {
+                    $( '#date-period' ).val( '' );
+
+                    setData( e.date._d, true );
+                });
+            } else {
+                $( '#datepickers_pregnant' ).css({
+                    position    : 'absolute',
+                    opacity     : 0,
+                });
+                $( '#datepickers_baby' ).css({
+                    position    : 'relative',
+                    opacity     : 1,
+                });
+
+                date_baby_alt.on( 'dp.change', function ( e ) {
+                    setData( e.date._d, true );
+                });
+            }
         });
     },
-    
+
     setupCustomSelect 	: function () {
 	    $('.custom-select').each(function(){
 		    var $this = $(this), numberOfOptions = $(this).children('option').length;
@@ -277,4 +313,4 @@ var GobMXMiSalud    = {
     },
 };
 
-$( document ).ready( GobMXMiSalud.init );
+$( document ).ready( GobMXMiSalud.init )
