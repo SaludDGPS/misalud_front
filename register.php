@@ -9,7 +9,7 @@ function sendRegisterRequest () {
     // create curl resource 
     $ch = curl_init();
     // set url
-    curl_setopt( $ch, CURLOPT_URL, "http://rapidpro.datos.gob.mx/api/v2/contacts.json" ); 
+    curl_setopt( $ch, CURLOPT_URL, "https://rapidpro.datos.gob.mx/api/v2/contacts.json" ); 
 
     curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
     curl_setopt( $ch, CURLOPT_POSTFIELDS, $data_string );
@@ -55,7 +55,7 @@ function initiateConversation ( $uuid ) {
     // create curl resource 
     $ch = curl_init();
     // set url
-    curl_setopt( $ch, CURLOPT_URL, "http://rapidpro.datos.gob.mx/api/v2/flow_starts.json" ); 
+    curl_setopt( $ch, CURLOPT_URL, "https://rapidpro.datos.gob.mx/api/v2/flow_starts.json" ); 
     //return the transfer as a string
     curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
     curl_setopt( $ch, CURLOPT_POSTFIELDS, $data_string );
