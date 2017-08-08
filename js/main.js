@@ -210,27 +210,27 @@ var GobMXMiSalud    = {
     setupCustomSelect 	: function () {
 	    $('.custom-select').each(function(){
 		    var $this = $(this), numberOfOptions = $(this).children('option').length;
-		  
-		    $this.addClass('select-hidden'); 
+
+		    $this.addClass('select-hidden');
 		    $this.wrap('<div class="select"></div>');
 		    $this.after('<div class="select-styled"></div>');
-		
+
 		    var $styledSelect = $this.next('div.select-styled');
 		    $styledSelect.text($this.children('option').eq(0).text());
-		  
+
 		    var $list = $('<ul />', {
 		        'class': 'select-options'
 		    }).insertAfter($styledSelect);
-		  
+
 		    for (var i = 0; i < numberOfOptions; i++) {
 		        $('<li />', {
 		            text: $this.children('option').eq(i).text(),
 		            rel: $this.children('option').eq(i).val()
 		        }).appendTo($list);
 		    }
-		  
+
 		    var $listItems = $list.children('li');
-		  
+
 		    $styledSelect.click(function(e) {
 		        e.stopPropagation();
 		        $('div.select-styled.active').not(this).each(function(){
@@ -238,7 +238,7 @@ var GobMXMiSalud    = {
 		        });
 		        $(this).toggleClass('active').next('ul.select-options').toggle();
 		    });
-		  
+
 		    $listItems.click(function(e) {
 		        e.stopPropagation();
 		        $styledSelect.text($(this).text()).removeClass('active');
@@ -247,12 +247,12 @@ var GobMXMiSalud    = {
 		        $list.hide();
 		        //console.log($this.val());
 		    });
-		  
+
 		    $(document).click(function() {
 		        $styledSelect.removeClass('active');
 		        $list.hide();
 		    });
-		
+
 		});
     },
 
@@ -263,7 +263,6 @@ var GobMXMiSalud    = {
 
         $( '#register-form' ).submit( function ( e ) {
             e.preventDefault();
-
             var media   = mediaEl.val();
             if ( media == 'facebook' ) {
                 window.open( 'http://m.me/gobmxmisalud', '_blank' );
@@ -273,24 +272,48 @@ var GobMXMiSalud    = {
                 } else if ( !nameEl.val() || nameEl.val() == '' ) {
                     alert( 'Ingrese el nombre de contacto.' );
                 } else {
+                    var contact_url = "https://rapidpro.datos.gob.mx/api/v2/contacts.json";
+                    var contact_uuid;
+                    var flow_to_run;
+                    //Register new contact
                     $.ajax({
-                        url         : 'register.php',
-                        data        : {
-                            name    : nameEl.val(),
-                            phone   : phoneEl.val()
-                        },
+                        url         : contact_url,
+                        type        : 'POST',
+                        headers     : { "Authorization": "Token " +
+                                         "436d7fcbf36d026aba085a8adfa7f14796c06a38"},
+                        data        : {"name" : nameEl.val(),
+                                        "urns": 'tel:+52'+phoneEl.val()},
                         dataType    : 'json',
+                       error : function(res) {
+                              //Ask uuid contact
+                              var already =  confirm("Tu número ya está registrado en misalud. \
+                                                     ¿Deseas registrarte de nuevo?\
+                                                    Esto borrará la información de tu último registro.");
+                              if (already) {
+                              //Ask to rapidpro uuid
+                                  $.ajax({
+                                      url: contact_url+"?urn=tel%3A%2B52"+phoneEl.val(),
+                                      type: 'GET',
+                                      headers: { "Authorization": "Token " +
+                                             "436d7fcbf36d026aba085a8adfa7f14796c06a38"},
+                                      dateType: 'json',
+                                      success: function(data) {
+                                         contact_uuid = data['results'][0]['uuid'];
+                                         flow_to_run = "dc950557-3519-4fd7-8385-52187cf84df9" ;
+                                        beginFlow(flow_to_run, contact_uuid);
+                                      }
+                                 });
+                              }
+                        },
                         success     : function ( res ) {
-                            if ( res.id ) {
-                                alert( 'Contacto registrado' );
-                            } else {
-                                alert( 'El número ya se encuentra asociado a una cuenta' );
-                            }
-                        }
+                                        var contact_uuid = res['uuid'];
+                                        flow_to_run= "dc950557-3519-4fd7-8385-52187cf84df9";
+                                        //beginFlow(flow_to_run,contact_uuid);
+                                        alert( 'Contacto registrado en breve los contactaremos' );
+                        },
                     })
-                }
             }
-
+         }
             return false;
         });
 
@@ -315,3 +338,15 @@ var GobMXMiSalud    = {
 };
 
 $( document ).ready( GobMXMiSalud.init )
+ function beginFlow (flow_to_run, contact_uuid) {
+  var flow_url    = "https://rapidpro.datos.gob.mx/api/v2/flow_starts.json";
+  $.ajax({
+      url         : flow_url,
+      type        : 'POST',
+      headers     : { "Authorization": "Token " +
+      "436d7fcbf36d026aba085a8adfa7f14796c06a38"},
+      data        : {"flow" : flow_to_run,
+      "contacts": contact_uuid},
+      dataType    : 'json',
+   })
+  }
