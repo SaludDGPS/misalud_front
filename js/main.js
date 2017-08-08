@@ -158,7 +158,7 @@ var GobMXMiSalud    = {
         };
         var date_period     = $( '#date-period-picker' ).datetimepicker( pickerOpts );
         var date_baby       = $( '#date-baby-picker' ).datetimepicker( pickerOpts );
-        var date_baby_alt   = $( '#date-baby-atl-picker' ).datetimepicker( pickerOpts );
+        var date_baby_alt   = $( '#date-baby-alt-picker' ).datetimepicker( pickerOpts );
 
         $( '.control-calendar' ).click( function ( e ) {
             var $el     = $( e.currentTarget ),
@@ -200,6 +200,7 @@ var GobMXMiSalud    = {
                 });
 
                 date_baby_alt.on( 'dp.change', function ( e ) {
+                    $('#date-baby-alt').val('');
                     setData( e.date._d, true );
                 });
             }
