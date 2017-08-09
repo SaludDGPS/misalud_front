@@ -155,7 +155,31 @@
                 </div>
             </div>
         </div>
-         <script src="bower_components/jquery/dist/jquery.js"></script>
+        <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p>Mensaje aqui</p>
+                        <button class="btn btn-prima" data-dismiss="modal" aria-label="Close">Volver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="confirmRegModal" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p>Mensaje aqui</p>
+                        <button class="btn btn-cancel" data-dismiss="modal" aria-label="Close">Cancelar</button>
+                        <button class="btn btn-prima">Aceptar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="loader-container">
+            <div class="loader"></div>
+        </div>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="https://framework-gb.cdn.gob.mx/gobmx.js"></script>
         <script src="bower_components/underscore/underscore-min.js"></script>
          <script src="bower_components/bootstrap-year-calendar/js/bootstrap-year-calendar.min.js"></script>

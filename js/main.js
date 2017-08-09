@@ -260,6 +260,7 @@ var GobMXMiSalud    = {
         var mediaEl = $( '#media' ),
             nameEl  = $( '#contact-name' ),
             phoneEl = $( '#phone-number' );
+            self = this;
 
         $( '#register-form' ).submit( function ( e ) {
             e.preventDefault();
@@ -268,10 +269,13 @@ var GobMXMiSalud    = {
                 window.open( 'http://m.me/gobmxmisalud', '_blank' );
             } else if ( media == 'sms' ) {
                 if ( !phoneEl.val() || phoneEl.val() == '' ) {
-                    alert( 'Ingrese su número telefónico.' );
+                    $('#messageModal .modal-body p').text("Ingrese su número telefónico.");
+                    $('#messageModal').modal('show');
                 } else if ( !nameEl.val() || nameEl.val() == '' ) {
-                    alert( 'Ingrese el nombre de contacto.' );
+                    $('#messageModal .modal-body p').text("Ingrese el nombre de contacto.");
+                    $('#messageModal').modal('show');
                 } else {
+                    $('#loader-container').css('display', 'block');
                     var contact_url = "https://rapidpro.datos.gob.mx/api/v2/contacts.json";
                     var contact_uuid;
                     var flow_to_run;
@@ -285,12 +289,16 @@ var GobMXMiSalud    = {
                                         "urns": 'tel:+52'+phoneEl.val()},
                         dataType    : 'json',
                        error : function(res) {
+                             $('#loader-container').css('display', 'none');
                               //Ask uuid contact
-                              var already =  confirm("Tu número ya está registrado en misalud. \
-                                                     ¿Deseas registrarte de nuevo?\
-                                                    Esto borrará la información de tu último registro.");
-                              if (already) {
-                              //Ask to rapidpro uuid
+                              $('#confirmRegModal .modal-body p').text('').append('' +
+                                '<span>Tu número ya está registrado en misalud.</span>' +
+                                '<span>¿Deseas registrarte de nuevo?</span>' +
+                                '<span>Esto borrará la información de tu último registro.</span>')
+                              ;
+                              $('#confirmRegModal').modal('show');
+                              $('#confirmRegModal .btn-prima').on('click', function() {
+                                  //Ask to rapidpro uuid
                                   $.ajax({
                                       url: contact_url+"?urn=tel%3A%2B52"+phoneEl.val(),
                                       type: 'GET',
@@ -303,13 +311,16 @@ var GobMXMiSalud    = {
                                         beginFlow(flow_to_run, contact_uuid);
                                       }
                                  });
-                              }
+                                  $('#confirmRegModal').modal('hide');
+                              });
                         },
                         success     : function ( res ) {
+                                        $('#loader-container').css('display', 'none');
                                         var contact_uuid = res['uuid'];
                                         flow_to_run= "dc950557-3519-4fd7-8385-52187cf84df9";
                                         //beginFlow(flow_to_run,contact_uuid);
-                                        alert( 'Contacto registrado en breve los contactaremos' );
+                                        $('#messageModal .modal-body p').text("Contacto registrado en breve los contactaremos");
+                                        $('#messageModal').modal('show');
                         },
                     })
             }
