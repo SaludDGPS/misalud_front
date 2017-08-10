@@ -187,7 +187,7 @@ var GobMXMiSalud    = {
                 date_baby.on( 'dp.change', function ( e ) {
                     $( '#date-period' ).val( '' );
 
-                    setData(moment(e.date._d).add(280, 'days').toDate());
+                    setData(e.date._d);
                 });
             } else {
                 $( '#datepickers_pregnant' ).css({
