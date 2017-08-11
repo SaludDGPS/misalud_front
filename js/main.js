@@ -9,10 +9,17 @@ var GobMXMiSalud    = {
     },
 
     setupCalendar   : function () {
+        var now = new Date();
         var pickerOpts  = {
             format              : 'DD/MM/YYYY',
             collapse            : false,
             allowInputToggle    : true
+        };
+        var pickerOptsNow  = {
+            format              : 'DD/MM/YYYY',
+            collapse            : false,
+            allowInputToggle    : true,
+            maxDate             : new Date()
         };
 
         var jQ          = $;
@@ -156,7 +163,7 @@ var GobMXMiSalud    = {
                 });
             });
         };
-        var date_period     = $( '#date-period-picker' ).datetimepicker( pickerOpts );
+        var date_period     = $( '#date-period-picker' ).datetimepicker( pickerOptsNow );
         var date_baby       = $( '#date-baby-picker' ).datetimepicker( pickerOpts );
         var date_baby_alt   = $( '#date-baby-alt-picker' ).datetimepicker( pickerOpts );
 
