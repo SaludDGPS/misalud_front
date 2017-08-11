@@ -181,7 +181,7 @@ var GobMXMiSalud    = {
 
                 date_period.on( 'dp.change', function ( e ) {
                     // No permite seleccionar fechas futuras
-                    $(this).data('DateTimePicker').maxDate(e.date);
+                    date_period.data('DateTimePicker').maxDate(new Date());
                     $( '#date-baby' ).val( '' );
 
                     setData( moment( e.date._d ).add( 280, 'days' ).toDate() );
