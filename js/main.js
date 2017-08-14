@@ -17,7 +17,10 @@ var GobMXMiSalud    = {
 
         var jQ          = $;
         var messages    = $( '#messages-container .messages' );
-        var setData     = function ( dateSet, ignoreDueDate = false ) {
+        var setData     = function ( dateSet, ignoreDueDate ) {
+            // Define el valor de ignoreDueDate desde la función en vez que desde el atributo
+            ignoreDueDate = ignoreDueDate === undefined || ignoreDueDate === false ? false : true;
+
             $.getJSON( 'data/misalud.json', function ( data ) {
                 var valid           = _.filter( data, function ( d ) {
                         return d.flow != 'null' && ( !ignoreDueDate || ( ignoreDueDate && d.relative_to != 'rp_duedate' ) );
