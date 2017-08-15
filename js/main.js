@@ -273,11 +273,14 @@ var GobMXMiSalud    = {
             if ( media == 'facebook' ) {
                 window.open( 'http://m.me/gobmxmisalud', '_blank' );
             } else if ( media == 'sms' ) {
-                if ( !phoneEl.val() || phoneEl.val() == '' ) {
+                if ( !nameEl.val() || nameEl.val() == '' ) {
+                    $('#messageModal .modal-body p').text("Ingrese el nombre de contacto.");
+                    $('#messageModal').modal('show');
+                } else if ( !phoneEl.val() || phoneEl.val() == '' ) {
                     $('#messageModal .modal-body p').text("Ingrese su número telefónico.");
                     $('#messageModal').modal('show');
-                } else if ( !nameEl.val() || nameEl.val() == '' ) {
-                    $('#messageModal .modal-body p').text("Ingrese el nombre de contacto.");
+                } else if (!/^\d{10}$/.test(phoneEl.val()) ) {
+                    $('#messageModal .modal-body p').text("Ingrese un número telefónico correcto (de 10 dígitos).");
                     $('#messageModal').modal('show');
                 } else {
                     $('#loader-container').css('display', 'block');
