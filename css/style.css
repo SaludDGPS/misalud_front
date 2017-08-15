@@ -94,7 +94,7 @@ ul.sidebar > li:hover                           { background-color: #0c9; color:
 .site-widget .read-more                         { display: block; margin-top: 30px; padding: 10px; background-color: #0c9; font-family: "Roboto"; font-size: 18px; font-weight: 700; text-align: center; color: #fff; border-radius: 0 0 5px 5px; }
 
 #tryit-section label                            { display: block; margin-bottom: 20px; }
-#tryit-section .input-group                     { max-width: 250px; margin-top: 10px; box-shadow: 1px 1px 3px rgba(0,0,0,0.3); border-radius: 0px; }
+#tryit-section .input-group                     { max-width: 100%; margin-top: 10px; box-shadow: 1px 1px 3px rgba(0,0,0,0.3); border-radius: 0px; }
 #tryit-section .input-group .form-control       { font-family: "Roboto"; font-size: 18px; line-height: 1.5em; font-weight: 500; color: #000; text-align: center; border-radius: 0; }
 #tryit-section .input-group .input-group-addon  { background-color: #0c9; }
 #tryit-section .input-group .glyphicon          { transform: rotate(90deg); position: relative; left: 1px; top: -1px; color: #fff; }
@@ -149,6 +149,11 @@ ul.sidebar > li:hover                           { background-color: #0c9; color:
 
 /* Nuevos estilos
 ** -------------------------------*/
+
+.separator-o {
+    text-align: center;
+    padding: 16px 0;
+}
 
 .modal { margin: 0 15px; }
 .modal-body { padding: 19px; }
