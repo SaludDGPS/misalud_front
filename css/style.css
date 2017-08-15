@@ -189,6 +189,8 @@ iframe { width: 100%; }
    display: block;
 }
 
+.margin-footer { margin-bottom: 70px; }
+
 /* Loading... */
 #loader-container {
     display: none;
