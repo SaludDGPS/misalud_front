@@ -317,7 +317,7 @@ var GobMXMiSalud    = {
                                       dateType: 'json',
                                       success: function(data) {
                                          contact_uuid = data['results'][0]['uuid'];
-                                         flow_to_run = "dc950557-3519-4fd7-8385-52187cf84df9" ;
+                                         flow_to_run = "20308c47-002a-446c-a4f8-a21482f66bc8" ;
                                         beginFlow(flow_to_run, contact_uuid);
                                       }
                                  });
@@ -328,7 +328,7 @@ var GobMXMiSalud    = {
                                         $('#loader-container').css('display', 'none');
                                         var contact_uuid = res['uuid'];
                                         flow_to_run= "dc950557-3519-4fd7-8385-52187cf84df9";
-                                        //beginFlow(flow_to_run,contact_uuid);
+                                        beginFlow(flow_to_run,contact_uuid);
                                         $('#messageModal .modal-body p').text("Contacto registrado en breve los contactaremos");
                                         $('#messageModal').modal('show');
                         },
