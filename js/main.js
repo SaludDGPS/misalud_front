@@ -85,14 +85,16 @@ var GobMXMiSalud    = {
                             $.getJSON( 'data/flows/' + id + '.json', function ( flow ) {
                                 var actions_sets    = flow.flows[0].action_sets,
                                     rules           = flow.flows[0].rule_sets && Array.isArray( flow.flows[0].rule_sets ) && flow.flows[0].rule_sets.length > 0 && flow.flows[0].rule_sets[0].rules;
-
-                                var msg         = actions_sets[0].actions[0].msg.spa;
-                                for ( var key in vars_replace ) {
-                                    msg     = msg.split( key ).join( vars_replace[key] );
+                                var msg             = "";
+                                to_append           = "";
+                                for (var i = 0; i < actions_sets[0].actions.length; i++) {
+                                   msg              = actions_sets[0].actions[i].msg.spa;
+                                   for ( var key in vars_replace ) {
+                                     msg     = msg.split( key ).join( vars_replace[key] );
+                                   } 
+                                   to_append += '<div class="message"><p>' + msg + '</p>'+"</div>";
                                 }
-
-                                messages.html( $( '<div class="message"><p>' + msg + '</p></div>' ) );
-
+                                messages.html( $( to_append));
                                 if ( actions_sets.length > 0 ) {
                                     form.fadeIn();
                                     form.on( 'submit', function ( e ) {
