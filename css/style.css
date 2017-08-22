@@ -19,7 +19,6 @@ img                                             { max-width: 100%; }
 /**********************************
     Navbar Styles
 **********************************/
-.navbar2.navbar-fixed-top                       { background-color: #fff; top: 46px; }
 .navbar-default                                 { margin-bottom: 0; background-color: transparent; border-bottom: 1px solid #000; border-radius: 0; }
 .navbar-default .navbar-nav > li > a            { font-family: "Roboto"; font-size: 16px; font-weight: 300; color: #000; }
 .navbar-default .navbar-nav > li > a:hover,
@@ -149,14 +148,27 @@ ul.sidebar > li:hover                           { background-color: #0c9; color:
 /* Nuevos estilos
 ** -------------------------------*/
 
-.logo-brand {
-    padding: 6px 0;
-}
+.sub-navbar { background-color: #fff; border-bottom: 1px solid #ccc; }
+.sub-navbar button.navbar-toggle > .icon-bar { background-color: #393c3e; }
+.sub-navbar .navbar-collapse { background-color: #fff; }
+.sub-navbar .navbar-nav > .active > a { background-color: #fff; color: #0c9; }
+.sub-navbar .navbar-nav > .active > a:hover,
+.sub-navbar .navbar-nav > .active > a:focus { background-color: #fff; color: #0c9; cursor: default; }
+.sub-navbar .navbar-nav > li > a { color: #000; }
+.sub-navbar .navbar-nav > li > a:hover,
+.sub-navbar .navbar-nav > li > a:focus { background-color: #f8f8f8; color: #000; }
+
 .logo-brand img {
     width: 115px;
 }
 .logo-white {
     width: 383px;
+}
+@media (max-width: 767px) {
+    .logo-brand { padding: 9px 15px; }
+}
+@media (min-width: 768px) {
+    .logo-brand { padding: 6px 0; }
 }
 
 .separator-o {
