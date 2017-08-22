@@ -160,12 +160,13 @@ ul.sidebar > li:hover                           { background-color: #0c9; color:
 
 .logo-brand img {
     width: 115px;
+    height: auto;
 }
 .logo-white {
     width: 383px;
 }
 @media (max-width: 767px) {
-    .logo-brand { padding: 9px 15px; }
+    .logo-brand { padding: 6px 15px; }
 }
 @media (min-width: 768px) {
     .logo-brand { padding: 6px 0; }
