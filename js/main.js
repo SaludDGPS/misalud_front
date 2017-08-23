@@ -266,16 +266,22 @@ var GobMXMiSalud    = {
     setupRegister   : function () {
         var mediaEl = $( '#media' ),
             nameEl  = $( '#contact-name' ),
-            phoneEl = $( '#phone-number' );
+            phoneEl = $( '#phone-number' ),
+            formEl  = $( '#register-form' ),
             self = this;
 
-        $( '#register-form' ).submit( function ( e ) {
+        console.log( 'rendering' );
+        formEl.submit( function ( e ) {
             e.preventDefault();
             var media   = mediaEl.val();
             if ( media == 'facebook' ) {
                 window.open( 'http://m.me/gobmxmisalud', '_blank' );
             } else if ( media == 'sms' ) {
-                if ( !nameEl.val() || nameEl.val() == '' ) {
+                var captchaResponse     = grecaptcha.getResponse();
+                if ( captchaResponse == '' ) {
+                    $('#messageModal .modal-body p').text( "Verifique su solicitud." );
+                    $('#messageModal').modal('show');
+                } else if ( !nameEl.val() || nameEl.val() == '' ) {
                     $('#messageModal .modal-body p').text("Ingrese el nombre de contacto.");
                     $('#messageModal').modal('show');
                 } else if ( !phoneEl.val() || phoneEl.val() == '' ) {
