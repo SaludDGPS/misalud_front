@@ -29,7 +29,7 @@ img                                             { max-width: 100%; }
 /**********************************
     Font Styles
 **********************************/
-h1                                              { margin-bottom: 30px; padding-left: 10px; padding-bottom: 10px; font-family: "Roboto"; font-weight: 400; font-size: 28px; color: #000; border-bottom: 1px solid #979797; position: relative; }
+h1                                              { margin-bottom: 30px; padding-left: 10px; padding-bottom: 10px; font-family: "Roboto"; font-weight: 600; font-size: 28px; color: #000; border-bottom: 1px solid #979797; position: relative; }
 h1:after                                        { display: block; content: ' '; width: 30px; height: 3px; background-color: #0c9; position: absolute; left: 0; bottom: -4px; }
 #site-banner p                                  { margin-bottom: 30px; font-family: "Roboto"; font-size: 30px; font-weight: 300; color: #fff; }
 .site-widget h2                                 { font-family: "Roboto"; font-size: 20px; font-weight: 700; line-height: 1.5em;  color: #0c9; text-transform: uppercase; text-decoration: underline; }
@@ -46,6 +46,7 @@ strong                                          { font-weight: 600; }
 .register-form input[type="submit"]             { display: block; width: 100%; padding: 6px 20px; background-color: #0c9; border: none; }
 .register-form #contact-name,
 .register-form #phone-number                    { display: block; margin-bottom: 10px; }
+.register-form #contact-name                    { margin-top: 34px; }
 .register-form .form-group.fixed,
 .register-form .submit-fixed 					{ height: 108px; position: relative; }
 .register-form .form-group.fixed .form-control,
@@ -54,7 +55,7 @@ strong                                          { font-weight: 600; }
 /**********************************
     Register Landing Styles
 **********************************/
-#site-register 									{ padding: 10px 0; background: transparent url(../img/bg_register.png) repeat-y; }
+#site-register 									{ padding: 10px 0; background: transparent url(../img/bg_register.png) repeat; }
 #site-register #register-form label 			{ font-size: 14px; }
 #site-register #register-form .form-group 		{ margin-bottom: 0; }
 #site-register #register-form .form-control 	{ height: 40px; border: 1px solid #979797; box-shadow: 1px 1px 3px rgba(0,0,0,0.3); border-radius: 0; }
@@ -62,19 +63,21 @@ strong                                          { font-weight: 600; }
 #site-register #register-form .submit-fixed 	{ height: 73px; }
 #register-form .submit-fixed 	{ height: 73px; }
 #site-register #register-form input[type="submit"]	{ height: 40px; border: 1px solid #fff; box-shadow: 1px 1px 3px rgba(0,0,0,0.3); border-radius: 0; }
-#site-register .cancel-label                    { display: inline-block; background-color: #fff; font-size: 13px; text-align: center; }
+#site-register .cancel-label                    { display: inline-block; background-color: #fff; font-size: 14px; text-align: center; position: relative; left: 50%; transform: translateX(-50%); }
 
 /**********************************
     Lists Styles
 **********************************/
 ul                                              { padding-left: 0; list-style: none; }
 ul > li                                         { color: #0c9; }
+ul.dashed > li:before                           { content: '\2013'; font-weight: 600; margin-right: 5px; }
 ul.sidebar                                      { padding: 0; list-style: none; }
 ul.sidebar > li                                 { padding-left: 20px; line-height: 40px; border-bottom: 1px solid #979797; color: #979797; cursor: pointer; }
 ul.sidebar > li:hover                           { background-color: #0c9; color: #fff; }
 
-.register-button                                { width: 150px; height: 40px; padding-left: 40px; background-color: #0c9; border: 1px solid #000; border-right: none; text-align: left; border-bottom-left-radius: 20px; border-top-left-radius: 20px; position: fixed; right: 0; bottom: 50px; box-shadow: 0 0 3px rgba(0,0,0,0.3); }
-.register-button > a                            { font-family: 'Roboto'; font-size: 17.5px; font-weight: bold; line-height: 40px; color: #fff; }
+.register-button                                { width: 170px; height: 40px; padding-left: 40px; background-color: #0c9; border-right: none; text-align: left; border-bottom-left-radius: 20px; border-top-left-radius: 20px; position: fixed; right: 0; bottom: 100px; box-shadow: 0 1px 3px rgba(0,0,0,0.5), inset 0 0 2px rgba(0,0,0,0.3); }
+.register-button > a                            { font-family: 'Roboto'; font-size: 18px; font-weight: 400; line-height: 40px; color: #fff; }
+.register-button > a:after                      { content: ' '; display: inline-block; width: 20px; height: 20px; margin-left: 10px; border: 1.5px solid #fff; border-radius: 10px; position: relative; top: 4px; }
 
 /**********************************
     SMS Sections Styles
