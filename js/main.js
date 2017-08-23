@@ -76,6 +76,12 @@ var GobMXMiSalud    = {
                 jQ( '#tryit-calendar' ).calendar({
                     language        : 'es',
                     clickDay        : function ( e ) {
+
+                        // Muestra el teléfono en el móvil
+                        if ($(window).width() < 768) {
+                            $('#simulator-phone').css('display', 'block');
+                        }
+
                         if ( e.events && e.events.length > 0 ) {
                             var id      = e.events[0].id,
                                 form    = $( '#chat-form' );
@@ -371,3 +377,10 @@ $( document ).ready( GobMXMiSalud.init )
       dataType    : 'json',
    })
   }
+
+  // Cierra el simulador al seleccionar el botón de cerrar
+  $('#simulator-phone .close.rounded').on('click', function() {
+    if ($(window).width() < 768) {
+        $('#simulator-phone').css('display', 'none');
+    }
+  });
