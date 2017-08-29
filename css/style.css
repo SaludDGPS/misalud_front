@@ -98,7 +98,7 @@ ul.sidebar > li:hover                           { background-color: #0c9; color:
 #tryit-section .input-group                     { max-width: 100%; margin-top: 10px; box-shadow: 1px 1px 3px rgba(0,0,0,0.3); border-radius: 0px; }
 #tryit-section .input-group .form-control       { font-family: "Roboto"; font-size: 18px; line-height: 1.5em; font-weight: 500; color: #000; text-align: center; border-radius: 0; }
 #tryit-section .input-group .input-group-addon  { background-color: #0c9; }
-#tryit-section .input-group .glyphicon          { transform: rotate(90deg); position: relative; left: 1px; top: -1px; color: #fff; }
+#tryit-section .input-group .glyphicon          { position: relative; left: 1px; top: -1px; color: #fff; }
 #tryit-tool-container                           { display: none; margin-top: 20px; padding-top: 20px; border-top: 1px solid #979797; }
 #tryit-calendar                                 { margin: 30px auto; overflow: hidden; }
 #tryit-calendar.calendar .month-container       { height: 280px; }
@@ -160,6 +160,53 @@ ul.sidebar > li:hover                           { background-color: #0c9; color:
 .sub-navbar .navbar-nav > li > a { color: #000; }
 .sub-navbar .navbar-nav > li > a:hover,
 .sub-navbar .navbar-nav > li > a:focus { background-color: #f8f8f8; color: #000; }
+
+.calendar-form .input-group-addon > span { transform: rotate(90deg); }
+
+/* Datepicker styles
+ * ---------------------------*/
+
+.bootstrap-datetimepicker-widget.dropdown-menu { padding: 0; }
+.bootstrap-datetimepicker-widget .table-condensed thead {
+   background-color: #0c9;
+    color: #fff;
+}
+.bootstrap-datetimepicker-widget .table-condensed .picker-switch:hover,
+.bootstrap-datetimepicker-widget .table-condensed .prev:hover,
+.bootstrap-datetimepicker-widget .table-condensed .next:hover   {
+    background-color: #22d8aa;
+}
+.bootstrap-datetimepicker-widget .table-condensed .picker-switch,
+.bootstrap-datetimepicker-widget .table-condensed .dow,
+.bootstrap-datetimepicker-widget .table-condensed .month {
+    text-transform: capitalize;
+    font-weight: 300;
+}
+.bootstrap-datetimepicker-widget .table-condensed .day,
+.bootstrap-datetimepicker-widget .table-condensed .month {
+    color: #000;
+    border-radius: 0;
+    padding: 10px 5px;
+    border-top: 1px solid #eee;
+    border-right: 1px solid #eee;
+}
+.bootstrap-datetimepicker-widget .table-condensed .month {
+    padding: 0;
+    border: 0;
+}
+.bootstrap-datetimepicker-widget .table-condensed .day.active,
+.bootstrap-datetimepicker-widget .table-condensed .month.active {
+    background-color: #0c9;
+    color: #fff;
+}
+.bootstrap-datetimepicker-widget .table-condensed .day.today::before {
+    border-bottom-color: #0c9;
+}
+.bootstrap-datetimepicker-widget .table-condensed .day.old,
+.bootstrap-datetimepicker-widget .table-condensed .day.new,
+.bootstrap-datetimepicker-widget .table-condensed .day.disabled {
+    color: #d3d5d6;
+}
 
 .logo-brand img {
     width: 115px;

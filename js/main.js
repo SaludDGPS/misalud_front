@@ -12,7 +12,15 @@ var GobMXMiSalud    = {
         var pickerOpts  = {
             format              : 'DD/MM/YYYY',
             collapse            : false,
-            allowInputToggle    : true
+            allowInputToggle    : true,
+            tooltips: {
+                selectMonth: 'Selecciona un mes',
+                prevMonth: 'Mes anterior',
+                nextMonth: 'Mes siguiente',
+                selectYear: 'Selecciona un año',
+                prevYear: 'Año anterior',
+                nextYear: 'Año siguiente',
+            }
         };
 
         var jQ          = $;
