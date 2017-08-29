@@ -121,7 +121,7 @@ ul.sidebar > li:hover                           { background-color: #0c9; color:
 #messages-container input[type="text"]          { width: 72%; padding: 3px 5px; font-family: 'Roboto'; float: left; font-size: 12px; line-height: 1; }
 #messages-container input[type="submit"]        { width: 28%; padding: 3px 5px; float: right; font-family: 'Roboto'; font-size: 10px; line-height: 1; text-align: center; position: relative; top: 3px; }
 #datepickers_pregnant,
-#datepickers_baby                               { position: absolute; opacity: 0; }
+#datepickers_baby                               { width: 100%; position: absolute; opacity: 0; }
 .control-calendar                               { width: calc(49% - 3px); margin-bottom: 20px; padding: 10px 0; background-color: #fff; border: 1px solid #000; float: left; cursor: pointer; }
 .control-calendar.active                        { background-color: #0c9; }
 .control-calendar > p                           { margin-bottom: 0; font-family: "Roboto"; font-size: 16px; font-weight: 300; text-align: center; }
@@ -297,9 +297,15 @@ iframe { width: 100%; }
 @media (max-width: 767px) {
     #simulator-phone {
         display: none;
+        width: 100%;
+        height: 81%;
         position: fixed !important;
         top: 100px !important;
         z-index: 9;
+    }
+    #simulator-phone > #phone-holder {
+        width: 100%;
+        height: 100%;
     }
     .close.rounded {
         display: block;
