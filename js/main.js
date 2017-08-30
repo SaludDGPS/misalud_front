@@ -221,7 +221,6 @@ var GobMXMiSalud    = {
                 });
 
                 date_baby_alt.on( 'dp.change', function ( e ) {
-                    $('#date-baby-alt').val('');
                     setData( e.date._d, true );
                 });
             }
@@ -284,7 +283,6 @@ var GobMXMiSalud    = {
             formEl  = $( '#register-form' ),
             self = this;
 
-        console.log( 'rendering' );
         formEl.submit( function ( e ) {
             e.preventDefault();
             var media   = mediaEl.val();
