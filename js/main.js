@@ -291,7 +291,7 @@ var GobMXMiSalud    = {
             } else if ( media == 'sms' ) {
                 var captchaResponse     = grecaptcha.getResponse();
                 if ( captchaResponse == '' ) {
-                    $('#messageModal .modal-body p').text( "Verifique su solicitud." );
+                    $('#messageModal .modal-body p').text( "No pudimos completar tu registro. Por favor revisa que todos los datos sean correctos." );
                     $('#messageModal').modal('show');
                 } else if ( !nameEl.val() || nameEl.val() == '' ) {
                     $('#messageModal .modal-body p').text("Ingrese el nombre de contacto.");
