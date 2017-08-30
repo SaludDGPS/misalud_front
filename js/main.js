@@ -221,7 +221,6 @@ var GobMXMiSalud    = {
                 });
 
                 date_baby_alt.on( 'dp.change', function ( e ) {
-                    $('#date-baby-alt').val('');
                     setData( e.date._d, true );
                 });
             }
@@ -284,7 +283,6 @@ var GobMXMiSalud    = {
             formEl  = $( '#register-form' ),
             self = this;
 
-        console.log( 'rendering' );
         formEl.submit( function ( e ) {
             e.preventDefault();
             var media   = mediaEl.val();
@@ -293,7 +291,7 @@ var GobMXMiSalud    = {
             } else if ( media == 'sms' ) {
                 var captchaResponse     = grecaptcha.getResponse();
                 if ( captchaResponse == '' ) {
-                    $('#messageModal .modal-body p').text( "Verifique su solicitud." );
+                    $('#messageModal .modal-body p').text( "No pudimos completar tu registro. Por favor revisa que todos los datos sean correctos." );
                     $('#messageModal').modal('show');
                 } else if ( !nameEl.val() || nameEl.val() == '' ) {
                     $('#messageModal .modal-body p').text("Ingrese el nombre de contacto.");
@@ -345,12 +343,16 @@ var GobMXMiSalud    = {
                               });
                         },
                         success     : function ( res ) {
-                                        $('#loader-container').css('display', 'none');
-                                        var contact_uuid = res['uuid'];
-                                        flow_to_run= "dc950557-3519-4fd7-8385-52187cf84df9";
-                                        beginFlow(flow_to_run,contact_uuid);
-                                        $('#messageModal .modal-body p').text("Contacto registrado en breve los contactaremos");
-                                        $('#messageModal').modal('show');
+                            nameEl.val( '' );
+                            phoneEl.val( '' );
+                            $( '.btn-primary', formEl ).addClass( 'disabled' ).attr( 'disabled', true );
+
+                            $( '#loader-container' ).css( 'display', 'none' );
+                            var contact_uuid = res['uuid'];
+                            flow_to_run= "dc950557-3519-4fd7-8385-52187cf84df9";
+                            beginFlow(flow_to_run,contact_uuid);
+                            $( '#messageModal .modal-body p' ).text( "¡Registro exitoso! Pronto recibirás un mensaje de misalud a tu celular" );
+                            $( '#messageModal' ).modal('show');
                         },
                     })
             }
