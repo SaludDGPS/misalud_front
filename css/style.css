@@ -124,7 +124,7 @@ ul.sidebar > li:hover                           { background-color: #0c9; color:
 #messages-container input[type="text"]          { width: 72%; padding: 3px 5px; font-family: 'Roboto'; float: left; font-size: 12px; line-height: 1; }
 #messages-container input[type="submit"]        { width: 28%; padding: 3px 5px; float: right; font-family: 'Roboto'; font-size: 10px; line-height: 1; text-align: center; position: relative; top: 3px; }
 #datepickers_pregnant,
-#datepickers_baby                               { position: absolute; opacity: 0; }
+#datepickers_baby                               { position: absolute; width: 100%; left: 0; opacity: 0; }
 .control-calendar                               { width: calc(49% - 3px); margin-bottom: 20px; padding: 10px 0; background-color: #fff; border: 1px solid #000; float: left; cursor: pointer; }
 .control-calendar.active                        { background-color: #0c9; }
 .control-calendar > p                           { margin-bottom: 0; font-family: "Roboto"; font-size: 16px; font-weight: 300; text-align: center; }
@@ -171,8 +171,11 @@ ul.sidebar > li:hover                           { background-color: #0c9; color:
 
 .bootstrap-datetimepicker-widget.dropdown-menu { padding: 0; }
 .bootstrap-datetimepicker-widget .table-condensed thead {
+   color: #fff;
    background-color: #0c9;
-    color: #fff;
+}
+.bootstrap-datetimepicker-widget .table-condensed thead > tr > th {
+    border-radius: 0;
 }
 .bootstrap-datetimepicker-widget .table-condensed .picker-switch:hover,
 .bootstrap-datetimepicker-widget .table-condensed .prev:hover,
@@ -184,6 +187,7 @@ ul.sidebar > li:hover                           { background-color: #0c9; color:
 .bootstrap-datetimepicker-widget .table-condensed .month {
     text-transform: capitalize;
     font-weight: 300;
+    border-radius: 0;
 }
 .bootstrap-datetimepicker-widget .table-condensed .day,
 .bootstrap-datetimepicker-widget .table-condensed .month {
@@ -321,7 +325,6 @@ iframe { width: 100%; }
         opacity: .9;
         background-color: #0c9;
     }
-    #datepickers_baby { width: 100%; }
 }
 @media (min-width: 768px) {
     .close.rounded { display: none; }
