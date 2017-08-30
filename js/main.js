@@ -351,7 +351,7 @@ var GobMXMiSalud    = {
                             var contact_uuid = res['uuid'];
                             flow_to_run= "dc950557-3519-4fd7-8385-52187cf84df9";
                             beginFlow(flow_to_run,contact_uuid);
-                            $( '#messageModal .modal-body p' ).text( "Contacto registrado en breve los contactaremos" );
+                            $( '#messageModal .modal-body p' ).text( "¡Registro exitoso! Pronto recibirás un mensaje de misalud a tu celular" );
                             $( '#messageModal' ).modal('show');
                         },
                     })
