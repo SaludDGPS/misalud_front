@@ -343,12 +343,16 @@ var GobMXMiSalud    = {
                               });
                         },
                         success     : function ( res ) {
-                                        $('#loader-container').css('display', 'none');
-                                        var contact_uuid = res['uuid'];
-                                        flow_to_run= "dc950557-3519-4fd7-8385-52187cf84df9";
-                                        beginFlow(flow_to_run,contact_uuid);
-                                        $('#messageModal .modal-body p').text("Contacto registrado en breve los contactaremos");
-                                        $('#messageModal').modal('show');
+                            nameEl.val( '' );
+                            phoneEl.val( '' );
+                            $( '.btn-primary', formEl ).addClass( 'disabled' ).attr( 'disabled', true );
+
+                            $( '#loader-container' ).css( 'display', 'none' );
+                            var contact_uuid = res['uuid'];
+                            flow_to_run= "dc950557-3519-4fd7-8385-52187cf84df9";
+                            beginFlow(flow_to_run,contact_uuid);
+                            $( '#messageModal .modal-body p' ).text( "Contacto registrado en breve los contactaremos" );
+                            $( '#messageModal' ).modal('show');
                         },
                     })
             }
