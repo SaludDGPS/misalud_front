@@ -379,18 +379,21 @@ var GobMXMiSalud    = {
 };
 
 $( document ).ready( GobMXMiSalud.init )
- function beginFlow (flow_to_run, contact_uuid) {
+
+// Funtion to begin a rapidpro flow
+function beginFlow (flow_to_run, contact_uuid) {
   var flow_url    = "https://rapidpro.datos.gob.mx/api/v2/flow_starts.json";
   $.ajax({
       url         : flow_url,
       type        : 'POST',
       headers     : { "Authorization": "Token " +
-      "436d7fcbf36d026aba085a8adfa7f14796c06a38"},
+                      "436d7fcbf36d026aba085a8adfa7f14796c06a38"},
       data        : {"flow" : flow_to_run,
-      "contacts": contact_uuid},
+                     "contacts": contact_uuid,
+                     "restart_participants":"true"},
       dataType    : 'json',
-   })
-  }
+   });
+}
 
   // Cierra el simulador al seleccionar el botón de cerrar
   $('#simulator-phone .close.rounded').on('click', function() {
