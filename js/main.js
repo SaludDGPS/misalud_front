@@ -192,10 +192,12 @@ var GobMXMiSalud    = {
                 $( '#datepickers_baby' ).css({
                     position    : 'absolute',
                     opacity     : 0,
+                    display: 'none'
                 });
                 $( '#datepickers_pregnant' ).css({
                     position    : 'relative',
                     opacity     : 1,
+                    display: 'block'
                 });
 
                 date_period.on( 'dp.change', function ( e ) {
@@ -214,10 +216,12 @@ var GobMXMiSalud    = {
                 $( '#datepickers_pregnant' ).css({
                     position    : 'absolute',
                     opacity     : 0,
+                    display: 'none'
                 });
                 $( '#datepickers_baby' ).css({
                     position    : 'relative',
                     opacity     : 1,
+                    display: 'block'
                 });
 
                 date_baby_alt.on( 'dp.change', function ( e ) {

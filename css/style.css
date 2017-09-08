@@ -124,7 +124,7 @@ ul.sidebar > li:hover                           { background-color: #0c9; color:
 #messages-container input[type="text"]          { width: 72%; padding: 3px 5px; font-family: 'Roboto'; float: left; font-size: 12px; line-height: 1; }
 #messages-container input[type="submit"]        { width: 28%; padding: 3px 5px; float: right; font-family: 'Roboto'; font-size: 10px; line-height: 1; text-align: center; position: relative; top: 3px; }
 #datepickers_pregnant,
-#datepickers_baby                               { position: absolute; width: 100%; left: 0; opacity: 0; }
+#datepickers_baby                               { display: none; width: 100%; opacity: 0; }
 .control-calendar                               { width: calc(49% - 3px); margin-bottom: 20px; padding: 10px 0; background-color: #fff; border: 1px solid #000; float: left; cursor: pointer; }
 .control-calendar.active                        { background-color: #0c9; }
 .control-calendar > p                           { margin-bottom: 0; font-family: "Roboto"; font-size: 16px; font-weight: 300; text-align: center; }
@@ -136,7 +136,7 @@ ul.sidebar > li:hover                           { background-color: #0c9; color:
   padding-right: 10px;
 }
 .select 										{ cursor: pointer; display: block; position: relative; font-size: 16px; color: $fff; width: 100%; height: 40px; }
-.select-styled 									{ position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-color: #fff; border: 1px solid #979797; box-shadow: 1px 1px 3px rgba(0,0,0,0.3); padding: 8px 15px; line-height: 1; text-align: center; font-style: italic; }
+.select-styled 									{ position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-color: #fff; border: 1px solid #979797; box-shadow: 1px 1px 3px rgba(0,0,0,0.3); padding: 8px 50px 8px 10px; line-height: 1; text-align: center; font-style: italic; }
 .select-styled:after 							{ content: "\e114"; width: 40px; height: 40px; background-color: #0c9; position: absolute; top: -1px; right: -1px; font-family: 'Glyphicons Halflings'; text-align: center; line-height: 40px; color: #fff; font-style: normal; }
 .select-options 								{ display: none; position: absolute; top: 100%; right: 0; left: 0; z-index: 999; margin: 0; padding: 0; list-style: none; box-shadow: 1px 1px 6px #ccc; }
 .select-options li 								{ margin: 0; padding: 12px 0; text-align: center; border-bottom: 1px solid #ccc; border-left: 1px solid #ccc; border-right: 1px solid #ccc; background-color: #fff; }
@@ -270,6 +270,17 @@ iframe { width: 100%; }
 
 .margin-footer { margin-bottom: 70px; }
 
+/* Selector de campos de fecha */
+#datepickers_pregnant > .col-md-12,
+#datepickers_pregnant > .col-md-4,
+#datepickers_baby > .col-md-12,
+#datepickers_baby > .col-md-4 {
+    padding: 0; 
+}
+
+/* Recaptcha */
+#recaptcha { overflow: hidden; }
+
 /* Loading... */
 #loader-container {
     display: none;
@@ -328,4 +339,48 @@ iframe { width: 100%; }
 }
 @media (min-width: 768px) {
     .close.rounded { display: none; }
+}
+@media (max-width: 374px) {
+    .control-calendar {
+        width: 100%;
+    }
+    .control-calendar:first-child {
+        margin: 0;
+    }
+    #tryit-section .input-group .form-control {
+        font-size: 15px;
+    }
+}
+@media (max-width: 570px) {
+    /* Se ocultan las opciones que contienen: próximamente */
+    #info > option[value="Cronicas"],
+    .select-options > li[rel="Cronicas"],
+    #media > option[value="App"],
+    .select-options > li[rel="App"],
+    #media > option[value="Twitter DM"],
+    .select-options > li[rel="Twitter DM"] {
+        display: none;
+    }
+}
+/* Posicionamiento relativo del botón de registro */
+@media (max-width: 991px) {
+    #register-form .submit-fixed > .btn {
+        position: relative;
+    }
+}
+/* Tamaño de letra del calendario por resolución */
+@media (max-width: 245px) {
+    .bootstrap-datetimepicker-widget.dropdown-menu {
+        font-size: 10px;
+    }
+}
+@media (min-width: 246px) and (max-width: 300px) {
+    .bootstrap-datetimepicker-widget.dropdown-menu {
+        font-size: 12px;
+    }
+}
+@media (min-width: 301px) and (max-width:367px) {
+    .bootstrap-datetimepicker-widget.dropdown-menu {
+        font-size: 14px;
+    }
 }
