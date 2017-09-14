@@ -364,7 +364,7 @@ var GobMXMiSalud    = {
                         data        : {"name" : nameEl.val(),
                                         "urns": 'tel:+52'+phoneEl.val()},
                         dataType    : 'json',
-                       error : function(res) {
+                        error : function(res) {
                              $('#loader-container').css('display', 'none');
                               //Ask uuid contact
                               $('#confirmRegModal .modal-body p').text('').append('' +
