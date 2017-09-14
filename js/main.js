@@ -83,6 +83,7 @@ var GobMXMiSalud    = {
 
                 jQ( '#tryit-calendar' ).calendar({
                     language        : 'es',
+                    startMonth      : parseInt( moment( dateSet ).format( 'M' ) ) - 1,
                     clickDay        : function ( e ) {
 
                         // Muestra el teléfono en el móvil
@@ -210,7 +211,7 @@ var GobMXMiSalud    = {
                 date_baby.on( 'dp.change', function ( e ) {
                     $( '#date-period' ).val( '' );
 
-                    setData(e.date._d);
+                    setData( e.date._d );
                 });
             } else {
                 $( '#datepickers_pregnant' ).css({
@@ -248,8 +249,8 @@ var GobMXMiSalud    = {
 
 		    for (var i = 0; i < numberOfOptions; i++) {
 		        $('<li />', {
-		            text: $this.children('option').eq(i).text(),
-		            rel: $this.children('option').eq(i).val()
+		            text  : $this.children( 'option' ).eq( i ).text(),
+		            rel   : $this.children( 'option' ).eq( i ).val(),
 		        }).appendTo($list);
 		    }
 
