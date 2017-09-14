@@ -266,7 +266,6 @@ a:focus { color: #039772; }
 
 .separator-o {
     text-align: center;
-    padding: 16px 0;
 }
 
 .modal { margin: 0 15px; }
@@ -418,6 +417,10 @@ iframe { width: 100%; }
     .margin-on-mobile { margin-bottom: 30px; }
     #register-form > .row > .col-md-4 { margin-bottom: 20px; }
     .highlight-section { background-color: #fff; }
+    .separator-o {
+        margin: 0;
+        padding: 10px 0 7px 0;
+    }
 }
 @media (min-width: 571px) {
     #tryit-calendar > .calendar-semi-header { display: none; }
@@ -428,6 +431,7 @@ iframe { width: 100%; }
         display: none;
     }
     .hide-on-desktop { display: none !important; }
+    .separator-o { padding: 16px 0; }
 }
 /* Posicionamiento relativo del botón de registro */
 @media (max-width: 991px) {
