@@ -25,37 +25,55 @@ var GobMXMiSalud    = {
 
         var jQ          = $;
         var messages    = $( '#messages-container .messages' );
+        var mobileMessages = $('#mobile-messages .messages');
         var setData     = function ( dateSet, ignoreDueDate ) {
             // Define el valor de ignoreDueDate desde la función en vez que desde el atributo
             ignoreDueDate = ignoreDueDate === undefined || ignoreDueDate === false ? false : true;
 
             $.getJSON( 'data/misalud.json', function ( data ) {
+                function getFlow(nameFlow) {
+                    var color = '#000000';
+                    var name = '';
+                    
+                    if ( nameFlow.indexOf( 'consejo' ) != -1 || nameFlow.indexOf( 'milk' ) != -1 ||
+                        nameFlow.indexOf( 'mosquitos' ) != -1 || nameFlow.indexOf( 'nutrition' ) != -1 ||
+                        nameFlow.indexOf( 'development' ) != -1 || nameFlow.indexOf( 'extra' ) != -1 ||
+                        nameFlow.indexOf( 'lineaMaterna' ) != -1 || nameFlow.indexOf( 'labor' ) != -1 ) { // consejos
+                        color = '#2bd6ce';
+                        name = "Consejo";
+
+                    } else if ( nameFlow.indexOf( 'reto' ) != -1 ) { // retos
+                        color = '#da48ef';
+                        name = "Reto";
+                    } else if ( nameFlow.indexOf( 'reminders' ) != -1 || nameFlow.indexOf( 'freePD' ) != -1 ||
+                        nameFlow.indexOf( 'getBirth' ) != -1 || nameFlow.indexOf( 'miAlerta' ) != -1 ) { // recordatorios
+                        color = '#8de530';
+                        name = "Recordatorios";
+                    } else if ( nameFlow.indexOf( 'planning' ) != -1 || nameFlow.indexOf( 'miAlerta_followUp' ) != -1 || nameFlow.indexOf( 'miAlta' ) != -1 ) { // planificacion
+                        color = '#f4e52c';
+                        name = "Planificación";
+                    } else if ( nameFlow.indexOf( 'incentives' ) != -1 ) { // incentivos
+                        color = '#986ae2';
+                        name = "Incentivos";
+                    } else if ( nameFlow.indexOf( 'prevent' ) != -1 || nameFlow.indexOf( 'concerns' ) != -1 ||
+                                nameFlow.indexOf( 'miscarriage' ) != -1 || nameFlow.indexOf( 'prematuro' ) != -1 ) { // preocupaciones
+                        color = '#f9a35d';
+                        name = "Preocupaciones";
+                    }
+
+                    return {
+                        color: color,
+                        name: name
+                    }
+                }
                 var valid           = _.filter( data, function ( d ) {
                         return d.flow != 'null' && ( !ignoreDueDate || ( ignoreDueDate && d.relative_to != 'rp_duedate' ) );
                     }),
                     types           = _.uniq( _.pluck( valid, 'relative_to' ) );
                     calendarData    = _.map( valid, function ( v, i ) {
                     var flowDate    = moment( dateSet ).add( v.offset, 'days' );
-                    var color       = '#000000';
-
-                    if ( v.flow_name.indexOf( 'consejo' ) != -1 || v.flow_name.indexOf( 'milk' ) != -1 ||
-                        v.flow_name.indexOf( 'mosquitos' ) != -1 || v.flow_name.indexOf( 'nutrition' ) != -1 ||
-                        v.flow_name.indexOf( 'development' ) != -1 || v.flow_name.indexOf( 'extra' ) != -1 ||
-                        v.flow_name.indexOf( 'lineaMaterna' ) != -1 || v.flow_name.indexOf( 'labor' ) != -1 ) { // consejos
-                        color       = '#2bd6ce';
-                    } else if ( v.flow_name.indexOf( 'reto' ) != -1 ) { // retos
-                        color       = '#da48ef';
-                    } else if ( v.flow_name.indexOf( 'reminders' ) != -1 || v.flow_name.indexOf( 'freePD' ) != -1 ||
-                        v.flow_name.indexOf( 'getBirth' ) != -1 || v.flow_name.indexOf( 'miAlerta' ) != -1 ) { // recordatorios
-                        color       = '#8de530';
-                    } else if ( v.flow_name.indexOf( 'planning' ) != -1 || v.flow_name.indexOf( 'miAlerta_followUp' ) != -1 || v.flow_name.indexOf( 'miAlta' ) != -1 ) { // planificacion
-	                    color 		= '#f4e52c';
-                    } else if ( v.flow_name.indexOf( 'incentives' ) != -1 ) { // incentivos
-	                    color 		= '#986ae2';
-                    } else if ( v.flow_name.indexOf( 'prevent' ) != -1 || v.flow_name.indexOf( 'concerns' ) != -1 ||
-                    			v.flow_name.indexOf( 'miscarriage' ) != -1 || v.flow_name.indexOf( 'prematuro' ) != -1 ) { // preocupaciones
-	                    color 		= '#f9a35d';
-                    }
+                    
+                    var color = getFlow(v.flow_name).color;
 
                     return {
                         id          : v.flow,
@@ -65,90 +83,110 @@ var GobMXMiSalud    = {
                         endDate     : flowDate.add( 1, 'days' ).toDate()
                     }
                 }),
-                    vars_replace    = {
-                        '@contact.rp_babyname'          : 'tu bebe',
-                        '@contact.rp_apptdate'          : moment( dateSet ).add( 5, 'days' ).format( 'dddd, MMMM Do' ),
-                        '@contact.rp_duedate'           : moment( dateSet ).format( 'dddd, MMMM Do' ),
-                        '@contact.rp_name'              : 'Maria',
-                        '@contact.rp_planhospital'      : 'Clinica de salud',
-                        '@contact.tel_e164'             : 'tel_e164',
-                        '@contact.rp_alerta_time'       : moment().format( 'dddd, MMMM Do, h:mm' ),
-                        '@contact.rp_deliverydate'      : moment( dateSet ).format( 'dddd, MMMM Do' ),
-                        '@contact.rp_duedate'           : moment( dateSet ).format( 'dddd, MMMM Do' ),
-                        '@contact.rp_mialerta_time'     : moment().format( 'dddd, MMMM Do, h:mm' ),
-                        '@contact.rp_mialta_apptdate'   : moment( dateSet ).add( 5, 'days' ).format( 'dddd, MMMM Do' ),
-                        '@contact.rp_mialta_duedate'    : moment().format( 'dddd, MMMM Do' ),
-                        '@contact.rp_mialta_init'       : moment().format( 'dddd, MMMM Do' ),
-                    };
+                vars_replace    = {
+                    '@contact.rp_babyname'          : 'tu bebe',
+                    '@contact.rp_apptdate'          : moment( dateSet ).add( 5, 'days' ).format( 'dddd, MMMM Do' ),
+                    '@contact.rp_duedate'           : moment( dateSet ).format( 'dddd, MMMM Do' ),
+                    '@contact.rp_name'              : 'Maria',
+                    '@contact.rp_planhospital'      : 'Clinica de salud',
+                    '@contact.tel_e164'             : 'tel_e164',
+                    '@contact.rp_alerta_time'       : moment().format( 'dddd, MMMM Do, h:mm' ),
+                    '@contact.rp_deliverydate'      : moment( dateSet ).format( 'dddd, MMMM Do' ),
+                    '@contact.rp_duedate'           : moment( dateSet ).format( 'dddd, MMMM Do' ),
+                    '@contact.rp_mialerta_time'     : moment().format( 'dddd, MMMM Do, h:mm' ),
+                    '@contact.rp_mialta_apptdate'   : moment( dateSet ).add( 5, 'days' ).format( 'dddd, MMMM Do' ),
+                    '@contact.rp_mialta_duedate'    : moment().format( 'dddd, MMMM Do' ),
+                    '@contact.rp_mialta_init'       : moment().format( 'dddd, MMMM Do' ),
+                };
 
-                jQ( '#tryit-calendar' ).calendar({
-                    language        : 'es',
-                    startMonth      : parseInt( moment( dateSet ).format( 'M' ) ) - 1,
-                    clickDay        : function ( e ) {
+                function selectDay(e) {
+                    // Muestra el teléfono en el móvil
+                    if ($(window).width() > 570) {
+                        $('#simulator-phone').css('display', 'block');
+                    }
 
-                        // Muestra el teléfono en el móvil
-                        if ($(window).width() < 768) {
-                            $('#simulator-phone').css('display', 'block');
-                        }
+                    if ( e.events && e.events.length > 0 ) {
+                        var id      = e.events[0].id,
+                            form    = $( '#chat-form' );
 
-                        if ( e.events && e.events.length > 0 ) {
-                            var id      = e.events[0].id,
-                                form    = $( '#chat-form' );
+                        form.fadeOut();
+                        form.unbind( 'submit' );
+                        $.getJSON( 'data/flows/' + id + '.json', function ( flow ) {
+                            console.log(flow.flows[0].metadata.name);
+                            var actions_sets    = flow.flows[0].action_sets,
+                                rules           = flow.flows[0].rule_sets && Array.isArray( flow.flows[0].rule_sets ) && flow.flows[0].rule_sets.length > 0 && flow.flows[0].rule_sets[0].rules;
+                            var msg             = "";
+                            var mobFlowName = flow.flows[0].metadata.name;
+                            var to_append = "";
+                            var mob_to_append = "";
+                            for (var i = 0; i < actions_sets[0].actions.length; i++) {
+                                msg              = actions_sets[0].actions[i].msg.spa;
+                                for ( var key in vars_replace ) {
+                                    msg     = msg.split( key ).join( vars_replace[key] );
+                                } 
+                                to_append += '<div class="message"><p>' + msg + '</p>'+"</div>";
+                                mob_to_append += '<div class="message"><p style="background-color: '+ getFlow(mobFlowName).color +'">' + getFlow(mobFlowName).name + '</p><p>' + msg + '</p>'+"</div>";
+                            }
+                            messages.html( $( to_append));
+                            mobileMessages.html($(mob_to_append));
+                            if ( actions_sets.length > 0 ) {
+                                form.fadeIn();
+                                form.on( 'submit', function ( e ) {
+                                    e.preventDefault();
+                                    var response    = $( '#chat-input' ).val();
 
-                            form.fadeOut();
-                            form.unbind( 'submit' );
-                            $.getJSON( 'data/flows/' + id + '.json', function ( flow ) {
-                                var actions_sets    = flow.flows[0].action_sets,
-                                    rules           = flow.flows[0].rule_sets && Array.isArray( flow.flows[0].rule_sets ) && flow.flows[0].rule_sets.length > 0 && flow.flows[0].rule_sets[0].rules;
-                                var msg             = "";
-                                to_append           = "";
-                                for (var i = 0; i < actions_sets[0].actions.length; i++) {
-                                   msg              = actions_sets[0].actions[i].msg.spa;
-                                   for ( var key in vars_replace ) {
-                                     msg     = msg.split( key ).join( vars_replace[key] );
-                                   } 
-                                   to_append += '<div class="message"><p>' + msg + '</p>'+"</div>";
-                                }
-                                messages.html( $( to_append));
-                                if ( actions_sets.length > 0 ) {
-                                    form.fadeIn();
-                                    form.on( 'submit', function ( e ) {
-                                        e.preventDefault();
-                                        var response    = $( '#chat-input' ).val();
+                                    if ( response && response != '' ) {
+                                        var evaluated   = false;
+                                        messages.append( $( '<div class="message response-message"><p>' + response + '</p></div>' ) );
+                                        $( '#chat-input' ).val( '' );
 
-                                        if ( response && response != '' ) {
-                                            var evaluated   = false;
-                                            messages.append( $( '<div class="message response-message"><p>' + response + '</p></div>' ) );
-                                            $( '#chat-input' ).val( '' );
+                                        _.each( rules, function ( r ) {
+                                            if ( evaluated ) return;
 
-                                            _.each( rules, function ( r ) {
-                                                if ( evaluated ) return;
+                                            var supported   = r.test && r.test.test && r.test.test.spa.split( ' ' );
+                                            if ( supported.indexOf( response.toLowerCase() ) != -1 ) {
+                                                evaluated   = true;
 
-                                                var supported   = r.test && r.test.test && r.test.test.spa.split( ' ' );
-                                                if ( supported.indexOf( response.toLowerCase() ) != -1 ) {
-                                                    evaluated   = true;
-
-                                                    var system_r    = _.find( actions_sets, function ( a ) {
-                                                            return a.uuid == r.destination;
-                                                        }),
-                                                        system_msg  = system_r.actions[0].msg.spa;
-                                                    for ( var key in vars_replace ) {
-                                                        system_msg  = system_msg.split( key ).join( vars_replace[key] );
-                                                    }
-
-                                                    messages.append( $( '<div class="message"><p>' + system_msg + '</p></div>' ) );
+                                                var system_r    = _.find( actions_sets, function ( a ) {
+                                                        return a.uuid == r.destination;
+                                                    }),
+                                                    system_msg  = system_r.actions[0].msg.spa;
+                                                for ( var key in vars_replace ) {
+                                                    system_msg  = system_msg.split( key ).join( vars_replace[key] );
                                                 }
-                                            });
-                                        }
 
-                                        return false;
-                                    });
-                                }
-                            });
-                        }
-                    },
-                    dataSource      : calendarData
-                });
+                                                messages.append( $( '<div class="message"><p>' + system_msg + '</p></div>' ) );
+                                                mobileMessages.append( $( '<div class="message"><p>' + system_msg + '</p></div>' ) );
+                                            }
+                                        });
+                                    }
+
+                                    return false;
+                                });
+                            }
+                        });
+                    }
+                }
+
+                if ($(window).width() < 571) {
+                    jQ( '#tryit-calendar' ).calendar({
+                        language: 'es',
+                        startMonth: initMonth,
+                        endMonth: lastMonth,
+                        clickDay: function(ev) {
+                            selectDay(ev);
+                        },
+                        dataSource: calendarData
+                    });
+                } else {
+                    jQ( '#tryit-calendar' ).calendar({
+                        language: 'es',
+                        clickDay: function(ev) {
+                            selectDay(ev);
+                        },
+                        dataSource: calendarData
+                    });
+                }
                 $( '#tryit-tool-container' ).fadeIn( function () {
                     if ( $( window ).width() > 761 ) {
                         var element         = $( '#simulator-phone' ),
@@ -179,6 +217,8 @@ var GobMXMiSalud    = {
         var date_period     = $( '#date-period-picker' ).datetimepicker( pickerOpts );
         var date_baby       = $( '#date-baby-picker' ).datetimepicker( pickerOpts );
         var date_baby_alt   = $( '#date-baby-alt-picker' ).datetimepicker( pickerOpts );
+        var initMonth = 0;
+        var lastMonth = 1;
 
         $( '.control-calendar' ).click( function ( e ) {
             var $el     = $( e.currentTarget ),
@@ -207,11 +247,15 @@ var GobMXMiSalud    = {
                     $( '#date-baby' ).val( '' );
 
                     setData( moment( e.date._d ).add( 280, 'days' ).toDate() );
+                    initMonth = moment(e.date._d).add(67,'days').toDate().getMonth();
+                    lastMonth = initMonth + 1;
                 });
                 date_baby.on( 'dp.change', function ( e ) {
                     $( '#date-period' ).val( '' );
 
-                    setData( e.date._d );
+                    setData(e.date._d);
+                    initMonth = moment(e.date._d).add(-213, 'days').toDate().getMonth();
+                    lastMonth = initMonth + 1;
                 });
             } else {
                 $( '#datepickers_pregnant' ).css({
@@ -227,6 +271,8 @@ var GobMXMiSalud    = {
 
                 date_baby_alt.on( 'dp.change', function ( e ) {
                     setData( e.date._d, true );
+                    initMonth = moment(e.date._d).add(2,'days').toDate().getMonth();
+                    lastMonth = initMonth + 1;
                 });
             }
         });
@@ -271,7 +317,6 @@ var GobMXMiSalud    = {
 		        $this.val($(this).attr('rel'));
 		        $this.trigger('change');
 		        $list.hide();
-		        //console.log($this.val());
 		    });
 
 		    $(document).click(function() {

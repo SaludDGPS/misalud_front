@@ -104,7 +104,7 @@ ul.sidebar > li:hover                           { background-color: #0c9; color:
 #tryit-section .input-group .glyphicon          { position: relative; left: 1px; top: -1px; color: #fff; }
 #tryit-tool-container                           { display: none; margin-top: 20px; padding-top: 20px; border-top: 1px solid #979797; }
 #tryit-calendar                                 { margin: 30px auto; overflow: hidden; }
-#tryit-calendar.calendar .month-container       { height: 280px; }
+#tryit-calendar.calendar .month-container       { margin-bottom: 25px; } /* antes -> height: 280px */
 #tryit-calendar.calendar .year-title            { color: #0c9; }
 #tryit-calendar.calendar .year-neighbor,
 #tryit-calendar.calendar .year-neighbor2        { color: #aaa; }
@@ -155,6 +155,10 @@ ul.sidebar > li:hover                           { background-color: #0c9; color:
 /* Nuevos estilos
 ** -------------------------------*/
 
+a { color: #0c9; }
+a:hover,
+a:focus { color: #039772; }
+
 .sub-navbar { background-color: #fff; border-bottom: 1px solid #ccc; }
 .sub-navbar button.navbar-toggle > .icon-bar { background-color: #393c3e; }
 .sub-navbar .navbar-collapse { background-color: #fff; }
@@ -166,6 +170,37 @@ ul.sidebar > li:hover                           { background-color: #0c9; color:
 .sub-navbar .navbar-nav > li > a:focus { background-color: #f8f8f8; color: #000; }
 
 .calendar-form .input-group-addon > span { transform: rotate(90deg); }
+.calendar table.month tr td .day-content {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+#mobile-messages { float: left; }
+#mobile-messages .message {
+    box-shadow: 0 1px 7px #3c3a3a;
+    margin-top: 15px;
+    border-radius: 4px;
+    background-color: #fff;
+}
+#mobile-messages .message p {
+    margin: 0;
+    padding: 10px;
+}
+#mobile-messages .message p:first-child {
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 4px 4px 0 0;
+}
+#mobile-messages #chat-form { display: none; }
+
+/* Semi header calendar */
+.calendar-semi-header > table {
+    width: 100%;
+}
+.calendar-semi-header > table > th {
+    font-size: 15px;
+}
 
 /* Datepicker styles
  * ---------------------------*/
@@ -232,7 +267,6 @@ ul.sidebar > li:hover                           { background-color: #0c9; color:
 
 .separator-o {
     text-align: center;
-    padding: 16px 0;
 }
 
 .modal { margin: 0 15px; }
@@ -362,6 +396,43 @@ iframe { width: 100%; }
     .select-options > li[rel="Twitter DM"] {
         display: none;
     }
+
+    .month-title { display: none; }
+    #tryit-calendar > .calendar-header { display: none; }
+    .calendar .month-container { width: 100%; height: auto; }
+
+    /* Muestra mensajes sin mobil */
+    #mobile-messages {
+        display: block;
+    }
+
+    #site-register { background: #fff; padding: 0; }
+    #site-register #register-form .form-group.fixed { height: auto; }
+
+    .register-form .form-group.fixed {
+        height: auto;
+    }
+    .register-form { margin: 30px 0; }
+    .hide-on-mobile { display: none !important; }
+    .register-form #contact-name { margin-top: 0; }
+    .margin-on-mobile { margin-bottom: 30px; }
+    #register-form > .row > .col-md-4 { margin-bottom: 20px; }
+    .highlight-section { background-color: #fff; }
+    .separator-o {
+        margin: 0;
+        padding: 10px 0 7px 0;
+    }
+}
+@media (min-width: 571px) {
+    #tryit-calendar > .calendar-semi-header { display: none; }
+    .calendar .month-container { height: 290px; }
+
+    /* Muestra mensajes sin mobil */
+    #mobile-messages {
+        display: none;
+    }
+    .hide-on-desktop { display: none !important; }
+    .separator-o { padding: 16px 0; }
 }
 /* Posicionamiento relativo del botón de registro */
 @media (max-width: 991px) {

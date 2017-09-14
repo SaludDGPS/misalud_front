@@ -39,13 +39,14 @@
                 </div>
                 <div class="collapse navbar-collapse" id="misalud-navbar">
                     <ul class="nav navbar-nav navbar-right">
+                        <li class="hide-on-desktop"><a href="que-es.html">¿Qué es?</a></li>
                         <li class="active"><a href="materna.html">Materna</a></li>
                         <li><a href="registrate.html">Regístrate</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <div class="container">
+        <div class="container hide-on-mobile">
             <div class="row">
                 <div class="col-md-12">
                     <h1>Salud materno infantil</h1>
@@ -72,7 +73,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p>Nos estaremos comunicando contigo a través de mensajes en tu celular para recordarte de tus citas médicas, darte consejos de expertos en salud, planear el nacimiento de tu bebé y ayudarte a cuidarlo. Te queremos acompañar durante todo tu embarazo y hasta los primeros dos años de vida de tu bebé. Sin embargo en cualquier momento puedes elegir dejar de recibir los mensajes.</p>
+                    <p class="hide-on-mobile">Nos estaremos comunicando contigo a través de mensajes en tu celular para recordarte de tus citas médicas, darte consejos de expertos en salud, planear el nacimiento de tu bebé y ayudarte a cuidarlo. Te queremos acompañar durante todo tu embarazo y hasta los primeros dos años de vida de tu bebé. Sin embargo en cualquier momento puedes elegir dejar de recibir los mensajes.</p>
                     <h1>¡Pruébalo!</h1>
                     <p>Todos los mensajes y consejos que recibirás fueron escritos por doctores y expertos para ayudarte a tomar mejores decisiones sobre tu alimentación, salud y cuidado de tu bebé. Vas a recibir información de tres tipos: <strong>CONSEJOS, CONTROL DE SALUD y RECORDATORIOS</strong></p>
                 </div>
@@ -82,7 +83,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h4 class="section-title">Prueba mi<strong>salud</strong></h4>
+                        <h4 class="section-title hide-on-mobile">Prueba mi<strong>salud</strong></h4>
                         <p>Contesta alguna de las siguientes preguntas:</p>
                     </div>
                 </div>
@@ -174,6 +175,15 @@
                                     </form>
                                 </div>
                             </div>
+                            <div id="mobile-messages" class="col-md-12">
+                                <div class="messages">
+                                    
+                                </div>
+                                <form id="chat-form" class="form">
+                                    <input type="text" id="chat-input" class="chat-input">
+                                    <input type="submit" value="Enviar">
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -186,7 +196,7 @@
         <script src="bower_components/moment/locale/es.js"></script>
         <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="bower_components/underscore/underscore-min.js"></script>
-        <script src="bower_components/bootstrap-year-calendar/js/bootstrap-year-calendar.js"></script>
+        <script src="js/bs-year-calendar-modified.js"></script>
         <script src="bower_components/bootstrap-year-calendar/js/languages/bootstrap-year-calendar.es.js"></script>
         <script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
         <script src='bower_components/webcomponentsjs/webcomponents-lite.min.js'></script>
