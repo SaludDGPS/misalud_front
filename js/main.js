@@ -344,9 +344,6 @@ var GobMXMiSalud    = {
                 if ( captchaResponse == '' ) {
                     $('#messageModal .modal-body p').text( "No pudimos completar tu registro. Por favor revisa que todos los datos sean correctos." );
                     $('#messageModal').modal('show');
-                } else if ( !nameEl.val() || nameEl.val() == '' ) {
-                    $('#messageModal .modal-body p').text("Ingrese el nombre de contacto.");
-                    $('#messageModal').modal('show');
                 } else if ( !phoneEl.val() || phoneEl.val() == '' ) {
                     $('#messageModal .modal-body p').text("Ingrese su número telefónico.");
                     $('#messageModal').modal('show');
@@ -367,7 +364,7 @@ var GobMXMiSalud    = {
                         data        : {"name" : nameEl.val(),
                                         "urns": 'tel:+52'+phoneEl.val()},
                         dataType    : 'json',
-                       error : function(res) {
+                        error : function(res) {
                              $('#loader-container').css('display', 'none');
                               //Ask uuid contact
                               $('#confirmRegModal .modal-body p').text('').append('' +
