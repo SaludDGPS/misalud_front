@@ -251,6 +251,7 @@ var GobMXMiSalud    = {
 		        $('<li />', {
 		            text  : $this.children( 'option' ).eq( i ).text(),
 		            rel   : $this.children( 'option' ).eq( i ).val(),
+                    class : $this.children( 'option' ).eq( i ).attr( 'disabled' ) === 'disabled' ? 'disabled' : '',
 		        }).appendTo($list);
 		    }
 

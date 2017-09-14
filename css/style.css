@@ -140,6 +140,7 @@ ul.sidebar > li:hover                           { background-color: #0c9; color:
 .select-styled:after 							{ content: "\e114"; width: 40px; height: 40px; background-color: #0c9; position: absolute; top: -1px; right: -1px; font-family: 'Glyphicons Halflings'; text-align: center; line-height: 40px; color: #fff; font-style: normal; }
 .select-options 								{ display: none; position: absolute; top: 100%; right: 0; left: 0; z-index: 999; margin: 0; padding: 0; list-style: none; box-shadow: 1px 1px 6px #ccc; }
 .select-options li 								{ margin: 0; padding: 12px 0; text-align: center; border-bottom: 1px solid #ccc; border-left: 1px solid #ccc; border-right: 1px solid #ccc; background-color: #fff; }
+.select-options li.disabled                     { background-color : #f1f1f1;  }
 .select-options li:hover 						{ background-color: #f4f4f4; }
 .select-options li[rel="hide"] 					{ display: none; }
 
