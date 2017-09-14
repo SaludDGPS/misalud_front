@@ -406,16 +406,18 @@ iframe { width: 100%; }
         display: block;
     }
 
+    #site-register { background: #fff; padding: 0; }
+    #site-register #register-form .form-group.fixed { height: auto; }
+
     .register-form .form-group.fixed {
         height: auto;
     }
     .register-form { margin: 30px 0; }
-
-    .hide-on-mobile { display: none; }
-
+    .hide-on-mobile { display: none !important; }
     .register-form #contact-name { margin-top: 0; }
-
     .margin-on-mobile { margin-bottom: 30px; }
+    #register-form > .row > .col-md-4 { margin-bottom: 20px; }
+    .highlight-section { background-color: #fff; }
 }
 @media (min-width: 571px) {
     #tryit-calendar > .calendar-semi-header { display: none; }
@@ -425,7 +427,7 @@ iframe { width: 100%; }
     #mobile-messages {
         display: none;
     }
-    .hide-on-desktop { display: none; }
+    .hide-on-desktop { display: none !important; }
 }
 /* Posicionamiento relativo del botón de registro */
 @media (max-width: 991px) {
