@@ -276,7 +276,7 @@ var GobMXMiSalud    = {
                 });
             }
         });
-    },
+    },  
 
     setupCustomSelect 	: function () {
 	    $('.custom-select').each(function(){
@@ -312,11 +312,14 @@ var GobMXMiSalud    = {
 		    });
 
 		    $listItems.click(function(e) {
-		        e.stopPropagation();
-		        $styledSelect.text($(this).text()).removeClass('active');
-		        $this.val($(this).attr('rel'));
-		        $this.trigger('change');
-		        $list.hide();
+                e.stopPropagation();
+                
+		        if (this.className !== 'disabled') {
+                    $styledSelect.text($(this).text()).removeClass('active');
+                    $this.val($(this).attr('rel'));
+                    $this.trigger('change');
+                    $list.hide();
+                }
 		    });
 
 		    $(document).click(function() {
