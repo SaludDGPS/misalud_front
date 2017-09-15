@@ -158,6 +158,11 @@ ul.sidebar > li:hover                           { background-color: #0c9; color:
 a { color: #0c9; }
 a:hover,
 a:focus { color: #039772; }
+.site-widget .read-more.disabled {
+    background-color: #bbb;
+    cursor: default;
+    pointer-events: none;
+} 
 
 #chat-input::placeholder,
 #chat-input::-moz-placeholder,

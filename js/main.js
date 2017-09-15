@@ -448,9 +448,14 @@ function beginFlow (flow_to_run, contact_uuid) {
    });
 }
 
-  // Cierra el simulador al seleccionar el botón de cerrar
-  $('#simulator-phone .close.rounded').on('click', function() {
+// Cierra el simulador al seleccionar el botón de cerrar
+$('#simulator-phone .close.rounded').on('click', function() {
     if ($(window).width() < 768) {
         $('#simulator-phone').css('display', 'none');
     }
-  });
+});
+
+// No permite la propagación del disabled
+$('.disabled').on('click', function(e) {
+    e.preventDefault();
+});
