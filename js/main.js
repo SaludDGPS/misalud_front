@@ -192,7 +192,8 @@ var GobMXMiSalud    = {
                         var element         = $( '#simulator-phone' ),
                             elementHeight   = element.height(),
                             parentHeight    = $( '#tryit-calendar' ).height() + 50,
-                            originalY       = element.offset().top;
+                            originalY       = element.offset().top,
+                            footer          = $('footer');
 
                         // Space between element and top of screen (when scrolling)
                         var topMargin   = 100;
@@ -202,7 +203,8 @@ var GobMXMiSalud    = {
 
                         $( window ).on( 'scroll', function() {
                             var scrollTop = $( window ).scrollTop();
-                            if ( ( scrollTop - originalY + topMargin + elementHeight ) > parentHeight ) {
+                            if ( ( scrollTop - originalY + topMargin + elementHeight ) > parentHeight &&
+                                scrollTop > (footer.offset().top - footer.height())) {
                                 return;
                             }
 
