@@ -38,6 +38,7 @@
 				startMonth: !isNaN(parseInt(opt.startMonth)) ? parseInt(opt.startMonth) : 0,
 				endMonth: !isNaN(parseInt(opt.endMonth)) ? parseInt(opt.endMonth) : 12,
 				startYear: !isNaN(parseInt(opt.startYear)) ? parseInt(opt.startYear) : new Date().getFullYear(),
+				initialYear: !isNaN(parseInt(opt.startYear)) ? parseInt(opt.startYear) : new Date().getFullYear(),
 				minDate: opt.minDate instanceof Date ? opt.minDate : null,
 				maxDate: opt.maxDate instanceof Date ? opt.maxDate : null,
 				language: (opt.language != null && dates[opt.language] != null) ? opt.language : 'en',
@@ -200,8 +201,9 @@
 		_renderBody: function() {
 			var monthsDiv = $(document.createElement('div'));
 			monthsDiv.addClass('months-container');
+			var startMonth 	= this.options.startYear === this.options.initialYear ? this.options.startMonth : 0;
 			
-			for(var m = this.options.startMonth; m < this.options.endMonth; m++) {
+			for(var m = startMonth; m < this.options.endMonth; m++) {
 				/* Container */
 				var monthDiv = $(document.createElement('div'));
 				monthDiv.addClass('month-container');
