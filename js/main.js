@@ -180,11 +180,12 @@ var GobMXMiSalud    = {
                     });
                 } else {
                     jQ( '#tryit-calendar' ).calendar({
-                        language: 'es',
-                        clickDay: function(ev) {
+                        language    : 'es',
+                        startMonth  : initMonth,
+                        clickDay    : function(ev) {
                             selectDay(ev);
                         },
-                        dataSource: calendarData
+                        dataSource  : calendarData
                     });
                 }
                 $( '#tryit-tool-container' ).fadeIn( function () {
