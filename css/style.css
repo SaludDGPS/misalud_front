@@ -103,7 +103,7 @@ ul.sidebar > li:hover                           { background-color: #0c9; color:
 #tryit-section .input-group .input-group-addon  { background-color: #0c9; }
 #tryit-section .input-group .glyphicon          { position: relative; left: 1px; top: -1px; color: #fff; }
 #tryit-tool-container                           { display: none; margin-top: 20px; padding-top: 20px; border-top: 1px solid #979797; }
-#tryit-calendar                                 { margin: 30px auto; overflow: hidden; }
+#tryit-calendar                                 { margin: 30px auto 0; overflow: hidden; }
 #tryit-calendar.calendar .month-container       { margin-bottom: 25px; } /* antes -> height: 280px */
 #tryit-calendar.calendar .year-title            { color: #0c9; }
 #tryit-calendar.calendar .year-neighbor,
