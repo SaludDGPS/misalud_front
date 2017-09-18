@@ -472,3 +472,5 @@ iframe { width: 100%; }
         font-size: 14px;
     }
 }
+
+.submit-fixed > .info-title { display: none !important; }
