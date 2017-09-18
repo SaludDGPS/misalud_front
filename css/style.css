@@ -397,9 +397,16 @@ iframe { width: 100%; }
     }
     .control-calendar:first-child {
         margin: 0;
+        border-bottom: 0;
+        border-right: 1px solid #000;
     }
     #tryit-section .input-group .form-control {
         font-size: 15px;
+    }
+}
+@media (min-width: 375px) {
+    .control-calendar:first-child {
+        border-right: 0;
     }
 }
 @media (max-width: 570px) {
