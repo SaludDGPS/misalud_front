@@ -333,7 +333,6 @@ var GobMXMiSalud    = {
 
     setupRegister   : function () {
         var mediaEl = $( '#media' ),
-            nameEl  = $( '#contact-name' ),
             phoneEl = $( '#phone-number' ),
             formEl  = $( '#register-form' ),
             self = this;
@@ -365,7 +364,7 @@ var GobMXMiSalud    = {
                         type        : 'POST',
                         headers     : { "Authorization": "Token " +
                                          "436d7fcbf36d026aba085a8adfa7f14796c06a38"},
-                        data        : {"name" : nameEl.val(),
+                        data        : {"name" : '',
                                         "urns": 'tel:+52'+phoneEl.val()},
                         dataType    : 'json',
                         error : function(res) {
@@ -410,18 +409,6 @@ var GobMXMiSalud    = {
             }
          }
             return false;
-        });
-
-        mediaEl.change( function () {
-            if ( mediaEl.val() == 'sms' ) {
-	            $( '.form-submit' ).removeClass( 'submit-fixed' );
-                phoneEl.fadeIn();
-                nameEl.fadeIn();
-            } else {
-	            $( '.form-submit' ).addClass( 'submit-fixed' );
-                phoneEl.fadeOut();
-                nameEl.fadeOut();
-            }
         });
     },
 
