@@ -203,14 +203,13 @@ var GobMXMiSalud    = {
 
                         $( window ).on( 'scroll', function() {
                             var scrollTop = $( window ).scrollTop();
-                            if ( ( scrollTop - originalY + topMargin + elementHeight ) > parentHeight &&
-                                scrollTop > (footer.offset().top - footer.height())) {
+                            if (scrollTop > (footer.offset().top - footer.height())) {
                                 return;
                             }
 
                             element.stop( false, false ).animate({
                                 top     : ( scrollTop < originalY ) ? 0 : scrollTop - originalY + topMargin
-                            }, 300 );
+                            }, 120 );
                         });
                     }
                 });
