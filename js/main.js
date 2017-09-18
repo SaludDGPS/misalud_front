@@ -415,11 +415,9 @@ var GobMXMiSalud    = {
             if ( mediaEl.val() == 'sms' ) {
                 $( '.form-submit' ).removeClass( 'submit-fixed' );
                 phoneEl.fadeIn();
-                nameEl.fadeIn();
             } else {
                 $( '.form-submit' ).addClass( 'submit-fixed' );
                 phoneEl.fadeOut();
-                nameEl.fadeOut();
             }
         });
     },
