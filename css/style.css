@@ -57,7 +57,7 @@ strong                                          { font-weight: 600; }
 /**********************************
     Register Landing Styles
 **********************************/
-#site-register 									{ padding: 10px 0; background: transparent url(../img/bg_register.png) repeat; }
+#site-register 									{ padding: 10px 0; background: #f6f6f6; }
 #site-register #register-form                   { margin-bottom: 10px; }
 #site-register #register-form label 			{ font-size: 14px; }
 #site-register #register-form .form-group 		{ margin-bottom: 15px; }
