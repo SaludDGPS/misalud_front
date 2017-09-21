@@ -114,7 +114,7 @@ ul.sidebar > li:hover                           { background-color: #0c9; color:
 .color-code > span                              { display: inline-block; width: 20px; height: 20px; margin-right: 5px; border-radius: 2px; }
 .color-code > em                                { position: relative; top: -5px; }
 #messages-container                             { position: absolute; background: #fff; top: 12%; bottom: 12%; }
-#messages-container .messages                   { width: 100%; padding: 10px; position: absolute; left: 0; right: 0; bottom: 30px; top: 0; overflow-y: scroll; }
+#messages-container .messages                   { width: 100%; padding: 10px; position: absolute; left: 0; right: 0; bottom: 30px; top: 0; overflow-y: scroll; overflow-x: hidden; }
 #messages-container .message                    { width: 60%; margin-bottom: 10px; padding: 9px; position: relative; background: #e5e4e9; border-radius: .8em; font-size: 12px; line-height: 1.5em; color: #000; float: left; }
 #messages-container .response-message           { float: right; color: #fff; background-color: #2095fe; }
 #messages-container .message > p                { margin-bottom: 0; }

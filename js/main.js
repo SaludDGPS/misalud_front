@@ -107,7 +107,8 @@ var GobMXMiSalud    = {
 
                     if ( e.events && e.events.length > 0 ) {
                         var id      = e.events[0].id,
-                            form    = $( '#chat-form' );
+                            form    = $( '#chat-form' )
+                            recentScroll = messages.height();
 
                         form.fadeOut();
                         form.unbind( 'submit' );
@@ -140,6 +141,11 @@ var GobMXMiSalud    = {
                                         messages.append( $( '<div class="message response-message"><p>' + response + '</p></div>' ) );
                                         $( '#chat-input' ).val( '' );
 
+                                        recentScroll += 999
+                                        messages.animate({
+                                            scrollTop: recentScroll
+                                        });
+
                                         _.each( rules, function ( r ) {
                                             if ( evaluated ) return;
 
@@ -157,6 +163,11 @@ var GobMXMiSalud    = {
 
                                                 messages.append( $( '<div class="message"><p>' + system_msg + '</p></div>' ) );
                                                 mobileMessages.append( $( '<div class="message"><p>' + system_msg + '</p></div>' ) );
+
+                                                recentScroll += 999
+                                                messages.animate({
+                                                    scrollTop: recentScroll
+                                                });
                                             }
                                         });
                                     }
