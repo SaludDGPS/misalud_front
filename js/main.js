@@ -112,7 +112,6 @@ var GobMXMiSalud    = {
                         form.fadeOut();
                         form.unbind( 'submit' );
                         $.getJSON( 'data/flows/' + id + '.json', function ( flow ) {
-                            console.log(flow.flows[0].metadata.name);
                             var actions_sets    = flow.flows[0].action_sets,
                                 rules           = flow.flows[0].rule_sets && Array.isArray( flow.flows[0].rule_sets ) && flow.flows[0].rule_sets.length > 0 && flow.flows[0].rule_sets[0].rules;
                             var msg             = "";
