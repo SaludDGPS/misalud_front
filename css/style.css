@@ -113,7 +113,7 @@ ul.sidebar > li:hover                           { background-color: #0c9; color:
 .color-code                                     { display: inline-block; height: 20px; margin-right: 10px; font-family: "Roboto"; font-size: 12px; font-weight: 600; line-height: 20px; color: #000; overflow: hidden; }
 .color-code > span                              { display: inline-block; width: 20px; height: 20px; margin-right: 5px; border-radius: 2px; }
 .color-code > em                                { position: relative; top: -5px; }
-#messages-container                             { position: absolute; background: #fff; top: 15%; right: 18%; bottom: 12%; left: 18%; }
+#messages-container                             { position: absolute; background: #fff; top: 12%; bottom: 12%; }
 #messages-container .messages                   { width: 100%; padding: 10px; position: absolute; left: 0; right: 0; bottom: 30px; top: 0; overflow-y: scroll; }
 #messages-container .message                    { width: 60%; margin-bottom: 10px; padding: 9px; position: relative; background: #e5e4e9; border-radius: .8em; font-size: 12px; line-height: 1.5em; color: #000; float: left; }
 #messages-container .response-message           { float: right; color: #fff; background-color: #2095fe; }
@@ -372,6 +372,10 @@ iframe { width: 100%; }
         top: 100px !important;
         z-index: 9;
     }
+    #messages-container {
+        right: 9%;
+        left: 10%;
+    }
     #simulator-phone > #phone-holder {
         width: 100%;
         height: 100%;
@@ -379,8 +383,8 @@ iframe { width: 100%; }
     .close.rounded {
         display: block;
         position: absolute;
-        top: 10px;
-        right: 45px;
+        top: 3px;
+        right: 23px;
         width: 50px;
         height: 50px;
         border-radius: 50%;
@@ -390,6 +394,10 @@ iframe { width: 100%; }
 }
 @media (min-width: 768px) {
     .close.rounded { display: none; }
+    #messages-container {
+        right: 12%;
+        left: 12%;
+    }
 }
 @media (max-width: 374px) {
     .control-calendar {
