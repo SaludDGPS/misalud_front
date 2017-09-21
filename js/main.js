@@ -130,6 +130,7 @@ var GobMXMiSalud    = {
                             mobileMessages.html($(mob_to_append));
                             if ( actions_sets.length > 0 ) {
                                 form.fadeIn();
+                                $('#chat-input').focus();
                                 form.on( 'submit', function ( e ) {
                                     e.preventDefault();
                                     var response    = $( '#chat-input' ).val();
