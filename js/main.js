@@ -406,7 +406,6 @@ var GobMXMiSalud    = {
                               });
                         },
                         success     : function ( res ) {
-                            nameEl.val( '' );
                             phoneEl.val( '' );
                             $( '.btn-primary', formEl ).addClass( 'disabled' ).attr( 'disabled', true );
 
