@@ -376,7 +376,7 @@ var GobMXMiSalud    = {
                         type        : 'GET',
                         data        : {"name" : '',
                                        "urns": 'tel:+52'+phoneEl.val(),
-                                       "token":"436d7fcbf36d026aba085a8adfa7f14796c06a38"
+                                       "token":"436d7fcbf36d026aba085a8adfa7f14796c06a38",
                                        "type_operation": "create_contact"
                                       },
                         dataType    : 'json',
