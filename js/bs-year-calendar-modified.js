@@ -36,7 +36,7 @@
 		
 			this.options = {
 				startMonth: !isNaN(parseInt(opt.startMonth)) ? parseInt(opt.startMonth) : 0,
-				endMonth: !isNaN(parseInt(opt.endMonth)) ? parseInt(opt.endMonth) : 12,
+				endMonth: !isNaN(parseInt(opt.startMonth)) ? parseInt(opt.startMonth) + 12 : !isNaN(parseInt(opt.endMonth)) ? parseInt(opt.endMonth) : 12,
 				startYear: !isNaN(parseInt(opt.startYear)) ? parseInt(opt.startYear) : new Date().getFullYear(),
 				initialYear: !isNaN(parseInt(opt.startYear)) ? parseInt(opt.startYear) : new Date().getFullYear(),
 				minDate: opt.minDate instanceof Date ? opt.minDate : null,
@@ -205,7 +205,8 @@
 			
 			for(var m = startMonth; m < this.options.endMonth; m++) {
 				/* Container */
-				var monthDiv = $(document.createElement('div'));
+				var monthDiv 	= $(document.createElement('div')),
+					month 		= m < 12 ? m : m - 12;
 				monthDiv.addClass('month-container');
 				monthDiv.data('month-id', m);
 				
@@ -222,7 +223,7 @@
 				var titleCell = $(document.createElement('th'));
 				titleCell.addClass('month-title');
 				titleCell.attr('colspan', this.options.displayWeekNumber ? 8 : 7);
-				titleCell.text(dates[this.options.language].months[m]);
+				titleCell.text(dates[this.options.language].months[month]);
 				
 				titleRow.append(titleCell);
 				thead.append(titleRow);
