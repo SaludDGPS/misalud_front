@@ -34,7 +34,7 @@ var GobMXMiSalud    = {
                 function getFlow(nameFlow) {
                     var color = '#000000';
                     var name = '';
-                    
+
                     if ( nameFlow.indexOf( 'consejo' ) != -1 || nameFlow.indexOf( 'milk' ) != -1 ||
                         nameFlow.indexOf( 'mosquitos' ) != -1 || nameFlow.indexOf( 'nutrition' ) != -1 ||
                         nameFlow.indexOf( 'development' ) != -1 || nameFlow.indexOf( 'extra' ) != -1 ||
@@ -72,7 +72,7 @@ var GobMXMiSalud    = {
                     types           = _.uniq( _.pluck( valid, 'relative_to' ) );
                     calendarData    = _.map( valid, function ( v, i ) {
                     var flowDate    = moment( dateSet ).add( v.offset, 'days' );
-                    
+
                     var color = getFlow(v.flow_name).color;
 
                     return {
@@ -123,7 +123,7 @@ var GobMXMiSalud    = {
                                 msg              = actions_sets[0].actions[i].msg.spa;
                                 for ( var key in vars_replace ) {
                                     msg     = msg.split( key ).join( vars_replace[key] );
-                                } 
+                                }
                                 to_append += '<div class="message"><p>' + msg + '</p>'+"</div>";
                                 mob_to_append += '<div class="message"><p style="background-color: '+ getFlow(mobFlowName).color +'">' + getFlow(mobFlowName).name + '</p><p>' + msg + '</p>'+"</div>";
                             }
@@ -289,7 +289,7 @@ var GobMXMiSalud    = {
                 });
             }
         });
-    },  
+    },
 
     setupCustomSelect   : function () {
         $('.custom-select').each(function(){
@@ -326,7 +326,7 @@ var GobMXMiSalud    = {
 
             $listItems.click(function(e) {
                 e.stopPropagation();
-                
+
                 if (this.className !== 'disabled') {
                     $styledSelect.text($(this).text()).removeClass('active');
                     $this.val($(this).attr('rel'));
@@ -367,17 +367,18 @@ var GobMXMiSalud    = {
                     $('#messageModal').modal('show');
                 } else {
                     $('#loader-container').css('display', 'block');
-                    var contact_url = "https://rapidpro.datos.gob.mx/api/v2/contacts.json";
+                    var contact_url = "http://rapidpro.datos.gob.mx/misalud/";
                     var contact_uuid;
                     var flow_to_run;
                     //Register new contact
                     $.ajax({
                         url         : contact_url,
-                        type        : 'POST',
-                        headers     : { "Authorization": "Token " +
-                                         "436d7fcbf36d026aba085a8adfa7f14796c06a38"},
+                        type        : 'GET',
                         data        : {"name" : '',
-                                        "urns": 'tel:+52'+phoneEl.val()},
+                                       "urns": 'tel:+52'+phoneEl.val(),
+                                       "token":"436d7fcbf36d026aba085a8adfa7f14796c06a38",
+                                       "type_operation": "create_contact"
+                                      },
                         dataType    : 'json',
                         error : function(res) {
                              $('#loader-container').css('display', 'none');
@@ -391,13 +392,15 @@ var GobMXMiSalud    = {
                               $('#confirmRegModal .btn-prima').on('click', function() {
                                   //Ask to rapidpro uuid
                                   $.ajax({
-                                      url: contact_url+"?urn=tel%3A%2B52"+phoneEl.val(),
+                                      url: contact_url,
                                       type: 'GET',
-                                      headers: { "Authorization": "Token " +
-                                             "436d7fcbf36d026aba085a8adfa7f14796c06a38"},
+                                      data        : {"urns": 'tel:+52'+phoneEl.val(),
+                                                     "token":"436d7fcbf36d026aba085a8adfa7f14796c06a38",
+                                                     "type_operation": "get_contact"
+                                                    },
                                       dateType: 'json',
                                       success: function(data) {
-                                         contact_uuid = data['results'][0]['uuid'];
+                                         contact_uuid = data['uuid'];
                                          flow_to_run = "20308c47-002a-446c-a4f8-a21482f66bc8" ;
                                         beginFlow(flow_to_run, contact_uuid);
                                       }
@@ -444,15 +447,14 @@ $( document ).ready( GobMXMiSalud.init )
 
 // Funtion to begin a rapidpro flow
 function beginFlow (flow_to_run, contact_uuid) {
-  var flow_url    = "https://rapidpro.datos.gob.mx/api/v2/flow_starts.json";
   $.ajax({
-      url         : flow_url,
-      type        : 'POST',
-      headers     : { "Authorization": "Token " +
-                      "436d7fcbf36d026aba085a8adfa7f14796c06a38"},
+      url         : "http://rapidpro.datos.gob.mx/misalud/",
+      type        : 'GET',
       data        : {"flow" : flow_to_run,
                      "contacts": contact_uuid,
-                     "restart_participants":"true"},
+                     "type_operation": "star_conversation",
+                     "token": "436d7fcbf36d026aba085a8adfa7f14796c06a38",
+                     },
       dataType    : 'json',
    });
 }
