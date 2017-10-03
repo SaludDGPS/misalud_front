@@ -207,6 +207,47 @@ a:focus { color: #039772; }
 }
 #mobile-messages #chat-form { display: none; }
 
+.calendar-header.panel {
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.calendar table th.prev {
+    text-align: left;
+}
+
+.calendar table th.next {
+    text-align: right;
+}
+
+.calendar table th.prev span,
+.calendar table th.next span {
+    font-family: "Roboto";
+    line-height: 22px !important;
+    top: 0;
+}
+
+.calendar table th .glyphicon-chevron-right::after,
+.calendar table th .glyphicon-chevron-left::before {
+    color: #0c9;
+    font-family: 'Glyphicons Halflings';
+    font-weight: 400;
+    top: 1px;
+}
+
+.calendar table th.next .glyphicon-chevron-right::before {
+    content: '';
+}
+
+.calendar table th.next .glyphicon-chevron-right::after {
+    content: "\e080";
+}
+
+.calendar .calendar-header table th:hover {
+    background-color: transparent;
+}
+
 /* Semi header calendar */
 .calendar-semi-header > table {
     width: 100%;
