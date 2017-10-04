@@ -41,7 +41,6 @@ var GobMXMiSalud    = {
                         nameFlow.indexOf( 'lineaMaterna' ) != -1 || nameFlow.indexOf( 'labor' ) != -1 ) { // consejos
                         color = '#2bd6ce';
                         name = "Consejo";
-
                     } else if ( nameFlow.indexOf( 'reto' ) != -1 ) { // retos
                         color = '#da48ef';
                         name = "Reto";
@@ -71,33 +70,90 @@ var GobMXMiSalud    = {
                     }),
                     types           = _.uniq( _.pluck( valid, 'relative_to' ) );
                     calendarData    = _.map( valid, function ( v, i ) {
-                    var flowDate    = moment( dateSet ).add( v.offset, 'days' );
+                        var flowDate    = moment( dateSet ).add( v.offset, 'days' );
 
-                    var color = getFlow(v.flow_name).color;
+                        var flow    = getFlow( v.flow_name );
 
-                    return {
-                        id          : v.flow,
-                        color       : color,
-                        name        : v.flow,
-                        startDate   : flowDate.toDate(),
-                        endDate     : flowDate.add( 1, 'days' ).toDate()
-                    }
-                }),
-                vars_replace    = {
-                    '@contact.rp_babyname'          : 'tu bebe',
-                    '@contact.rp_apptdate'          : moment( dateSet ).add( 5, 'days' ).format( 'dddd, MMMM Do' ),
-                    '@contact.rp_duedate'           : moment( dateSet ).format( 'dddd, MMMM Do' ),
-                    '@contact.rp_name'              : 'Maria',
-                    '@contact.rp_planhospital'      : 'Clinica de salud',
-                    '@contact.tel_e164'             : 'tel_e164',
-                    '@contact.rp_alerta_time'       : moment().format( 'dddd, MMMM Do, h:mm' ),
-                    '@contact.rp_deliverydate'      : moment( dateSet ).format( 'dddd, MMMM Do' ),
-                    '@contact.rp_duedate'           : moment( dateSet ).format( 'dddd, MMMM Do' ),
-                    '@contact.rp_mialerta_time'     : moment().format( 'dddd, MMMM Do, h:mm' ),
-                    '@contact.rp_mialta_apptdate'   : moment( dateSet ).add( 5, 'days' ).format( 'dddd, MMMM Do' ),
-                    '@contact.rp_mialta_duedate'    : moment().format( 'dddd, MMMM Do' ),
-                    '@contact.rp_mialta_init'       : moment().format( 'dddd, MMMM Do' ),
-                };
+                        return {
+                            id          : v.flow,
+                            color       : flow.color,
+                            name        : v.flow,
+                            startDate   : flowDate.toDate(),
+                            type        : flow.name,
+                            endDate     : flowDate.add( 1, 'days' ).toDate()
+                        }
+                    }),
+                    vars_replace    = {
+                        '@contact.rp_babyname'          : 'tu bebe',
+                        '@contact.rp_apptdate'          : moment( dateSet ).add( 5, 'days' ).format( 'dddd, MMMM Do' ),
+                        '@contact.rp_duedate'           : moment( dateSet ).format( 'dddd, MMMM Do' ),
+                        '@contact.rp_name'              : 'Maria',
+                        '@contact.rp_planhospital'      : 'Clinica de salud',
+                        '@contact.tel_e164'             : 'tel_e164',
+                        '@contact.rp_alerta_time'       : moment().format( 'dddd, MMMM Do, h:mm' ),
+                        '@contact.rp_deliverydate'      : moment( dateSet ).format( 'dddd, MMMM Do' ),
+                        '@contact.rp_duedate'           : moment( dateSet ).format( 'dddd, MMMM Do' ),
+                        '@contact.rp_mialerta_time'     : moment().format( 'dddd, MMMM Do, h:mm' ),
+                        '@contact.rp_mialta_apptdate'   : moment( dateSet ).add( 5, 'days' ).format( 'dddd, MMMM Do' ),
+                        '@contact.rp_mialta_duedate'    : moment().format( 'dddd, MMMM Do' ),
+                        '@contact.rp_mialta_init'       : moment().format( 'dddd, MMMM Do' ),
+                    };
+
+                // Mobile version
+                var mobileContainer         = $( '#message-panel' );
+                if ( mobileContainer.length > 0 ) {
+                    var mobileMessagesData  = _.sortBy( calendarData, 'startDate' ),
+                        activeIndex         = 0,
+                        setMobileData       = function ( index ) {
+                            $.getJSON( 'data/flows/' + mobileMessagesData[index].id + '.json', function ( flow ) {
+                                var actions_sets    = flow.flows[0].action_sets,
+                                    msg             = actions_sets[0].actions[0].msg.spa;
+
+                                for ( var key in vars_replace ) {
+                                    msg     = msg.split( key ).join( vars_replace[key] );
+                                }
+
+
+                                $( '.panel-heading', mobileContainer ).css( 'background-color', mobileMessagesData[index].color ).html( mobileMessagesData[index].type );
+                                $( '.panel-body', mobileContainer ).html( msg );
+                            });
+                        };
+
+                    setMobileData( activeIndex );
+
+                    $( '#mobile-control-left' ).click( function ( e ) {
+                        e.preventDefault();
+
+                        var filtered    = _.filter( mobileMessagesData, function ( m ) {
+                            return m.startDate < mobileMessagesData[ activeIndex ].startDate;
+                        });
+
+                        var prevDay     = _.filter( filtered, function ( m ) {
+                            return m.startDate == filtered[ filtered.length - 1 ].startDate;
+                        });
+
+                        if ( prevDay.length ) {
+                            activeIndex     = _.findIndex( mobileMessagesData, function ( d ) {
+                                return d.id == prevDay[0].id;
+                            });
+
+                            setMobileData( activeIndex );
+                        }
+                    });
+                    $( '#mobile-control-right' ).click( function ( e ) {
+                        e.preventDefault();
+
+                        var filtered    = _.filter( mobileMessagesData, function ( m ) {
+                            return m.startDate > mobileMessagesData[ activeIndex ].startDate;
+                        });
+
+                        activeIndex     = _.findIndex( mobileMessagesData, function ( d ) {
+                            return d.id == filtered[0].id;
+                        });
+
+                        setMobileData( activeIndex );
+                    });
+                }
 
                 function selectDay(e) {
                     // Muestra el teléfono en el móvil

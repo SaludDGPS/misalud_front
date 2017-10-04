@@ -128,7 +128,7 @@
 			}
 			
 			var prevIcon = $( document.createElement( 'span' ) );
-			prevIcon.addClass( 'glyphicon glyphicon-chevron-left' );
+			prevIcon.addClass( 'glyphicon glyphicon-triangle-left' );
 			prevIcon.text( 'Atras' );
 			
 			prevDiv.append(prevIcon);
@@ -143,7 +143,7 @@
 			}
 			
 			var nextIcon = $(document.createElement('span'));
-			nextIcon.addClass('glyphicon glyphicon-chevron-right');
+			nextIcon.addClass('glyphicon glyphicon-triangle-right');
 			nextIcon.text( 'Adelante' );
 			
 			nextDiv.append(nextIcon);

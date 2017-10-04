@@ -160,10 +160,10 @@
                                     <span class="color-code"><span style="background-color: #986ae2;"></span><em>Incentivos</em></span>
                                     <span class="color-code"><span style="background-color: #f9a35d;"></span><em>Preocupaciones</em></span>
                                 </div>
-                                <div id="tryit-calendar"></div>
+                                <div id="tryit-calendar" class="hidden-xs"></div>
                             </div>
-                            <div id="simulator-phone" class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
-                                <button type="button" class="close rounded" aria-label="Close"><span aria-hidden="true">&times;</span></button>                                    
+                            <div id="simulator-phone" class="col-md-3 col-sm-3 col-lg-3 hidden-xs">
+                                <button type="button" class="close rounded" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 <img id="phone-holder" src="img/phone.png"/>
                                 <div id="messages-container">
                                     <div class="messages">
@@ -178,6 +178,19 @@
                             <div id="mobile-messages" class="col-md-12">
                                 <div class="messages">
                                     
+                                </div>
+                            </div>
+                            <div id="message-panel" class="col-xs-12 hidden-lg hidden-sm hidden-md">
+                                <div class="pull-left">
+                                    <span id="mobile-control-left" class="glyphicon glyphicon-triangle-left mobile-control"></span>
+                                </div>
+                                <div class="pull-right">
+                                    <span id="mobile-control-right" class="glyphicon glyphicon-triangle-right mobile-control"></span>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading"></div>
+                                    <div class="panel-body"></div>
                                 </div>
                             </div>
                         </div>
