@@ -228,19 +228,19 @@ a:focus { color: #039772; }
     top: 0;
 }
 
-.calendar table th .glyphicon-chevron-right::after,
-.calendar table th .glyphicon-chevron-left::before {
+.calendar table th .glyphicon-triangle-right::after,
+.calendar table th .glyphicon-triangle-left::before {
     color: #0c9;
     font-family: 'Glyphicons Halflings';
     font-weight: 400;
     top: 1px;
 }
 
-.calendar table th.next .glyphicon-chevron-right::before {
+.calendar table th.next .glyphicon-triangle-right::before {
     content: '';
 }
 
-.calendar table th.next .glyphicon-chevron-right::after {
+.calendar table th.next .glyphicon-triangle-right::after {
     content: "\e080";
 }
 
