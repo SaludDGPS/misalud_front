@@ -256,6 +256,15 @@ a:focus { color: #039772; }
     font-size: 15px;
 }
 
+#message-panel .panel .panel-heading {
+    color: #fff;
+}
+
+#message-panel .mobile-control {
+    cursor: pointer;
+    color: #0c9;
+}
+
 /* Datepicker styles
  * ---------------------------*/
 
