@@ -241,7 +241,7 @@ a:focus { color: #039772; }
 }
 
 .calendar table th.next .glyphicon-triangle-right::after {
-    content: "\e080";
+    content: "\e250";
 }
 
 .calendar .calendar-header table th:hover {
