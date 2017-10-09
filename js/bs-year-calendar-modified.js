@@ -129,7 +129,7 @@
 			
 			var prevIcon = $( document.createElement( 'span' ) );
 			prevIcon.addClass( 'glyphicon glyphicon-triangle-left' );
-			prevIcon.text( 'Atras' );
+			prevIcon.text( 'Atrás' );
 			
 			prevDiv.append(prevIcon);
 			
