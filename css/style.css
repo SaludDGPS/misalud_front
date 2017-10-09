@@ -505,7 +505,7 @@ iframe { width: 100%; }
         right: 12%;
         left: 12%;
     }
-    #material-section { padding: 40px 0; }
+    #material-section { padding: 0 0 40px 0; }
 }
 @media (max-width: 374px) {
     .control-calendar {
