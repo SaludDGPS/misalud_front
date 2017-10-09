@@ -357,6 +357,20 @@ iframe { width: 100%; }
 }
 .btn-cancel:hover { color: #545454; }
 
+.btn-misalud {
+    height: 40px;
+    color: #fff;
+    border: 1px solid #fff;
+    margin-bottom: 8px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    border-radius: 0;
+    padding: 6px 20px;
+    background-color: #0c9;
+}
+.btn-misalud:hover,
+.btn-misalud:focus { color: #fff; }
+#materials .btn-misalud { vertical-align: bottom; }
+
 #messageModal .btn-prima { width: 50%; }
 #confirmRegModal .btn-prima,
 #confirmRegModal .btn-cancel { width: 45%; }
