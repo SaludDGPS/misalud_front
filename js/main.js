@@ -423,7 +423,7 @@ var GobMXMiSalud    = {
                     $('#messageModal').modal('show');
                 } else {
                     $('#loader-container').css('display', 'block');
-                    var contact_url = "http://rapidpro.datos.gob.mx/misalud/";
+                    var contact_url = "https://rapidpro.datos.gob.mx/misalud/";
                     var contact_uuid;
                     var flow_to_run;
                     //Register new contact
@@ -504,7 +504,7 @@ $( document ).ready( GobMXMiSalud.init )
 // Funtion to begin a rapidpro flow
 function beginFlow (flow_to_run, contact_uuid) {
   $.ajax({
-      url         : "http://rapidpro.datos.gob.mx/misalud/",
+      url         : "https://rapidpro.datos.gob.mx/misalud/",
       type        : 'GET',
       data        : {"flow" : flow_to_run,
                      "contacts": contact_uuid,
