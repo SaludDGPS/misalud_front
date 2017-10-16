@@ -526,3 +526,20 @@ $('#simulator-phone .close.rounded').on('click', function() {
 $('.disabled').on('click', function(e) {
     e.preventDefault();
 });
+
+$( window ).on( 'scroll', function() {
+    var element = $('.register-button');
+    var footer = $('footer');
+    var footerOT = $('footer').offset().top;
+    var footerHeight = $('footer').height();
+    var scrollTop = $( window ).scrollTop();
+    var untilHere = $('html, body').height() - $('footer').height() - 117;
+
+    if (scrollTop > (footerOT - footerHeight + 60)) {
+        element.addClass('register-static')
+        element.css('top', untilHere);
+    } else {
+        element.removeClass('register-static');
+        element.css('top', 'inherit');
+    }
+});
