@@ -529,13 +529,12 @@ $('.disabled').on('click', function(e) {
 
 $( window ).on( 'scroll', function() {
     var element = $('.register-button');
-    var footer = $('footer');
     var footerOT = $('footer').offset().top;
-    var footerHeight = $('footer').height();
+    var windowHeight = $(window).height();
     var scrollTop = $( window ).scrollTop();
-    var untilHere = $('html, body').height() - $('footer').height() - 117;
+    var untilHere = $('html, body').height() - $('footer').height() - 180;
 
-    if (scrollTop > (footerOT - footerHeight + 60)) {
+    if (scrollTop > (footerOT - windowHeight)) {
         element.addClass('register-static')
         element.css('top', untilHere);
     } else {
