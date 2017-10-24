@@ -70,7 +70,7 @@ strong                                          { font-weight: 600; }
 }
 #register-form .submit-fixed 	{ height: 126px; }
 #site-register #register-form input[type="submit"]	{ height: 40px; border: 1px solid #fff; margin-bottom: 8px; box-shadow: 1px 1px 3px rgba(0,0,0,0.3); border-radius: 0; }
-#site-register .cancel-label                    { display: inline-block; background-color: #f6f6f6; font-size: 14px; text-align: center; position: relative; left: 50%; transform: translateX(-50%); }
+#site-register .cancel-label                    { display: inline-block; background-color: #f6f6f6; font-size: 14px; position: relative; left: 50%; line-height: 1.4; transform: translateX(-50%); }
 
 /**********************************
     Lists Styles
@@ -340,7 +340,7 @@ a:focus { color: #039772; }
 .modal { margin: 0 15px; }
 .modal-body { padding: 19px; }
 iframe { width: 100%; }
-.info-title { font-size: 16px; }
+.info-title { font-size: 16px; line-height: 1.4; }
 
 .btn { text-decoration: none; }
 .btn-prima,
@@ -371,6 +371,13 @@ iframe { width: 100%; }
 }
 .btn-misalud:hover,
 .btn-misalud:focus { color: #fff; }
+
+.btn-return {
+    display: block;
+    width: 50%;
+    margin: auto;
+}
+
 #materials .btn-misalud { vertical-align: bottom; }
 
 #messageModal .btn-prima { width: 50%; }
@@ -464,6 +471,15 @@ iframe { width: 100%; }
 }
 #material-section .collpase-button::before { width: 26px; left: 2px; }
 #material-section .panel-body img { width: 50%; margin: 0 30px 10px 0; }
+
+.blue-link {
+    color: #130fed;
+    padding: 0;
+    font-size: inherit;
+    font-weight: inherit;
+}
+.blue-link:hover,
+.blue-link:focus { color: #252592; }
 
 @keyframes spin {
     0% { transform: rotate(0deg); }
