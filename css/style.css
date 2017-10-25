@@ -270,6 +270,16 @@ a:focus { color: #039772; }
     color: #0c9;
 }
 
+#message-panel [class*="pull-"] {
+    background-color: #0c9;
+    margin-bottom: 10px;
+}
+#message-panel [class*="pull-"] > span {
+    padding: 15px 15px;
+    margin-top: -4px;
+    color: #fff;
+}
+
 /* Datepicker styles
  * ---------------------------*/
 
