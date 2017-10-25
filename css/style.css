@@ -263,6 +263,7 @@ a:focus { color: #039772; }
 
 #message-panel .panel .panel-heading {
     color: #fff;
+    text-align: center;
 }
 
 #message-panel .mobile-control {
@@ -271,7 +272,8 @@ a:focus { color: #039772; }
 }
 
 #message-panel [class*="pull-"] {
-    background-color: #0c9;
+    position: absolute;
+    top: 2px;
     margin-bottom: 10px;
 }
 #message-panel [class*="pull-"] > span {
@@ -279,6 +281,7 @@ a:focus { color: #039772; }
     margin-top: -4px;
     color: #fff;
 }
+#message-panel .pull-right { right: 15px; }
 
 /* Datepicker styles
  * ---------------------------*/
