@@ -70,7 +70,7 @@ strong                                          { font-weight: 600; }
 }
 #register-form .submit-fixed 	{ height: 126px; }
 #site-register #register-form input[type="submit"]	{ height: 40px; border: 1px solid #fff; margin-bottom: 8px; box-shadow: 1px 1px 3px rgba(0,0,0,0.3); border-radius: 0; }
-#site-register .cancel-label                    { display: inline-block; background-color: #f6f6f6; font-size: 14px; text-align: center; position: relative; left: 50%; transform: translateX(-50%); }
+#site-register .cancel-label                    { display: inline-block; background-color: #f6f6f6; font-size: 14px; position: relative; left: 50%; line-height: 1.4; transform: translateX(-50%); }
 
 /**********************************
     Lists Styles
@@ -82,7 +82,9 @@ ul.sidebar                                      { padding: 0; list-style: none; 
 ul.sidebar > li                                 { padding-left: 20px; line-height: 40px; border-bottom: 1px solid #979797; color: #979797; cursor: pointer; }
 ul.sidebar > li:hover                           { background-color: #0c9; color: #fff; }
 
-.register-button                                { width: 170px; height: 40px; padding-left: 40px; background-color: #0c9; border-right: none; text-align: left; border-bottom-left-radius: 20px; border-top-left-radius: 20px; position: fixed; right: 0; bottom: 100px; box-shadow: 0 1px 3px rgba(0,0,0,0.5), inset 0 0 2px rgba(0,0,0,0.3); }
+.register-button                                { width: 170px; height: 40px; padding-left: 40px; background-color: #0c9; border-right: none; text-align: left; border-bottom-left-radius: 20px; border-top-left-radius: 20px; position: fixed; right: 0; bottom: 100px; box-shadow: 0 1px 3px rgba(0,0,0,0.5), inset 0 0 2px rgba(0,0,0,0.3); z-index: 2; }
+.register-static                                { position: absolute; bottom: inherit; }
+#tryit-section .register-static                 { position: absolute; bottom: 100px; top: inherit !important; }
 .register-button > a                            { font-family: 'Roboto'; font-size: 18px; font-weight: 400; line-height: 40px; color: #fff; }
 .register-button > a:after                      { content: ' '; display: inline-block; width: 20px; height: 20px; margin-left: 10px; border: 1.5px solid #fff; border-radius: 10px; position: relative; top: 4px; }
 
@@ -261,12 +263,25 @@ a:focus { color: #039772; }
 
 #message-panel .panel .panel-heading {
     color: #fff;
+    text-align: center;
 }
 
 #message-panel .mobile-control {
     cursor: pointer;
     color: #0c9;
 }
+
+#message-panel [class*="pull-"] {
+    position: absolute;
+    top: 2px;
+    margin-bottom: 10px;
+}
+#message-panel [class*="pull-"] > span {
+    padding: 15px 15px;
+    margin-top: -4px;
+    color: #fff;
+}
+#message-panel .pull-right { right: 15px; }
 
 /* Datepicker styles
  * ---------------------------*/
@@ -338,7 +353,7 @@ a:focus { color: #039772; }
 .modal { margin: 0 15px; }
 .modal-body { padding: 19px; }
 iframe { width: 100%; }
-.info-title { font-size: 16px; }
+.info-title { font-size: 16px; line-height: 1.4; }
 
 .btn { text-decoration: none; }
 .btn-prima,
@@ -369,6 +384,13 @@ iframe { width: 100%; }
 }
 .btn-misalud:hover,
 .btn-misalud:focus { color: #fff; }
+
+.btn-return {
+    display: block;
+    width: 50%;
+    margin: auto;
+}
+
 #materials .btn-misalud { vertical-align: bottom; }
 
 #messageModal .btn-prima { width: 50%; }
@@ -462,6 +484,15 @@ iframe { width: 100%; }
 }
 #material-section .collpase-button::before { width: 26px; left: 2px; }
 #material-section .panel-body img { width: 50%; margin: 0 30px 10px 0; }
+
+.blue-link {
+    color: #130fed;
+    padding: 0;
+    font-size: inherit;
+    font-weight: inherit;
+}
+.blue-link:hover,
+.blue-link:focus { color: #252592; }
 
 @keyframes spin {
     0% { transform: rotate(0deg); }

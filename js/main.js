@@ -121,9 +121,19 @@ var GobMXMiSalud    = {
 
                     setMobileData( activeIndex );
 
-                    $( '#mobile-control-left' ).click( function ( e ) {
-                        e.preventDefault();
+                    function getNextMessage() {
+                        var filtered    = _.filter( mobileMessagesData, function ( m ) {
+                            return m.startDate > mobileMessagesData[ activeIndex ].startDate;
+                        });
 
+                        activeIndex     = _.findIndex( mobileMessagesData, function ( d ) {
+                            return d.id == filtered[0].id;
+                        });
+
+                        setMobileData( activeIndex );
+                    }
+
+                    function getPreviousMessage() {
                         var filtered    = _.filter( mobileMessagesData, function ( m ) {
                             return m.startDate < mobileMessagesData[ activeIndex ].startDate;
                         });
@@ -139,20 +149,69 @@ var GobMXMiSalud    = {
 
                             setMobileData( activeIndex );
                         }
+                    }
+
+                    $( '#mobile-control-left' ).click( function ( e ) {
+                        e.preventDefault();
+                        getPreviousMessage();
                     });
                     $( '#mobile-control-right' ).click( function ( e ) {
                         e.preventDefault();
-
-                        var filtered    = _.filter( mobileMessagesData, function ( m ) {
-                            return m.startDate > mobileMessagesData[ activeIndex ].startDate;
-                        });
-
-                        activeIndex     = _.findIndex( mobileMessagesData, function ( d ) {
-                            return d.id == filtered[0].id;
-                        });
-
-                        setMobileData( activeIndex );
+                        getNextMessage();
                     });
+
+                    var touchStartCoords =  {'x':-1, 'y':-1}, // X and Y coordinates on mousedown or touchstart events.
+                    touchEndCoords = {'x':-1, 'y':-1},// X and Y coordinates on mouseup or touchend events.
+                    direction = 'undefined',// Swipe direction
+                    minDistanceXAxis = 30,// Min distance on mousemove or touchmove on the X axis
+                    maxDistanceYAxis = 30,// Max distance on mousemove or touchmove on the Y axis
+                    maxAllowedTime = 1000,// Max allowed time between swipeStart and swipeEnd
+                    startTime = 0,// Time on swipeStart
+                    elapsedTime = 0,// Elapsed time between swipeStart and swipeEnd
+                    targetElement = document.getElementById('message-panel');// Element to delegate
+
+                    function swipeStart(e) {
+                        e = e ? e : window.event;
+                        e = ('changedTouches' in e)?e.changedTouches[0] : e;
+                        touchStartCoords = {'x':e.pageX, 'y':e.pageY};
+                        startTime = new Date().getTime();
+                    }
+                    
+                    function swipeMove(e){
+                        e = e ? e : window.event;
+                        e.preventDefault();
+                    }
+                    
+                    function swipeEnd(e) {
+                        e = e ? e : window.event;
+                        e = ('changedTouches' in e)?e.changedTouches[0] : e;
+                        touchEndCoords = {'x':e.pageX - touchStartCoords.x, 'y':e.pageY - touchStartCoords.y};
+                        elapsedTime = new Date().getTime() - startTime;
+                        if (elapsedTime <= maxAllowedTime){
+                            if (Math.abs(touchEndCoords.x) >= minDistanceXAxis && Math.abs(touchEndCoords.y) <= maxDistanceYAxis){
+                                direction = (touchEndCoords.x < 0)? 'left' : 'right';
+                                switch(direction){
+                                case 'left':
+                                    getNextMessage();
+                                    break;
+                                case 'right':
+                                    getPreviousMessage();
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    
+                    function addMultipleListeners(el, s, fn) {
+                        var evts = s.split(' ');
+                        for (var i=0, iLen=evts.length; i<iLen; i++) {
+                        el.addEventListener(evts[i], fn, false);
+                        }
+                    }
+
+                    addMultipleListeners(targetElement, 'mousedown touchstart', swipeStart);
+                    addMultipleListeners(targetElement, 'mousemove touchmove', swipeMove);
+                    addMultipleListeners(targetElement, 'mouseup touchend', swipeEnd);
                 }
 
                 function selectDay(e) {
@@ -525,4 +584,20 @@ $('#simulator-phone .close.rounded').on('click', function() {
 // No permite la propagación del disabled
 $('.disabled').on('click', function(e) {
     e.preventDefault();
+});
+
+$( window ).on( 'scroll', function() {
+    var element = $('.register-button');
+    var footerOT = $('footer').offset().top;
+    var windowHeight = $(window).height();
+    var scrollTop = $( window ).scrollTop();
+    var untilHere = $('html, body').height() - $('footer').height() - 180;
+
+    if (scrollTop > (footerOT - windowHeight)) {
+        element.addClass('register-static')
+        element.css('top', untilHere);
+    } else {
+        element.removeClass('register-static');
+        element.css('top', 'inherit');
+    }
 });
