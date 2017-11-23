@@ -9,7 +9,7 @@ body                                            { padding-top: 93px; font-family
 gobmx-navbar                                    { width: 100%; position: fixed; top: 0; z-index: 9999; }
 img                                             { max-width: 100%; }
 label                                           { font-size: 16px; }
-#site-banner                                    { padding: 90px 0; background: url(../img/ic-bg.png) no-repeat; text-align: center; }
+#site-banner                                    { padding: 90px 0; background: url(../img/ic-bg.png) no-repeat; text-align: center; background-size: cover; }
 #site-banner img                                { margin-bottom: 20px; }
 #site-banner a.banner-btn,
 #site-banner button                             { margin-right: 10px; padding: 10px 20px; background-color: transparent; border: 1px solid #fff; border-radius: 10px; font-family: "Roboto"; font-size: 21px; color: #fff; }
