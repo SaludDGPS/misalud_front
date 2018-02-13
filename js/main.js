@@ -415,7 +415,8 @@ var GobMXMiSalud    = {
             $this.after('<div class="select-styled"></div>');
 
             var $styledSelect = $this.next('div.select-styled');
-            $styledSelect.text($this.children('option').eq(0).text());
+            $styledSelect.text($this.children('option').eq(1).text());
+            $('#media').val("facebook");
 
             var $list = $('<ul />', {
                 'class': 'select-options'
