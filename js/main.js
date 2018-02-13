@@ -176,12 +176,12 @@ var GobMXMiSalud    = {
                         touchStartCoords = {'x':e.pageX, 'y':e.pageY};
                         startTime = new Date().getTime();
                     }
-                    
+
                     function swipeMove(e){
                         e = e ? e : window.event;
                         e.preventDefault();
                     }
-                    
+
                     function swipeEnd(e) {
                         e = e ? e : window.event;
                         e = ('changedTouches' in e)?e.changedTouches[0] : e;
@@ -201,7 +201,7 @@ var GobMXMiSalud    = {
                             }
                         }
                     }
-                    
+
                     function addMultipleListeners(el, s, fn) {
                         var evts = s.split(' ');
                         for (var i=0, iLen=evts.length; i<iLen; i++) {
@@ -470,17 +470,17 @@ var GobMXMiSalud    = {
             if ( media == 'facebook' ) {
                 window.open( 'http://m.me/gobmxmisalud', '_blank' );
             } else if ( media == 'sms' ) {
-                var captchaResponse     = grecaptcha.getResponse();
-                if ( captchaResponse == '' ) {
-                    $('#messageModal .modal-body p').text( "No pudimos completar tu registro. Por favor revisa que todos los datos sean correctos." );
-                    $('#messageModal').modal('show');
-                } else if ( !phoneEl.val() || phoneEl.val() == '' ) {
-                    $('#messageModal .modal-body p').text("Ingrese su número telefónico.");
-                    $('#messageModal').modal('show');
-                } else if (!/^\d{10}$/.test(phoneEl.val()) ) {
-                    $('#messageModal .modal-body p').text("Ingrese un número telefónico correcto (de 10 dígitos).");
-                    $('#messageModal').modal('show');
-                } else {
+                //var captchaResponse     = grecaptcha.getResponse();
+                //if ( captchaResponse == '' ) {
+                //    $('#messageModal .modal-body p').text( "No pudimos completar tu registro. Por favor revisa que todos los datos sean correctos." );
+                //    $('#messageModal').modal('show');
+                //} else if ( !phoneEl.val() || phoneEl.val() == '' ) {
+                //    $('#messageModal .modal-body p').text("Ingrese su número telefónico.");
+                //    $('#messageModal').modal('show');
+                //} else if (!/^\d{10}$/.test(phoneEl.val()) ) {
+                //    $('#messageModal .modal-body p').text("Ingrese un número telefónico correcto (de 10 dígitos).");
+                //    $('#messageModal').modal('show');
+                //} else {
                     $('#loader-container').css('display', 'block');
                     var contact_url = "https://rapidpro.datos.gob.mx/misalud/";
                     var contact_uuid;
@@ -505,21 +505,8 @@ var GobMXMiSalud    = {
                               ;
                               $('#confirmRegModal').modal('show');
                               $('#confirmRegModal .btn-prima').on('click', function() {
-                                  //Ask to rapidpro uuid
-                                  $.ajax({
-                                      url: contact_url,
-                                      type: 'GET',
-                                      data        : {"urns": 'tel:+52'+phoneEl.val(),
-                                                     "token":"436d7fcbf36d026aba085a8adfa7f14796c06a38",
-                                                     "type_operation": "get_contact"
-                                                    },
-                                      dateType: 'json',
-                                      success: function(data) {
-                                         contact_uuid = data['uuid'];
-                                         flow_to_run = "20308c47-002a-446c-a4f8-a21482f66bc8" ;
-                                        beginFlow(flow_to_run, contact_uuid);
-                                      }
-                                 });
+                                  flow_to_run = "20308c47-002a-446c-a4f8-a21482f66bc8" ;
+                                  beginFlow(flow_to_run,phoneEl.val());
                                   $('#confirmRegModal').modal('hide');
                               });
                         },
@@ -528,15 +515,14 @@ var GobMXMiSalud    = {
                             $( '.btn-primary', formEl ).addClass( 'disabled' ).attr( 'disabled', true );
 
                             $( '#loader-container' ).css( 'display', 'none' );
-                            var contact_uuid = res['uuid'];
                             flow_to_run= "dc950557-3519-4fd7-8385-52187cf84df9";
-                            beginFlow(flow_to_run,contact_uuid);
+                            beginFlow(flow_to_run,phoneEl.val());
                             $( '#messageModal .modal-body p' ).text( "¡Registro exitoso! Pronto recibirás un mensaje de misalud a tu celular" );
                             $( '#messageModal' ).modal('show');
                         },
                     })
             }
-         }
+         //}
             return false;
         });
 
@@ -563,7 +549,7 @@ $( document ).ready( GobMXMiSalud.init )
 // Funtion to begin a rapidpro flow
 function beginFlow (flow_to_run, contact_uuid) {
   $.ajax({
-      url         : "https://rapidpro.datos.gob.mx/misalud/",
+      url         : "https://rapidpro.datos.gob.mx/misalud/", 
       type        : 'GET',
       data        : {"flow" : flow_to_run,
                      "contacts": contact_uuid,
