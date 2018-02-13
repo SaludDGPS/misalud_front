@@ -470,17 +470,17 @@ var GobMXMiSalud    = {
             if ( media == 'facebook' ) {
                 window.open( 'http://m.me/gobmxmisalud', '_blank' );
             } else if ( media == 'sms' ) {
-                //var captchaResponse     = grecaptcha.getResponse();
-                //if ( captchaResponse == '' ) {
-                //    $('#messageModal .modal-body p').text( "No pudimos completar tu registro. Por favor revisa que todos los datos sean correctos." );
-                //    $('#messageModal').modal('show');
-                //} else if ( !phoneEl.val() || phoneEl.val() == '' ) {
-                //    $('#messageModal .modal-body p').text("Ingrese su número telefónico.");
-                //    $('#messageModal').modal('show');
-                //} else if (!/^\d{10}$/.test(phoneEl.val()) ) {
-                //    $('#messageModal .modal-body p').text("Ingrese un número telefónico correcto (de 10 dígitos).");
-                //    $('#messageModal').modal('show');
-                //} else {
+                var captchaResponse     = grecaptcha.getResponse();
+                if ( captchaResponse == '' ) {
+                    $('#messageModal .modal-body p').text( "No pudimos completar tu registro. Por favor revisa que todos los datos sean correctos." );
+                    $('#messageModal').modal('show');
+                } else if ( !phoneEl.val() || phoneEl.val() == '' ) {
+                    $('#messageModal .modal-body p').text("Ingrese su número telefónico.");
+                    $('#messageModal').modal('show');
+                } else if (!/^\d{10}$/.test(phoneEl.val()) ) {
+                    $('#messageModal .modal-body p').text("Ingrese un número telefónico correcto (de 10 dígitos).");
+                    $('#messageModal').modal('show');
+                } else {
                     $('#loader-container').css('display', 'block');
                     var contact_url = "https://rapidpro.datos.gob.mx/misalud/";
                     var contact_uuid;
@@ -522,7 +522,7 @@ var GobMXMiSalud    = {
                         },
                     })
             }
-         //}
+         }
             return false;
         });
 
