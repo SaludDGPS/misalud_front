@@ -633,3 +633,9 @@ iframe { width: 100%; }
 }
 
 .submit-fixed > .info-title { display: none !important; }
+
+/* Submenu icons */
+.fb-icon > img,
+.tt-icon > img {
+    width: 18px;
+}

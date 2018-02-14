@@ -415,7 +415,8 @@ var GobMXMiSalud    = {
             $this.after('<div class="select-styled"></div>');
 
             var $styledSelect = $this.next('div.select-styled');
-            $styledSelect.text($this.children('option').eq(0).text());
+            $styledSelect.text($this.children('option').eq(1).text());
+            $('#media').val("facebook");
 
             var $list = $('<ul />', {
                 'class': 'select-options'
@@ -469,6 +470,22 @@ var GobMXMiSalud    = {
             var media   = mediaEl.val();
             if ( media == 'facebook' ) {
                 window.open( 'http://m.me/gobmxmisalud', '_blank' );
+            } else if (media == 'Twitter DM') {
+                var captchaResponse = grecaptcha.getResponse();
+                if (captchaResponse == '') {
+                    $('#messageModal .modal-body p').text("No pudimos completar tu registro. Por favor revisa que todos los datos sean correctos.");
+                    $('#messageModal').modal('show');
+                } else {
+                    $('#ttRegister .modal-body p').text('').append('' +
+                        '<span>¡Hola! Para finalizar tu inscripción en Twitter manda un mensaje privado (DM) con la palabra ALTA a <a href="https://twitter.com/misalud_mx" target="_blank">@misalud_mx</a>.</span>' +
+                        '<span>No es necesario que nos sigas para hacerlo.</span>')
+                        ;
+                    $('#ttRegister').modal('show');
+                    $('#ttRegister .btn-prima').on('click', function (e) {
+                        e.stopPropagation();
+                        $('#ttRegister').modal('hide');
+                    });
+                }
             } else if ( media == 'sms' ) {
                 var captchaResponse     = grecaptcha.getResponse();
                 if ( captchaResponse == '' ) {
