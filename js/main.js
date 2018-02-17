@@ -416,6 +416,8 @@ var GobMXMiSalud    = {
 
             var $styledSelect = $this.next('div.select-styled');
             $styledSelect.text($this.children('option').eq(0).text());
+            $('#info').val("Materno - Infantil");
+            $('#media').val("facebook");
 
             var $list = $('<ul />', {
                 'class': 'select-options'
@@ -431,6 +433,8 @@ var GobMXMiSalud    = {
 
             var $listItems = $list.children('li');
 
+            GobMXMiSalud.setupDDwnRegister();
+
             $styledSelect.click(function(e) {
                 e.stopPropagation();
                 $('div.select-styled.active').not(this).each(function(){
@@ -438,6 +442,7 @@ var GobMXMiSalud    = {
                 });
                 $(this).toggleClass('active').next('ul.select-options').toggle();
             });
+            
 
             $listItems.click(function(e) {
                 e.stopPropagation();
@@ -458,22 +463,77 @@ var GobMXMiSalud    = {
         });
     },
 
+    setupDDwnRegister: function() {
+        if ($('#info').val() === "Vacunación infantil" && $('#media').val() === "sms") {
+            $('#media + .select-styled').text("Facebook");
+            $('#media').val("facebook");
+            $('.form-submit').addClass('submit-fixed');
+            $('#phone-number').fadeOut();
+            $('.select-options > li[rel="sms"]').css('display', 'none');
+        } else if ($('#info').val() === "Vacunación infantil") {
+            $('.select-options > li[rel="sms"]').css('display', 'none');
+        } else {
+            $('.select-options > li[rel="sms"]').css('display', 'block');
+        }
+    },
+
     setupRegister   : function () {
-        var mediaEl = $( '#media' ),
+        var infoEl = $('#info'),
+            mediaEl = $( '#media' ),
             phoneEl = $( '#phone-number' ),
             formEl  = $( '#register-form' ),
             self = this;
 
+        
+
         formEl.submit( function ( e ) {
             e.preventDefault();
+            var info = infoEl.val();
             var media   = mediaEl.val();
+            var captchaResponse = grecaptcha.getResponse();
+
+            function showModalAlert() {
+                $('#messageModal .modal-body p').text("No pudimos completar tu registro. Por favor revisa que todos los datos sean correctos.");
+                $('#messageModal').modal('show');
+            }
+            
             if ( media == 'facebook' ) {
-                window.open( 'http://m.me/gobmxmisalud', '_blank' );
+                if (captchaResponse == '') {
+                    showModalAlert();
+                } else {
+                    window.open('http://m.me/gobmxmisalud', '_blank');
+                }
+            } else if (info == 'Vacunación infantil' && media == 'Twitter DM') {
+                if (captchaResponse == '') {
+                    showModalAlert();
+                } else {
+                    $('#ttRegister .modal-body p').text('').append('' +
+                        '<span>¡Hola! Para finalizar tu inscripción en Twitter manda un mensaje privado (DM) con la palabra VACUNA a <a href="https://twitter.com/misalud_mx" target="_blank">@misalud_mx</a>. </span>' +
+                        '<span>No es necesario que nos sigas para hacerlo.</span>')
+                        ;
+                    $('#ttRegister').modal('show');
+                    $('#ttRegister .btn-prima').on('click', function (e) {
+                        e.stopPropagation();
+                        $('#ttRegister').modal('hide');
+                    });
+                }
+            } else if (media == 'Twitter DM') {
+                if (captchaResponse == '') {
+                    showModalAlert();
+                } else {
+                    $('#ttRegister .modal-body p').text('').append('' +
+                        '<span>¡Hola! Para finalizar tu inscripción en Twitter manda un mensaje privado (DM) con la palabra ALTA a <a href="https://twitter.com/misalud_mx" target="_blank">@misalud_mx</a>. </span>' +
+                        '<span>No es necesario que nos sigas para hacerlo.</span>')
+                        ;
+                    $('#ttRegister').modal('show');
+                    $('#ttRegister .btn-prima').on('click', function (e) {
+                        e.stopPropagation();
+                        $('#ttRegister').modal('hide');
+                    });
+                }
             } else if ( media == 'sms' ) {
-                var captchaResponse     = grecaptcha.getResponse();
                 if ( captchaResponse == '' ) {
-                    $('#messageModal .modal-body p').text( "No pudimos completar tu registro. Por favor revisa que todos los datos sean correctos." );
-                    $('#messageModal').modal('show');
+                    showModalAlert();
                 } else if ( !phoneEl.val() || phoneEl.val() == '' ) {
                     $('#messageModal .modal-body p').text("Ingrese su número telefónico.");
                     $('#messageModal').modal('show');
@@ -525,6 +585,10 @@ var GobMXMiSalud    = {
             }
          }
             return false;
+        });
+
+        infoEl.change(function() {
+            GobMXMiSalud.setupDDwnRegister();
         });
 
         mediaEl.change( function () {

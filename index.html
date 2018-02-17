@@ -41,7 +41,18 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="hide-on-desktop"><a href="que-es.html">¿Qué es?</a></li>
                         <li><a href="materna.html">Materna</a></li>
+                        <li><a href="vacunacion.html">Vacunación infantil</a></li>
                         <li><a href="registrate.html">Regístrate</a></li>
+                        <li>
+                            <a href="https://www.facebook.com/gobmxmisalud/" class="fb-icon" target="_blank" aria-label="Facebook de misalud">
+                                <img src="img/ic-fb.png" alt="facebook">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/misalud_mx" class="tt-icon" target="_blank" aria-label="Twitter de misalud">
+                                <img src="img/ic-tt.png" alt="twitter">
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -68,7 +79,8 @@
 	                                <div class="form-group fixed">
 	                                    <label for="info">¿Qué información deseas recibir?</label>
 	                                    <select name="info" id="info" class="form-control custom-select">
-	                                        <option value="Materno - Infantil">Materno - Infantil</option>
+                                            <option value="Materno - Infantil">Materno - Infantil</option>
+                                            <option value="Vacunación infantil">Vacunación infantil</option>
 	                                        <option value="Diabetes" disabled="disabled">Diabetes (próximamente)</option>
 	                                    </select>
 	                                </div>
@@ -77,16 +89,15 @@
 	                                <div class="form-group fixed">
 	                                    <label for="media">¿Por qué medio quieres recibir la información?</label>
 	                                    <select name="media" id="media" class="form-control custom-select">
-		                                    <option value="sms">Mensajes de Texto (SMS)</option>
 	                                        <option value="facebook">Facebook</option>
-	                                        <option value="Twitter DM" disabled="disabled">Twitter - mensajes directos (próximamente)</option>
+	                                        <option value="Twitter DM">Twitter - mensajes directos</option>
 	                                    </select>
 	                                </div>
 	                            </div>
 	                            <div class="col-md-4">
-	                                <div class="form-group form-submit">
+	                                <div class="form-group form-submit submit-fixed">
                                         <label class="info-title" for="media">Ingresa la siguiente información</label>
-                                        <input type="tel" name="phone-number" id="phone-number" class="form-control" placeholder="Número telefónico">
+                                        <input type="tel" name="phone-number" id="phone-number" class="form-control" placeholder="Número telefónico" style="display: none;">
                                         <div id="recaptcha" class="g-recaptcha" data-sitekey="6Ley2i0UAAAAAMBow4zLwaR_2uaAH6JhSm0VXsef"></div>
 	                                    <input type="submit" class="btn btn-primary" value="Registrarme">
 	                                </div>
@@ -143,7 +154,7 @@
                         <div class="site-widget">
                             <h2>Salud materna e infantil</h2>
                             <p>Si actualmente estás embarazada o tienes un hijo con hasta dos años de vida</p>
-                            <img src="img/ic-child.png">
+                            <img src="img/ic-materna.svg">
                             <a href="materna.html" class="read-more">Ver más</a>
                         </div>
                     </div>
@@ -151,8 +162,24 @@
                         <div class="site-widget">
                             <h2>Enfermedades crónicas</h2>
                             <p>Si has sido diagnosticado con Diabetes mellitus o hipertensión, sobrepeso o obesidad</p>
-                            <img src="img/ic-diseases.png">
+                            <img src="img/ic-cronicas.svg">
                             <a href="#" class="read-more disabled">Próximamente</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="site-widget">
+                            <h2>#GeneraciónSinAdicción</h2>
+                            <p>Herramientas que te permiten conocer si tú o alguien más está en riesgo de consumo de drogas y adicciones</p>
+                            <img src="img/ic-sin-adicciones.svg">
+                            <a href="#" class="read-more disabled">Próximamente</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="site-widget">
+                            <h2>Vacunación infantil</h2>
+                            <p>Recordatorios de vacunación si actualmente tienes hijos/as menores a 6 años de edad</p>
+                            <img src="img/ic-vacunacion.svg">
+                            <a href="vacunacion.html" class="read-more">Ver más</a>
                         </div>
                     </div>
                 </div>
@@ -173,6 +200,17 @@
                     <div class="modal-body">
                         <p>Mensaje aqui</p>
                         <button class="btn btn-prima" data-dismiss="modal" aria-label="Close">Volver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="ttRegister" tabindex="-1" role="dialog" aria-labelledby="ttRegisterLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p>Mensaje aqui</p>
+                        <button class="btn btn-cancel" data-dismiss="modal" aria-label="Close">Cancelar</button>
+                        <a href="https://twitter.com/misalud_mx" target="_blank" class="btn btn-prima">Registrarme</a>
                     </div>
                 </div>
             </div>
@@ -212,6 +250,6 @@
         <script src="bower_components/bootstrap-year-calendar/js/bootstrap-year-calendar.min.js"></script>
         <script src="bower_components/moment/min/moment.min.js"></script>
         <script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-        <script src="js/main.js"></script> 
+        <script src="js/main.js"></script>
     </body>
 </html>

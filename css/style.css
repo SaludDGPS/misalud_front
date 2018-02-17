@@ -33,7 +33,7 @@ label                                           { font-size: 16px; }
 h1                                              { margin-bottom: 30px; padding-left: 10px; padding-bottom: 10px; font-family: "Roboto"; font-weight: 600; font-size: 28px; color: #000; border-bottom: 1px solid #979797; position: relative; }
 h1:after                                        { display: block; content: ' '; width: 30px; height: 3px; background-color: #0c9; position: absolute; left: 0; bottom: -4px; }
 #site-banner p                                  { margin-bottom: 30px; font-family: "Roboto"; font-size: 30px; font-weight: 300; color: #fff; }
-.site-widget h2                                 { font-family: "Roboto"; font-size: 20px; font-weight: 700; line-height: 1.5em;  color: #0c9; text-transform: uppercase; text-decoration: underline; }
+.site-widget h2                                 { font-family: "Roboto"; font-size: 20px; font-weight: 700; line-height: 1.5em; }
 #sms-section h3                                 { font-family: "Roboto"; font-size: 16px; font-weight: 700; line-height: 1.5em;  color: #0c9; }
 p                                               { margin-bottom: 20px; }
 strong                                          { font-weight: 600; }
@@ -97,11 +97,11 @@ ul.sidebar > li:hover                           { background-color: #0c9; color:
 /**********************************
     Widgets Styles
 **********************************/
-.site-widget                                    { margin-bottom: 30px; background-color: #DAF8EC; border-radius: 5px; text-align: center; }
+.site-widget                                    { margin-bottom: 30px; border-radius: 13px; text-align: center; padding: 1px; box-shadow: 0 0 6px #aaa; }
 .site-widget h2,
-.site-widget p                                  { padding: 0 60px; }
-.site-widget h2                                 { padding-top: 30px; }
-.site-widget .read-more                         { display: block; margin-top: 30px; padding: 10px; background-color: #0c9; font-family: "Roboto"; font-size: 18px; font-weight: 700; text-align: center; color: #fff; border-radius: 0 0 5px 5px; }
+.site-widget p                                  { padding: 0 20px; }
+.site-widget img                                { width: 100px; }
+.site-widget .read-more                         { display: block; width:170px; margin: 30px auto 15px; padding: 6px; background-color: #0c9; font-family: "Roboto"; font-size: 14px; font-weight: 700; text-align: center; text-decoration: none; text-transform: uppercase; color: #fff; border-radius: 30px; }
 
 #tryit-section label                            { display: block; margin-bottom: 10px; }
 #tryit-section .input-group                     { max-width: 100%; margin-top: 10px; box-shadow: 1px 1px 3px rgba(0,0,0,0.3); border-radius: 0px; }
@@ -394,8 +394,24 @@ iframe { width: 100%; }
 #materials .btn-misalud { vertical-align: bottom; }
 
 #messageModal .btn-prima { width: 50%; }
-#confirmRegModal .btn-prima,
-#confirmRegModal .btn-cancel { width: 45%; }
+
+@media screen and (max-width: 355px) {
+    #confirmRegModal .btn-prima,
+    #confirmRegModal .btn-cancel,
+    #ttRegister .btn-prima,
+    #ttRegister .btn-cancel {
+        width: 100%;
+        margin: 0 0 10px 0;
+    }
+}
+@media screen and (min-width: 355px) {
+    #confirmRegModal .btn-prima,
+    #confirmRegModal .btn-cancel,
+    #ttRegister .btn-prima,
+    #ttRegister .btn-cancel {
+        width: 48%;
+    }
+}
 
 #messageModal .modal-body,
 #confirmRegModal .modal-body {
@@ -561,9 +577,9 @@ iframe { width: 100%; }
     #info > option[value="Cronicas"],
     .select-options > li[rel="Cronicas"],
     #media > option[value="App"],
-    .select-options > li[rel="App"],
-    #media > option[value="Twitter DM"],
-    .select-options > li[rel="Twitter DM"] {
+    .select-options > li[rel="App"] {
+    /* #media > option[value="Twitter DM"],
+    .select-options > li[rel="Twitter DM"] { */
         display: none;
     }
 
@@ -633,3 +649,9 @@ iframe { width: 100%; }
 }
 
 .submit-fixed > .info-title { display: none !important; }
+
+/* Submenu icons */
+.fb-icon > img,
+.tt-icon > img {
+    width: 18px;
+}
