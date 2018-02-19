@@ -501,14 +501,14 @@ var GobMXMiSalud    = {
                 if (captchaResponse == '') {
                     showModalAlert();
                 } else {
-                    window.open('http://m.me/gobmxmisalud', '_blank');
+                    window.open('http://m.me/SecretariadeSaludMX', '_blank');
                 }
             } else if (info == 'Vacunación infantil' && media == 'Twitter DM') {
                 if (captchaResponse == '') {
                     showModalAlert();
                 } else {
                     $('#ttRegister .modal-body p').text('').append('' +
-                        '<span>¡Hola! Para finalizar tu inscripción en Twitter manda un mensaje privado (DM) con la palabra VACUNA a <a href="https://twitter.com/misalud_mx" target="_blank">@misalud_mx</a>. </span>' +
+                        '<span>¡Hola! Para finalizar tu inscripción en Twitter manda un mensaje privado (DM) con la palabra VACUNA a <a href="https://twitter.com/SSalud_mx" target="_blank">@SSalud_mx</a>. </span>' +
                         '<span>No es necesario que nos sigas para hacerlo.</span>')
                         ;
                     $('#ttRegister').modal('show');
@@ -522,7 +522,7 @@ var GobMXMiSalud    = {
                     showModalAlert();
                 } else {
                     $('#ttRegister .modal-body p').text('').append('' +
-                        '<span>¡Hola! Para finalizar tu inscripción en Twitter manda un mensaje privado (DM) con la palabra ALTA a <a href="https://twitter.com/misalud_mx" target="_blank">@misalud_mx</a>. </span>' +
+                        '<span>¡Hola! Para finalizar tu inscripción en Twitter manda un mensaje privado (DM) con la palabra ALTA a <a href="https://twitter.com/SSalud_mx" target="_blank">@SSalud_mx</a>. </span>' +
                         '<span>No es necesario que nos sigas para hacerlo.</span>')
                         ;
                     $('#ttRegister').modal('show');
