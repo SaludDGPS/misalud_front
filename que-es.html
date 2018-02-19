@@ -69,46 +69,52 @@
             </div>
         </div>
         <div id="site-register" class="hide-on-mobile">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
                         <h1 class="hide-on-desktop">Regístrate</h1>
-						<form id="register-form" class="form register-form">
-	                        <div class="row">
-	                            <div class="col-md-4">
-	                                <div class="form-group fixed">
-	                                    <label for="info">¿Qué información deseas recibir?</label>
-	                                    <select name="info" id="info" class="form-control custom-select">
-	                                        <option value="Materno - Infantil">Materno - Infantil</option>
-	                                        <option value="Cronicas">Crónicas (próximamente)</option>
-	                                    </select>
-	                                </div>
-	                            </div>
-	                            <div class="col-md-4">
-	                                <div class="form-group fixed">
-	                                    <label for="media">¿Por qué medio quieres recibir la información?</label>
-	                                    <select name="media" id="media" class="form-control custom-select">
-	                                        <option value="facebook">Facebook</option>
-	                                        <option value="App">App misalud (próximamente)</option>
-	                                        <option value="Twitter DM">Twitter - mensajes directos (próximamente)</option>
-	                                    </select>
-	                                </div>
-	                            </div>
-	                            <div class="col-md-4">
-	                                <div class="form-group form-submit">
-                                        <label class="info-title hide-on-desktop" for="media">ingresa la siguiente información</label>
-	                                    <input type="text" name="contact-name" id="contact-name" class="form-control" placeholder="Nombre">
-	                                    <input type="tel" name="phone-number" id="phone-number" class="form-control" placeholder="Número telefónico">
-	                                    <input type="submit" class="btn btn-primary" value="Registrarme">
-	                                </div>
-	                            </div>
-	                        </div>
-                            <div id="recaptcha" class="g-recaptcha" data-sitekey="6Ley2i0UAAAAAMBow4zLwaR_2uaAH6JhSm0VXsef"></div>
-	                    </form>
-                        <p class="cancel-label"><strong>¿Qué hago si quiero dejar de recibir los mensajes de </strong><span class="highlight">mi<strong>salud</strong>?</span> Puedes cancelar tu suscripción enviando a misalud la palabra <strong>"CANCELA"</strong> en cualquier momento.</p>
-					</div>
-				</div>
-			</div>
+                        <form id="register-form" class="form register-form">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group fixed">
+                                        <label for="info">¿Qué información deseas recibir?</label>
+                                        <select name="info" id="info" class="form-control custom-select">
+                                            <option value="Materno - Infantil">Materno - Infantil</option>
+                                            <option value="Vacunación infantil">Vacunación infantil</option>
+                                            <option value="Diabetes" disabled="disabled">Diabetes (próximamente)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group fixed">
+                                        <label for="media">¿Por qué medio quieres recibir la información?</label>
+                                        <select name="media" id="media" class="form-control custom-select">
+                                            <option value="facebook">Facebook</option>
+                                            <option value="Twitter DM">Twitter - mensajes directos</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group form-submit submit-fixed">
+                                        <label class="info-title" for="media">Ingresa la siguiente información</label>
+                                        <input type="tel" name="phone-number" id="phone-number" class="form-control" placeholder="Número telefónico" style="display: none;">
+                                        <div id="recaptcha" class="g-recaptcha" data-sitekey="6Ley2i0UAAAAAMBow4zLwaR_2uaAH6JhSm0VXsef"></div>
+                                        <input type="submit" class="btn btn-primary" value="Registrarme">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <p class="cancel-label">
+                            <strong>¿Qué hago si quiero dejar de recibir los mensajes de </strong>
+                            <span class="highlight">mi
+                                <strong>salud</strong>?</span> Puedes cancelar tu suscripción enviando a misalud la palabra
+                            <strong>"CANCELA"</strong> en cualquier momento.
+                            <br>
+                            <button class="btn btn-link blue-link" data-toggle="modal" data-target="#noticeModal">Consulta el aviso de privacidad</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="que-es" class="container">
             <div class="row">
@@ -146,12 +152,15 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1>¿Quién puede participar?</h1>
-                    <p>Actualmente <span class="highlight">mi<strong>salud</strong></span> puede ayudarte si tienes alguna de las siguientes condiciones</p>
+                    <p>Actualmente
+                        <span class="highlight">mi
+                            <strong>salud</strong>
+                        </span> puede ayudarte con:</p>
                     <div class="col-md-6">
                         <div class="site-widget">
                             <h2>Salud materna e infantil</h2>
                             <p>Si actualmente estás embarazada o tienes un hijo con hasta dos años de vida</p>
-                            <img src="img/ic-child.png">
+                            <img src="img/ic-materna.svg">
                             <a href="materna.html" class="read-more">Ver más</a>
                         </div>
                     </div>
@@ -159,8 +168,24 @@
                         <div class="site-widget">
                             <h2>Enfermedades crónicas</h2>
                             <p>Si has sido diagnosticado con Diabetes mellitus o hipertensión, sobrepeso o obesidad</p>
-                            <img src="img/ic-diseases.png">
-                            <a href="#" class="read-more">Próximamente</a>
+                            <img src="img/ic-cronicas.svg">
+                            <a href="#" class="read-more disabled">Próximamente</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="site-widget">
+                            <h2>#GeneraciónSinAdicción</h2>
+                            <p>Herramientas que te permiten conocer si tú o alguien más está en riesgo de consumo de drogas y adicciones</p>
+                            <img src="img/ic-sin-adicciones.svg">
+                            <a href="#" class="read-more disabled">Próximamente</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="site-widget">
+                            <h2>Vacunación infantil</h2>
+                            <p>Recordatorios de vacunación si actualmente tienes hijos/as menores a 6 años de edad</p>
+                            <img src="img/ic-vacunacion.svg">
+                            <a href="vacunacion.html" class="read-more">Ver más</a>
                         </div>
                     </div>
                 </div>
@@ -181,6 +206,17 @@
                     <div class="modal-body">
                         <p>Mensaje aqui</p>
                         <button class="btn btn-prima" data-dismiss="modal" aria-label="Close">Volver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="ttRegister" tabindex="-1" role="dialog" aria-labelledby="ttRegisterLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p>Mensaje aqui</p>
+                        <button class="btn btn-cancel" data-dismiss="modal" aria-label="Close">Cancelar</button>
+                        <a href="https://twitter.com/misalud_mx" target="_blank" class="btn btn-prima">Registrarme</a>
                     </div>
                 </div>
             </div>
