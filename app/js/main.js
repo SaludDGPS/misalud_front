@@ -30,7 +30,7 @@ var GobMXMiSalud    = {
             // Define el valor de ignoreDueDate desde la función en vez que desde el atributo
             ignoreDueDate = ignoreDueDate === undefined || ignoreDueDate === false ? false : true;
 
-            $.getJSON( 'data/misalud.json', function ( data ) {
+            $.getJSON( 'app/data/misalud.json', function ( data ) {
                 function getFlow(nameFlow) {
                     var color = '#000000';
                     var name = '';
@@ -105,7 +105,7 @@ var GobMXMiSalud    = {
                     var mobileMessagesData  = _.sortBy( calendarData, 'startDate' ),
                         activeIndex         = 0,
                         setMobileData       = function ( index ) {
-                            $.getJSON( 'data/flows/' + mobileMessagesData[index].id + '.json', function ( flow ) {
+                            $.getJSON( 'app/data/flows/' + mobileMessagesData[index].id + '.json', function ( flow ) {
                                 var actions_sets    = flow.flows[0].action_sets,
                                     msg             = actions_sets[0].actions[0].msg.spa;
 
@@ -227,7 +227,7 @@ var GobMXMiSalud    = {
 
                         form.fadeOut();
                         form.unbind( 'submit' );
-                        $.getJSON( 'data/flows/' + id + '.json', function ( flow ) {
+                        $.getJSON( 'app/data/flows/' + id + '.json', function ( flow ) {
                             var actions_sets    = flow.flows[0].action_sets,
                                 rules           = flow.flows[0].rule_sets && Array.isArray( flow.flows[0].rule_sets ) && flow.flows[0].rule_sets.length > 0 && flow.flows[0].rule_sets[0].rules;
                             var msg             = "";

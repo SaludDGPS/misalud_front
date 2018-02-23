@@ -1,0 +1,78 @@
+//- vacunacion.js
+
+extends ../layout.jade
+
+block currentUrl
+  - var currentUrl = "vacunacion"
+
+block content
+  .container
+    .row
+      .col-md-12
+        h1 Vacunación infantil
+        .row
+          .col-md-6
+            p
+              | Las vacunas protegen a tus hijos de muchas enfermedades. Previenen que hoy en día nuestros hijos sufran enfermedades serias.
+            p
+              | Como padres, tenemos la responsabilidad de estar al corriente de las vacunas de nuestros hijos y llevarlos al centro de salud oportunamente. ¡Las vacunas son seguras y gratuitas!
+            p
+              | En este módulo de vacunación recibirás recordatorios de todas las vacunas que requieren tus hijos según su edad hasta que
+              | cumplan 6 años. Esta herramienta servirá como acompañante a tu Cartilla Nacional de Salud, para que siempre sepas qué vacunas
+              | ya tienen tus hijos y cuáles les faltan, así como cuándo tienes que llevarles al centro de salud.
+          .col-md-6
+            img.m-bottom15(src='app/img/img-3.jpg')
+          .col-md-12
+            p Recibirás 2 tipos de recordatorios:
+          .col-md-6
+            p
+              strong 1. Recordatorios generales según la edad de tu hijo/a
+            .messages-inf
+              .message
+                p
+                  | ¡Hola Paulina! Felicidades, ¡tu bebé ya cumplió 2 meses! En este mes tu bebé debe recibir cuatro vacunas importantes: la segunda dosis de hepatitis B, la pentavalente, la de rotavirus y la de neumococo
+              .message
+                p
+                  | Paulina, ¿ya acudiste este mes al centro de salud para vacunar a tu bebé? ¿Sí o No?
+              .message.response-message
+                p Sí
+              .message
+                p
+                  | ¡Excelente! Recuerda que las vacunas son esenciales para cuidar la salud de tu bebé. ¡Te seguiremos mandando recordatorios
+                  | en los próximos meses!
+          .col-md-6
+            p
+              strong 2. Recordatorios específicos por el tipo de vacuna
+            .messages-inf
+              .message
+                p
+                  | Hola Paulina, queremos corroborar que hayas llevado a tu bebe a vacunar. ¿Ya le pusieron la segunda dosis de la vacuna de
+                  | hepatitis B? ¿Sí o no?
+              .message.response-message
+                p Sí
+              .message
+                p
+                  | ¡Excelente! Por favor escribe la fecha en que recibió la vacuna en este formato: DD.MM.AAAA
+              .message.response-message
+                p 12.01.2018
+              .message
+                p Gracias, Paulina. Te recordaremos cuando le toque su siguiente vacuna
+          .col-md-12
+            h1 ¡Inscríbete!
+            p
+              | Si tienes un hijo menor a 6 años y quieres recibir recordatorios oportunos de las vacunas que necesitan, ¡inscríbete!
+            p
+              | Envía la palabra
+              strong  VACUNA
+              |  en mensaje privado al 
+              a(href='https://m.me/SecretariadeSaludMX', target='_blank') Facebook
+              |  o 
+              a(href='https://twitter.com/SSalud_mx', target='_blank') Twitter
+              |  de 
+              span.highlight
+                | mi
+                strong salud
+  #loader-container
+    .loader
+  .register-button.hidden-xs
+    a(href='registrate.html') Regístrate

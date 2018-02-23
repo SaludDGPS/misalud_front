@@ -1,0 +1,33 @@
+//- submenu.jade
+
+block currentUrl
+
+nav.navbar2.navbar-inverse.sub-navbar.navbar-fixed-top
+  .container
+    //-- Brand and toggle get grouped for better mobile display --
+    .navbar-header
+      button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#misalud-navbar")
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand.logo-brand(href="index.html")
+        img(src="app/img/ic-logo.svg")
+    #misalud-navbar.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        li.hide-on-desktop(class={active: currentUrl === "que-es"})
+          a(href="que-es.html") ¿Qué es?
+        li(class={active: currentUrl === "generacion-sin-adiccion"})
+          a(href="generacion-sin-adiccion.html") #GeneraciónSinAdicción
+        li(class={active: currentUrl === "materna"})
+          a(href="materna.html") Materna
+        li(class={active: currentUrl === "vacunacion"})
+          a(href="vacunacion.html") Vacunación infantil
+        li(class={active: currentUrl === "registrate"})
+          a(href="registrate.html") Regístrate
+        li
+          a.fb-icon(href="https://www.facebook.com/SecretariadeSaludMX/" target="_blank" aria-label="Facebook de misalud")
+            img(src="app/img/ic-fb.png" alt="facebook")
+        li
+          a.tt-icon(href="https://twitter.com/SSalud_mx" target="_blank" aria-label="Twitter de misalud")
+            img(src="app/img/ic-tt.png" alt="twitter")

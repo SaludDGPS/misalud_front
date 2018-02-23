@@ -1,0 +1,143 @@
+//- materna.js
+
+extends ../layout.jade
+
+block currentUrl
+  - var currentUrl = "materna"
+
+block calendar
+  link(rel="stylesheet" href="bower_components/bootstrap-year-calendar/css/bootstrap-year-calendar.min.css")
+  link(rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css")
+
+block content
+  .container.hide-on-mobile
+    .row
+      .col-md-12
+        h1 Salud materno-infantil
+        .row
+          .col-md-6
+            p
+              | Tu embarazo y tu bebé son únicos. Lo que debes saber durante y después de tu embarazo depende de muchas cosas como:
+            ul.half-width.dashed
+              li Historia
+              li Edad
+              li Número de hijos
+              li Historial médico
+              li Etapa de tu embarazo
+              li Preocupaciones
+            p
+              | Por eso hemos desarrollado una vía de comunicación que te ayude a tener la información que más necesitas.
+          .col-md-6
+            img.m-bottom15(src='app/img/img-1.png')
+  .container
+    .row
+      .col-md-12
+        p.hide-on-mobile
+          | Nos estaremos comunicando contigo a través de mensajes en tu celular para recordarte de tus citas médicas, darte consejos de expertos en salud, planear el nacimiento de tu bebé y ayudarte a cuidarlo. Te queremos acompañar durante todo tu embarazo y hasta los primeros dos años de vida de tu bebé. Sin embargo en cualquier momento puedes elegir dejar de recibir los mensajes.
+        h1 ¡Pruébalo!
+        p
+          | Todos los mensajes y consejos que recibirás fueron escritos por doctores y expertos para ayudarte a tomar mejores decisiones sobre tu alimentación, salud y cuidado de tu bebé. Vas a recibir información de tres tipos: 
+          strong CONSEJOS, CONTROL DE SALUD y RECORDATORIOS
+  #tryit-section.highlight-section
+    .container
+      .row
+        .col-md-12
+          h4.section-title.hide-on-mobile
+            | Prueba mi
+            strong salud
+          p Contesta alguna de las siguientes preguntas:
+      .row
+        .col-md-8
+          .control-calendar(data-type='pregnant')
+            p ¿Estás embarazada?
+          .control-calendar(data-type='baby')
+            p ¿Tienes un bebé?
+      #datepickers_pregnant
+        .col-md-12
+          p Llena uno de los siguientes campos:
+        .col-md-4
+          form.form.calendar-form
+            label Fecha de última menstruación
+            #date-period-picker.input-group
+              input#date-period.form-control(type='text', name='date-period', placeholder='Selecciona fecha')
+              span.input-group-addon
+                span.glyphicon.glyphicon-chevron-right
+        .col-md-1
+          p.separator-o
+            strong ó
+        .col-md-4
+          form.form.calendar-form
+            label Fecha probable de parto
+            #date-baby-picker.input-group
+              input#date-baby.form-control(type='text', name='date-baby', placeholder='Selecciona fecha')
+              span.input-group-addon
+                span.glyphicon.glyphicon-chevron-right
+      #datepickers_baby
+        .col-md-12
+          p Escoge la fecha de nacimiento de tu bebé:
+        .col-md-4
+          form.form
+            label Fecha de nacimiento de tu bebé
+            #date-baby-alt-picker.input-group
+              input#date-baby-alt.form-control(type='text', name='date-baby-alt', placeholder='Selecciona fecha')
+              span.input-group-addon
+                span.glyphicon.glyphicon-chevron-right
+      .row
+        #tryit-tool-container.col-md-12
+          .row
+            .col-md-12
+              p
+                | Haz clíc sobre algún día del año para ver la información que estarás recibiendo y contesta el mensaje del celular.
+          .row
+            .col-md-9.col-sm-9.col-lg-9.col-xs-12
+              .color-codes
+                span.color-code
+                  span(style='background-color: #2bd6ce;')
+                  em Consejos
+                span.color-code
+                  span(style='background-color: #da48ef;')
+                  em Retos
+                span.color-code
+                  span(style='background-color: #8de530;')
+                  em Recordatorios
+                span.color-code
+                  span(style='background-color: #f4e52c;')
+                  em Planificación
+                span.color-code
+                  span(style='background-color: #986ae2;')
+                  em Incentivos
+                span.color-code
+                  span(style='background-color: #f9a35d;')
+                  em Preocupaciones
+              #tryit-calendar.hidden-xs
+            #simulator-phone.col-md-3.col-sm-3.col-lg-3.hidden-xs
+              button.close.rounded(type='button', aria-label='Close')
+                span(aria-hidden='true') ×
+              img#phone-holder(src='app/img/phone.png')
+              #messages-container
+                .messages
+                form#chat-form.form
+                  input#chat-input.chat-input(type='text', placeholder='Escribe aquí')
+                  input(type='submit', value='Enviar')
+            #mobile-messages.col-md-12
+              .messages
+            #message-panel.col-xs-12.hidden-lg.hidden-sm.hidden-md
+              .pull-left
+                span#mobile-control-left.glyphicon.glyphicon-chevron-left.mobile-control
+              .pull-right
+                span#mobile-control-right.glyphicon.glyphicon-chevron-right.mobile-control
+              .clearfix
+              .panel.panel-default
+                .panel-heading
+                .panel-body
+    .register-button.hidden-xs
+      a(href='registrate.html') Regístrate
+
+block timePickerScripts
+  script(src='bower_components/moment/min/moment.min.js')
+  script(src='bower_components/moment/locale/es.js')
+
+block calendarModifiedScripts
+  script(src="app/js/bs-year-calendar-modified.js")
+  script(src='bower_components/bootstrap-year-calendar/js/languages/bootstrap-year-calendar.es.js')
+  script(src='bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js')
