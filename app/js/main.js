@@ -497,7 +497,13 @@ var GobMXMiSalud    = {
                 $('#messageModal').modal('show');
             }
             
-            if ( media == 'facebook' ) {
+            if (info == '#GeneraciónSinAdicción' && media == 'facebook') {
+                if (captchaResponse == '') {
+                    showModalAlert();
+                } else {
+                    window.open('http://m.me/LineaDeVida', '_blank');
+                }
+            } else if ( media == 'facebook' ) {
                 if (captchaResponse == '') {
                     showModalAlert();
                 } else {
@@ -511,6 +517,22 @@ var GobMXMiSalud    = {
                         '<span>¡Hola! Para finalizar tu inscripción en Twitter manda un mensaje privado (DM) con la palabra VACUNA a <a href="https://twitter.com/SSalud_mx" target="_blank">@SSalud_mx</a>. </span>' +
                         '<span>No es necesario que nos sigas para hacerlo.</span>')
                         ;
+                    $('#ttRegister.modal a.btn-prima').attr('href', 'https://twitter.com/SSalud_mx')
+                    $('#ttRegister').modal('show');
+                    $('#ttRegister .btn-prima').on('click', function (e) {
+                        e.stopPropagation();
+                        $('#ttRegister').modal('hide');
+                    });
+                }
+            } else if (info == '#GeneraciónSinAdicción' && media == 'Twitter DM') {
+                if (captchaResponse == '') {
+                    showModalAlert();
+                } else {
+                    $('#ttRegister .modal-body p').text('').append('' +
+                        '<span>¡Hola! Para finalizar tu inscripción en Twitter manda un mensaje privado (DM) con la palabra TEST a <a href="https://twitter.com/LineaDe_LaVida" target="_blank">@LineaDe_LaVida</a>. </span>' +
+                        '<span>No es necesario que nos sigas para hacerlo.</span>')
+                        ;
+                    $('#ttRegister.modal a.btn-prima').attr('href', 'https://twitter.com/LineaDe_LaVida')
                     $('#ttRegister').modal('show');
                     $('#ttRegister .btn-prima').on('click', function (e) {
                         e.stopPropagation();
@@ -525,6 +547,7 @@ var GobMXMiSalud    = {
                         '<span>¡Hola! Para finalizar tu inscripción en Twitter manda un mensaje privado (DM) con la palabra ALTA a <a href="https://twitter.com/SSalud_mx" target="_blank">@SSalud_mx</a>. </span>' +
                         '<span>No es necesario que nos sigas para hacerlo.</span>')
                         ;
+                    $('#ttRegister.modal a.btn-prima').attr('href', 'https://twitter.com/SSalud_mx')
                     $('#ttRegister').modal('show');
                     $('#ttRegister .btn-prima').on('click', function (e) {
                         e.stopPropagation();

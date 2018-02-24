@@ -23,25 +23,7 @@ block content
           h1.hide-on-desktop Regístrate
           form#register-form.form.register-form
             .row
-              .col-md-4
-                .form-group.fixed
-                  label(for='info') ¿Qué información deseas recibir?
-                  select#info.form-control.custom-select(name='info')
-                    option(value='Materno - Infantil') Materno - Infantil
-                    option(value='Vacunación infantil') Vacunación infantil
-                    option(value='Diabetes', disabled='disabled') Diabetes (próximamente)
-              .col-md-4
-                .form-group.fixed
-                  label(for='media') ¿Por qué medio quieres recibir la información?
-                  select#media.form-control.custom-select(name='media')
-                    option(value='facebook') Facebook
-                    option(value='Twitter DM') Twitter - mensajes directos
-              .col-md-4
-                .form-group.form-submit.submit-fixed
-                  label.info-title(for='media') Ingresa la siguiente información
-                  input#phone-number.form-control(type='tel', name='phone-number', placeholder='Número telefónico', style='display: none;')
-                  #recaptcha.g-recaptcha(data-sitekey='6Ley2i0UAAAAAMBow4zLwaR_2uaAH6JhSm0VXsef')
-                  input.btn.btn-primary(type='submit', value='Registrarme')
+              include ../includes/register-selector.jade
           p.cancel-label
             strong ¿Qué hago si quiero dejar de recibir los mensajes de 
             span.highlight
@@ -128,32 +110,14 @@ block content
               | Recordatorios de vacunación si actualmente tienes hijos/as menores a 6 años de edad
             img(src='app/img/ic-vacunacion.svg')
             a.read-more(href='vacunacion.html') Ver más
-  #videoModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='videoModalLabel')
-    .modal-dialog(role='document')
-      .modal-content
-        .modal-body
-          div(style='position:relative;height:0;padding-bottom:56.25%')
-            iframe(width='560', height='315', src='https://www.youtube.com/embed/kYWNCUSxAfc', frameborder='0', allowfullscreen='')
-  #messageModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='messageModalLabel')
-    .modal-dialog(role='document')
-      .modal-content
-        .modal-body
-          p Mensaje aqui
-          button.btn.btn-prima(data-dismiss='modal', aria-label='Close') Volver
-  #ttRegister.modal.fade(tabindex='-1', role='dialog', aria-labelledby='ttRegisterLabel')
-    .modal-dialog(role='document')
-      .modal-content
-        .modal-body
-          p Mensaje aqui
-          button.btn.btn-cancel(data-dismiss='modal', aria-label='Close') Cancelar
-          a.btn.btn-prima(href='https://twitter.com/SSalud_mx', target='_blank') Registrarme
-  #confirmRegModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='messageModalLabel')
-    .modal-dialog(role='document')
-      .modal-content
-        .modal-body
-          p Mensaje aqui
-          button.btn.btn-cancel(data-dismiss='modal', aria-label='Close') Cancelar
-          button.btn.btn-prima Aceptar
+  block videoModal
+    #videoModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='videoModalLabel')
+      .modal-dialog(role='document')
+        .modal-content
+          .modal-body
+            div(style='position:relative;height:0;padding-bottom:56.25%')
+              iframe(width='560', height='315', src='https://www.youtube.com/embed/kYWNCUSxAfc', frameborder='0', allowfullscreen='')
+  include ../includes/register-modals.jade
   #loader-container
     .loader
   .register-button.hidden-xs
