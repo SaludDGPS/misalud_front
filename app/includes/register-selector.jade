@@ -1,0 +1,22 @@
+//- register-selector.jade
+
+.col-md-4
+  .form-group.fixed
+    label(for='info') ¿Qué información deseas recibir?
+    select#info.form-control.custom-select(name='info')
+      option(value='Materno - Infantil') Materno - Infantil
+      option(value='Vacunación infantil') Vacunación infantil
+      option(value="#GeneraciónSinAdicción") #GeneraciónSinAdicción
+      option(value='Diabetes', disabled='disabled') Diabetes (próximamente)
+.col-md-4
+  .form-group.fixed
+    label(for='media') ¿Por qué medio quieres recibir la información?
+    select#media.form-control.custom-select(name='media')
+      option(value='facebook') Facebook
+      option(value='Twitter DM') Twitter - mensajes directos
+.col-md-4
+  .form-group.form-submit.submit-fixed
+    label.info-title(for='media') Ingresa la siguiente información
+    input#phone-number.form-control(type='tel', name='phone-number', placeholder='Número telefónico', style='display: none;')
+    #recaptcha.g-recaptcha(data-sitekey='6Ley2i0UAAAAAMBow4zLwaR_2uaAH6JhSm0VXsef')
+    input.btn.btn-primary(type='submit', value='Registrarme')
