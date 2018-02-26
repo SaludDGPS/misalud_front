@@ -501,7 +501,7 @@ var GobMXMiSalud    = {
                 if (captchaResponse == '') {
                     showModalAlert();
                 } else {
-                    window.open('http://m.me/LineaDeVida', '_blank');
+                    window.open('http://m.me/LaLineaDeLaVidamx', '_blank');
                 }
             } else if ( media == 'facebook' ) {
                 if (captchaResponse == '') {
