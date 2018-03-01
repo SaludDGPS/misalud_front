@@ -1,0 +1,46 @@
+//- registrate.js
+
+extends ../layout.jade
+
+block currentUrl
+  - var currentUrl = "registrate"
+
+block captcha
+  script(src="https://www.google.com/recaptcha/api.js")
+
+block content
+  .container
+    .row
+      .col-md-12
+        h1 Regístrate
+        p.hide-on-mobile Responde estas preguntas para recibir instrucciones de cómo registrarte
+        form#register-form.form.register-form
+          .row
+            include ../includes/register-selector.jade
+        p.info-title
+          strong ¿Qué hago si quiero dejar de recibir los mensajes de 
+          span.highlight
+            | mi
+            strong salud
+            | ?
+          |  Puedes cancelar tu suscripción enviando a misalud la palabra 
+          strong "CANCELA"
+          |  en cualquier momento.
+          br
+          button.btn.btn-link.blue-link(data-toggle='modal', data-target='#noticeModal') Consulta el aviso de privacidad
+        hr
+        p.margin-footer.hide-on-mobile
+          | La información que proporciones es estrictamente confidencial y solo busca brindarte un servicio que te ayude a cuidar mejor tu salud. Nunca recibirás información relacionada con algún partido político, organización religiosa, venta de algún producto o solicitud de información bancaria. 
+          strong
+            | Cuéntale a tu familia que estarás recibiendo y respondiendo estos mensajes de parte de
+          span.highlight
+            |  mi
+            strong salud
+            | .
+  include ../includes/register-modals.jade
+  #loader-container
+    .loader
+
+block timePickerScripts
+  script(src='bower_components/moment/min/moment.min.js')
+  script(src='bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js')

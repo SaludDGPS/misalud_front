@@ -1,0 +1,46 @@
+//- generacion-sin-adiccion.js
+
+extends ../layout.jade
+
+block currentUrl
+  - var currentUrl = "generacion-sin-adiccion"
+
+block content
+  .container
+    .row
+      .col-md-12
+        h1 #GeneraciónSinAdicción
+        .row
+          .col-md-6
+            p Diariamente mueren 3,000 adolescentes por causas relacionadas con el consumo de drogas. Porque detectar un problema de consumo de drogas puede salvar vidas, la Comisión Nacional contra las Adicciones te ofrece las siguientes herramientas que te permiten:
+            ul.dashed
+              li
+                strong Conocer si tú estás en riesgo de consumo de drogas o adicción.
+              li
+                strong Identificar las señales de alerta de consumo de drogas en alguien más.
+            p Si fumas o consumes alcohol u otras drogas, nosotros te decimos cómo puedes elegir diferente. No permitas que el consumo de drogas dañe tu salud y te aleje de tus metas. Si eres madre, padre o maestro, tu ejemplo es importante!! Acércate a tus hijos o alumnos y evita que las drogas lo hagan antes que tú.
+          .col-md-6
+            img.m-bottom15(src='app/img/img-4.jpg' alt="Imagen de #GeneraciónSinAdicción")
+          .col-md-12
+            p
+              strong Manda un mensaje privado con la palabra TEST para conocer el riesgo que las drogas causan en tu vida o para conocer las señales de alerta del consumo de drogas en alguien más.
+            p.noadiction-links
+              a(href="https://www.facebook.com/LaLineaDeLaVidamx/" target="_blank")
+                img(src="app/img/ic-fb.png", alt="Facebook")
+                span Línea de la Vida
+              span.noadiction-links-separator /
+              a(href="https://twitter.com/LineaDe_LaVida" target="_blank")
+                img(src="app/img/ic-tt.png", alt="Twitter")
+                | @LineaDe_LaVida
+              a.conadic(href="https://www.gob.mx/salud/conadic" target="_blank")
+                img(src="app/img/ic-conadic.jpg", alt="CONADIC")
+            p
+              | El chatbot de #GeneraciónSinAdicción te hará una serie de preguntas breves para identificar tu nivel de riesgo de consumo 
+              | de drogas y las señales de alerta de consumo en alguien más. Es completamente gratis y sin compromiso. Los expertos de 
+              | La Línea de la Vida de la Comisión Nacional contra las Adicciones te brindan asesoría gratuita, especializada y confidencial, 
+              | 365 días al año, 24 horas al día
+            p
+              | No estás solo, nosotros te apoyamos. 
+              strong #GeneraciónSinAdicción
+              br
+              strong Llama a La Línea De La Vida: 01 800 911 2000

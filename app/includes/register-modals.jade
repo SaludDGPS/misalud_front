@@ -1,0 +1,33 @@
+//- register-modals.jade
+
+block videoModal
+#messageModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='messageModalLabel')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-body
+        p Mensaje aqui
+        button.btn.btn-prima(data-dismiss='modal', aria-label='Close') Volver
+#ttRegister.modal.fade(tabindex='-1', role='dialog', aria-labelledby='ttRegisterLabel')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-body
+        p Mensaje aqui
+        button.btn.btn-cancel(data-dismiss='modal', aria-label='Close') Cancelar
+        a.btn.btn-prima(href='https://twitter.com/SSalud_mx', target='_blank') Registrarme
+#confirmRegModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='messageModalLabel')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-body
+        p Mensaje aqui
+        button.btn.btn-cancel(data-dismiss='modal', aria-label='Close') Cancelar
+        button.btn.btn-prima Aceptar
+#noticeModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='noticeModalLabel')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-body
+        p.text-center
+          | La Coordinación de Estrategia Digital Nacional de la Oficina de la Presidencia de la República tratará y protegerá los datos personales que proporciones a mi
+          strong salud
+          |  (número de teléfono y nombre), mismos que serán compartidos con la Secretaría de Salud, con la finalidad de brindarte información útil para mejorar tu salud y la de tu bebé; conforme a la legislación aplicable y en atención al siguiente 
+          a.blue-link(href='http://www.presidencia.gob.mx/transparencia/aviso-de-privacidad/', target='_blank') Aviso de Privacidad
+        button.btn.btn-prima.btn-return(data-dismiss='modal', aria-label='Close') Volver

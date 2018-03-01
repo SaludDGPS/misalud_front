@@ -1,0 +1,128 @@
+//- index.jade
+
+extends ../layout.jade
+
+block currentUrl
+  - var currentUrl = "index"
+
+block captcha
+  script(src="https://www.google.com/recaptcha/api.js")
+
+block content
+  #site-banner.hide-on-mobile
+    .container
+      .row
+        .col-md-12
+          img.logo-white(src='app/img/ic-logo-white.svg', alt='MiSalud')
+          p Información móvil y personalizada para mantenerte sano
+          button.banner-btn(type='button', data-toggle='modal', data-target='#videoModal') Ver video
+  #site-register
+    .container
+      .row
+        .col-md-12
+          h1.hide-on-desktop Regístrate
+          form#register-form.form.register-form
+            .row
+              include ../includes/register-selector.jade
+          p.cancel-label
+            strong ¿Qué hago si quiero dejar de recibir los mensajes de 
+            span.highlight
+              | mi
+              strong salud
+              | ?
+            |  Puedes cancelar tu suscripción enviando a misalud la palabra 
+            strong "CANCELA"
+            |  en cualquier momento.
+            br
+            button.btn.btn-link.blue-link(data-toggle='modal', data-target='#noticeModal') Consulta el aviso de privacidad
+  .container.hide-on-mobile
+    .row
+      .col-md-12
+        h1 ¿Qué es?
+        p
+          span.highlight
+            | mi
+            strong salud
+          |  es una nueva manera de proveer servicios públicos de salud a través de tu celular. Mediante 
+          strong mensajes de texto - Facebook Messenger y Twitter
+          |  -, podrás acceder a la información en el momento que la necesitas, para ayudarte a tomar las mejores decisiones de salud. 
+          a(href='materna.html') ¡Inscríbete y prueba!
+      .col-md-12.hide-on-desktop.margin-on-mobile
+        img(src='app/img/img-1.png')
+  #sms-section.highlight-section.hide-on-mobile
+    .container
+      .row
+        .col-md-4
+          img(src='app/img/ic-messages.png')
+          h3
+            | Recibe consejos
+            br
+            | de salud
+          img(src='app/img/img-advise.png')
+        .col-md-4
+          img(src='app/img/ic-reminders.png')
+          h3
+            | Recordatorios de citas
+            br
+            | y controles médicos
+          img(src='app/img/img-reminders.png')
+        .col-md-4
+          img(src='app/img/ic-info.png')
+          h3
+            | Información sobre potenciales
+            br
+            | señales de alarma
+          img(src='app/img/img-alarm.png')
+  .container.hide-on-mobile
+    .row
+      .col-md-12
+        h1 ¿Quién puede participar?
+        p
+          | Actualmente 
+          span.highlight
+            | mi
+            strong salud
+          |  puede ayudarte con:
+        .col-md-6
+          .site-widget
+            h2 Salud materna e infantil
+            p Si actualmente estás embarazada o tienes un hijo con hasta dos años de vida
+            img(src='app/img/ic-materna.svg')
+            a.read-more(href='materna.html') Ver más
+        .col-md-6
+          .site-widget
+            h2 Enfermedades crónicas
+            p
+              | Si has sido diagnosticado con Diabetes mellitus o hipertensión, sobrepeso o obesidad
+            img(src='app/img/ic-cronicas.svg')
+            a.read-more.disabled(href='#') Próximamente
+        .col-md-6
+          .site-widget
+            h2 #GeneraciónSinAdicción
+            p
+              | Herramientas que te permiten conocer si tú o alguien más está en riesgo de consumo de drogas y adicciones
+            img(src='app/img/ic-sin-adicciones.svg')
+            a.read-more(href='generacion-sin-adiccion.html') Ver más
+        .col-md-6
+          .site-widget
+            h2 Vacunación infantil
+            p
+              | Recordatorios de vacunación si actualmente tienes hijos/as menores a 6 años de edad
+            img(src='app/img/ic-vacunacion.svg')
+            a.read-more(href='vacunacion.html') Ver más
+  block videoModal
+    #videoModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='videoModalLabel')
+      .modal-dialog(role='document')
+        .modal-content
+          .modal-body
+            div(style='position:relative;height:0;padding-bottom:56.25%')
+              iframe(width='560', height='315', src='https://www.youtube.com/embed/kYWNCUSxAfc', frameborder='0', allowfullscreen='')
+  include ../includes/register-modals.jade
+  #loader-container
+    .loader
+  .register-button.hidden-xs
+    a(href='registrate.html') Regístrate
+
+block timePickerScripts
+  script(src='bower_components/moment/min/moment.min.js')
+  script(src='bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js')
