@@ -1,0 +1,110 @@
+//- materiales/index.jade
+
+extends ../../layout.jade
+
+block materiales
+  - var materiales = true
+
+block content
+  #material-section.container
+    .row
+      .col-md-2.col-sm-3.col-xs-8.logo
+        img(src='../app/img/ic-logo.svg')
+    .row
+      .col-md-12
+        #materials.panel-group.ficha-collapse
+          .panel.panel-default
+            .panel-heading
+              h4.panel-title
+                a.collapsed(data-parent='#materials', data-toggle='collapse', href='#general-video', aria-expanded='true', aria-controls='general-video')
+                  | Videos generales
+              button.collpase-button.collapsed(type='button', data-parent='#materials', data-toggle='collapse', href='#general-video')
+            #general-video.panel-collapse.collapse
+              .panel-body
+                img(src='../app/img/video_general.png', alt='Videos generales')
+                a.btn.btn-misalud(href='https://drive.google.com/open?id=1LDWi6S-8-Yon_uisYiuBHlwAL6xRRz6F', target='_blank') Descargar
+          .panel.panel-default
+            .panel-heading
+              h4.panel-title
+                a.collapsed(data-parent='#materials', data-toggle='collapse', href='#presentation', aria-expanded='true', aria-controls='presentation')
+                  | Presentación
+              button.collpase-button.collapsed(type='button', data-parent='#materials', data-toggle='collapse', href='#presentation')
+            #presentation.panel-collapse.collapse
+              .panel-body
+                img(src='../app/img/presentacion.png', alt='Presentación')
+                a.btn.btn-misalud(href='https://docs.google.com/presentation/d/1VD7i5pPgxxOxYpuvvct40Z-7B77YjeC73Y7X9jwPRnk/edit', target='_blank') Descargar
+          .panel.panel-default
+            .panel-heading
+              h4.panel-title
+                a.collapsed(data-parent='#materials', data-toggle='collapse', href='#staff-brochure', aria-expanded='true', aria-controls='staff-brochure')
+                  | Folletos para personal de salud
+              button.collpase-button.collapsed(type='button', data-parent='#materials', data-toggle='collapse', href='#staff-brochure')
+            #staff-brochure.panel-collapse.collapse
+              .panel-body
+                img(src='../app/img/folleto_staff.png', alt='Folletos para personal de salud')
+                a.btn.btn-misalud(href='https://drive.google.com/open?id=0BxeGg-5cY4EPMElWdzRKZ3pHNDA', target='_blank') Descargar
+          .panel.panel-default
+            .panel-heading
+              h4.panel-title
+                a.collapsed(data-parent='#materials', data-toggle='collapse', href='#users-brochure', aria-expanded='true', aria-controls='users-brochure')
+                  | Folletos para usuarias
+              button.collpase-button.collapsed(type='button', data-parent='#materials', data-toggle='collapse', href='#users-brochure')
+            #users-brochure.panel-collapse.collapse
+              .panel-body
+                img(src='../app/img/folleto_usuarias.png', alt='Folletos para usuarias')
+                a.btn.btn-misalud(href='https://drive.google.com/open?id=0BxeGg-5cY4EPdE9jbkgyOE1UaWM', target='_blank') Descargar
+          .panel.panel-default
+            .panel-heading
+              h4.panel-title
+                a.collapsed(data-parent='#materials', data-toggle='collapse', href='#orientation-sheet', aria-expanded='true', aria-controls='orientation-sheet')
+                  | Hoja de orientación para responsable en clínica
+              button.collpase-button.collapsed(type='button', data-parent='#materials', data-toggle='collapse', href='#orientation-sheet')
+            #orientation-sheet.panel-collapse.collapse
+              .panel-body
+                img(src='../app/img/hoja_orientacion.png', alt='Hoja de orientación para responsable en clínica')
+                a.btn.btn-misalud(href='https://drive.google.com/open?id=0BxeGg-5cY4EPRS13R3RlZGxOTGs', target='_blank') Descargar
+          .panel.panel-default
+            .panel-heading
+              h4.panel-title
+                a.collapsed(data-parent='#materials', data-toggle='collapse', href='#users-video', aria-expanded='true', aria-controls='users-video')
+                  | Video para salas de espera
+              button.collpase-button.collapsed(type='button', data-parent='#materials', data-toggle='collapse', href='#users-video')
+            #users-video.panel-collapse.collapse
+              .panel-body
+                img(src='../app/img/video_usuarias.png', alt='Video para salas de espera')
+                a.btn.btn-misalud(href='https://drive.google.com/open?id=0B7_mSz9yRTXLR2ZIYTRZU3RCN1k', target='_blank') Descargar
+          .panel.panel-default
+            .panel-heading
+              h4.panel-title
+                a.collapsed(data-parent='#materials', data-toggle='collapse', href='#posters', aria-expanded='true', aria-controls='posters')
+                  | Carteles
+              button.collpase-button.collapsed(type='button', data-parent='#materials', data-toggle='collapse', href='#posters')
+            #posters.panel-collapse.collapse
+              .panel-body
+                img(src='../app/img/carteles.png', alt='Carteles')
+                a.btn.btn-misalud(href='https://drive.google.com/open?id=0BxeGg-5cY4EPLTNyWTBTUHZTMXM', target='_blank') Descargar
+          .panel.panel-default
+            .panel-heading
+              h4.panel-title
+                a.collapsed(data-parent='#materials', data-toggle='collapse', href='#additional-material', aria-expanded='true', aria-controls='additional-material')
+                  | Material promocional adicional
+              button.collpase-button.collapsed(type='button', data-parent='#materials', data-toggle='collapse', href='#additional-material')
+            #additional-material.panel-collapse.collapse
+              .panel-body
+                img(src='../app/img/material_adicional.png', alt='Material promocional adicional')
+                a.btn.btn-misalud(href='https://drive.google.com/open?id=0BxeGg-5cY4EPR3FqV0ZmVlJRM0U', target='_blank') Descargar
+          .panel.panel-default
+            .panel-heading
+              h4.panel-title
+                a.collapsed(data-parent='#materials', data-toggle='collapse', href='#guide', aria-expanded='true', aria-controls='guide')
+                  | Guía de implementación
+              button.collpase-button.collapsed(type='button', data-parent='#materials', data-toggle='collapse', href='#guide')
+            #guide.panel-collapse.collapse
+              .panel-body
+                img(src='../app/img/guia_imp.png', alt='Guía de implementación')
+                a.btn.btn-misalud(href='https://docs.google.com/document/d/1KqJ94u6q21ZAV5sYHDCTJHYuuyklCX4zOkdhDae3ejc/edit#heading=h.www98326jyy3', target='_blank') Descargar
+
+
+block timePickerScripts
+  script(src='bower_components/moment/min/moment.min.js')
+  script(src='bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js')

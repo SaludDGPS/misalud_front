@@ -6,7 +6,13 @@ meta(name="viewport" content="width=device-width")
 title GobMXMiSalud
 block calendar
 link(href="https://framework-gb.cdn.gob.mx/assets/styles/main.css" rel="stylesheet")
-link(rel="stylesheet" href="app/css/style.css")
+block materiales
+-if (materiales)
+  link(rel="stylesheet" href="../app/css/style.css")
+  style.
+    body{padding-top:46px;}
+-else
+  link(rel="stylesheet" href="app/css/style.css")
 link(rel="shortcut icon" href="https://framework-gb.cdn.gob.mx/favicon.ico")
 block captcha
 
