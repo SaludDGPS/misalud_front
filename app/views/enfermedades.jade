@@ -1,0 +1,75 @@
+//- enfermedades.jade
+
+extends ../layout.jade
+
+block currentUrl
+  - var currentUrl = "enfermedades"
+
+block content
+  .container
+    .row
+      .col-md-12
+        h1 Diabetes, sobrepeso y obesidad
+        .row
+          .col-md-6
+            p.
+              México ocupa el segundo lugar con prevalencia de obesidad 
+              en su población y el primer lugar en el mundo en diabetes.
+              El sobrepeso y la obesidad son enfermedades que aumentan 
+              de manera considerable el riesgo de padecer enfermedades 
+              crónicas no transmisibles (ECNT) como la diabetes, 
+              la hipertensión, las dislipidemias y algunos tipos de cáncer.
+            p.
+              Si tú o alguien de tu familia vive con una de estas 
+              condiciones médicas, sabes que influye mucho en la vida 
+              cotidiana, ocasionando a largo plazo complicaciones 
+              que pueden ser peligrosas y afectar tu estilo de vida y tu 
+              estado de salud general.
+            p.highlight
+              strong.
+                ¡Afortunadamente, hay cosas prácticas y fáciles que 
+                puedes hacer para mejorar tu salud!
+            
+          .col-md-6
+            img.m-bottom15(src='app/img/enfermedades.jpg' alt="Imagen de la sección de diabetes, sobrepeso y obesidad")
+          .col-md-12
+            p
+              | Este componente de mi
+              strong salud
+              |  busca apoyar a 
+              strong cualquier persona que padece sobrepeso, obesidad, diabetes mellitus tipo II o una combinación de estas enfermedades.
+              |  Si te inscribes, recibirás mensajes a lo largo de un año con consejos útiles para 
+              | mejorar tu salud y prevenir complicaciones.
+
+            p
+              strong ¿Cómo? Te enviamos a través de tu cuenta de Facebook o Twitter mensajes privados sobre:
+            ul.dashed
+              li Cómo mejorar tus hábitos alimentarios
+              li Recomendaciones para mantenerte activo de manera fácil y sencilla
+              li Cómo cuidar tu salud
+
+            p
+              strong Si fuiste diagnosticado con diabetes mellitus tipo II, de manera adicional te enviamos mensajes sobre:
+            ul.dashed
+              li La diabetes en general: qué es, cómo funciona y cuáles son las causas
+              li Las complicaciones comunes de diabetes y cómo detectar las señales de alerta
+              li La importancia del control y los procedimientos que debes recibir cuando ves a tu médico
+              li Temas relacionados como el apoyo emocional, tabaquismo y la salud bucal
+
+            p.
+              Todos los mensajes son gratis, confidenciales y fueron elaborados por expertos. Queremos darte recomendaciones para 
+              alimentarte correctamente, realizar actividad física, tener un adecuado control de la diabetes (si es el caso) y motivarte a llevar 
+              un estilo de vida más saludable.
+
+            p Para inscribirte, por favor da clic 
+              a(href="registrate.html") aquí
+            p.noadiction-links
+              a(href="https://m.me/SecretariadeSaludMX" target="_blank")
+                img(src="app/img/ic-fb.png", alt="Facebook")
+                span SecretariadeSaludMX
+              span.noadiction-links-separator /
+              a(href="https://twitter.com/SSalud_mx" target="_blank")
+                img(src="app/img/ic-tt.png", alt="Twitter")
+                | @SSalud_mx
+              a.salud(href="https://www.gob.mx/salud" target="_blank")
+                img(src="app/img/secretaria-salud.jpg", alt="Secretaría de Salud")

@@ -496,64 +496,42 @@ var GobMXMiSalud    = {
                 $('#messageModal .modal-body p').text("No pudimos completar tu registro. Por favor revisa que todos los datos sean correctos.");
                 $('#messageModal').modal('show');
             }
+
+            function checkCaptchaWithFacebook(link) {
+                if (captchaResponse == '') {
+                    showModalAlert();
+                } else {
+                    window.open(link, '_blank');
+                }
+            }
+
+            function checkCaptchaWithTwitter(twitterUser, word) {
+                if (captchaResponse == '') {
+                    showModalAlert();
+                } else {
+                    $('#ttRegister .modal-body p').text('').append('' +
+                        '<span>¡Hola! Para finalizar tu inscripción en Twitter manda un mensaje privado (DM) con la palabra ' + word + ' a <a href="https://twitter.com/' + twitterUser + '" target="_blank">@' + twitterUser + '</a>. </span>' +
+                        '<span>No es necesario que nos sigas para hacerlo.</span>')
+                        ;
+                    $('#ttRegister.modal a.btn-prima').attr('href', 'https://twitter.com/' + twitterUser);
+                    $('#ttRegister').modal('show');
+                    $('#ttRegister .btn-prima').on('click', function (e) {
+                        e.stopPropagation();
+                        $('#ttRegister').modal('hide');
+                    });
+                }
+            }
             
             if (info == '#GeneraciónSinAdicción' && media == 'facebook') {
-                if (captchaResponse == '') {
-                    showModalAlert();
-                } else {
-                    window.open('http://m.me/LaLineaDeLaVidamx', '_blank');
-                }
+                checkCaptchaWithFacebook('http://m.me/LaLineaDeLaVidamx');
             } else if ( media == 'facebook' ) {
-                if (captchaResponse == '') {
-                    showModalAlert();
-                } else {
-                    window.open('http://m.me/SecretariadeSaludMX', '_blank');
-                }
+                checkCaptchaWithFacebook('http://m.me/SecretariadeSaludMX');
             } else if (info == 'Vacunación infantil' && media == 'Twitter DM') {
-                if (captchaResponse == '') {
-                    showModalAlert();
-                } else {
-                    $('#ttRegister .modal-body p').text('').append('' +
-                        '<span>¡Hola! Para finalizar tu inscripción en Twitter manda un mensaje privado (DM) con la palabra VACUNA a <a href="https://twitter.com/SSalud_mx" target="_blank">@SSalud_mx</a>. </span>' +
-                        '<span>No es necesario que nos sigas para hacerlo.</span>')
-                        ;
-                    $('#ttRegister.modal a.btn-prima').attr('href', 'https://twitter.com/SSalud_mx')
-                    $('#ttRegister').modal('show');
-                    $('#ttRegister .btn-prima').on('click', function (e) {
-                        e.stopPropagation();
-                        $('#ttRegister').modal('hide');
-                    });
-                }
+                checkCaptchaWithTwitter('SSalud_mx', 'VACUNA');
             } else if (info == '#GeneraciónSinAdicción' && media == 'Twitter DM') {
-                if (captchaResponse == '') {
-                    showModalAlert();
-                } else {
-                    $('#ttRegister .modal-body p').text('').append('' +
-                        '<span>¡Hola! Para finalizar tu inscripción en Twitter manda un mensaje privado (DM) con la palabra TEST a <a href="https://twitter.com/LineaDe_LaVida" target="_blank">@LineaDe_LaVida</a>. </span>' +
-                        '<span>No es necesario que nos sigas para hacerlo.</span>')
-                        ;
-                    $('#ttRegister.modal a.btn-prima').attr('href', 'https://twitter.com/LineaDe_LaVida')
-                    $('#ttRegister').modal('show');
-                    $('#ttRegister .btn-prima').on('click', function (e) {
-                        e.stopPropagation();
-                        $('#ttRegister').modal('hide');
-                    });
-                }
+                checkCaptchaWithTwitter('LineaDe_LaVida', 'TEST');
             } else if (media == 'Twitter DM') {
-                if (captchaResponse == '') {
-                    showModalAlert();
-                } else {
-                    $('#ttRegister .modal-body p').text('').append('' +
-                        '<span>¡Hola! Para finalizar tu inscripción en Twitter manda un mensaje privado (DM) con la palabra ALTA a <a href="https://twitter.com/SSalud_mx" target="_blank">@SSalud_mx</a>. </span>' +
-                        '<span>No es necesario que nos sigas para hacerlo.</span>')
-                        ;
-                    $('#ttRegister.modal a.btn-prima').attr('href', 'https://twitter.com/SSalud_mx')
-                    $('#ttRegister').modal('show');
-                    $('#ttRegister .btn-prima').on('click', function (e) {
-                        e.stopPropagation();
-                        $('#ttRegister').modal('hide');
-                    });
-                }
+                checkCaptchaWithTwitter('SSalud_mx', 'ALTA');
             } else if ( media == 'sms' ) {
                 if ( captchaResponse == '' ) {
                     showModalAlert();

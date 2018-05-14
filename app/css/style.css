@@ -699,6 +699,7 @@ iframe { width: 100%; }
     margin-right: 15px;
 }
 .noadiction-links > a.conadic > img { width: 120px; }
+.noadiction-links > a.salud > img { width: 180px; }
 span.noadiction-links-separator {
     color: #0c9;
     font-size: 30px;
