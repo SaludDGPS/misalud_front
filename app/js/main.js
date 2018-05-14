@@ -497,11 +497,19 @@ var GobMXMiSalud    = {
                 $('#messageModal').modal('show');
             }
 
-            function checkCaptchaWithFacebook(link) {
+            function checkCaptchaWithFacebook(facebookUser, word) {
                 if (captchaResponse == '') {
                     showModalAlert();
                 } else {
-                    window.open(link, '_blank');
+                    $('#registerMessage .modal-body p').text('').append('' +
+                        '<span>¡Hola! Para finalizar tu inscripción en Facebook manda un mensaje privado con la palabra ' + word + ' a <a href="https://m.me/' + facebookUser + '" target="_blank">' + facebookUser + '</a>. </span>')
+                        ;
+                    $('#registerMessage.modal a.btn-prima').attr('href', 'https://m.me/' + facebookUser);
+                    $('#registerMessage').modal('show');
+                    $('#registerMessage .btn-prima').on('click', function (e) {
+                        e.stopPropagation();
+                        $('#registerMessage').modal('hide');
+                    });
                 }
             }
 
@@ -509,23 +517,25 @@ var GobMXMiSalud    = {
                 if (captchaResponse == '') {
                     showModalAlert();
                 } else {
-                    $('#ttRegister .modal-body p').text('').append('' +
+                    $('#registerMessage .modal-body p').text('').append('' +
                         '<span>¡Hola! Para finalizar tu inscripción en Twitter manda un mensaje privado (DM) con la palabra ' + word + ' a <a href="https://twitter.com/' + twitterUser + '" target="_blank">@' + twitterUser + '</a>. </span>' +
                         '<span>No es necesario que nos sigas para hacerlo.</span>')
                         ;
-                    $('#ttRegister.modal a.btn-prima').attr('href', 'https://twitter.com/' + twitterUser);
-                    $('#ttRegister').modal('show');
-                    $('#ttRegister .btn-prima').on('click', function (e) {
+                    $('#registerMessage.modal a.btn-prima').attr('href', 'https://twitter.com/' + twitterUser);
+                    $('#registerMessage').modal('show');
+                    $('#registerMessage .btn-prima').on('click', function (e) {
                         e.stopPropagation();
-                        $('#ttRegister').modal('hide');
+                        $('#registerMessage').modal('hide');
                     });
                 }
             }
             
-            if (info == '#GeneraciónSinAdicción' && media == 'facebook') {
-                checkCaptchaWithFacebook('http://m.me/LaLineaDeLaVidamx');
+            if (info == 'Vacunación infantil' && media == 'facebook') {
+                checkCaptchaWithFacebook('SecretariadeSaludMX', 'VACUNA');
+            } else if (info == '#GeneraciónSinAdicción' && media == 'facebook') {
+                checkCaptchaWithFacebook('LaLineaDeLaVidamx', 'TEST');
             } else if ( media == 'facebook' ) {
-                checkCaptchaWithFacebook('http://m.me/SecretariadeSaludMX');
+                checkCaptchaWithFacebook('SecretariadeSaludMX', 'ALTA');
             } else if (info == 'Vacunación infantil' && media == 'Twitter DM') {
                 checkCaptchaWithTwitter('SSalud_mx', 'VACUNA');
             } else if (info == '#GeneraciónSinAdicción' && media == 'Twitter DM') {

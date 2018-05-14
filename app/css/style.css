@@ -426,8 +426,8 @@ iframe { width: 100%; }
 @media screen and (max-width: 355px) {
     #confirmRegModal .btn-prima,
     #confirmRegModal .btn-cancel,
-    #ttRegister .btn-prima,
-    #ttRegister .btn-cancel {
+    #registerMessage .btn-prima,
+    #registerMessage .btn-cancel {
         width: 100%;
         margin: 0 0 10px 0;
     }
@@ -435,8 +435,8 @@ iframe { width: 100%; }
 @media screen and (min-width: 355px) {
     #confirmRegModal .btn-prima,
     #confirmRegModal .btn-cancel,
-    #ttRegister .btn-prima,
-    #ttRegister .btn-cancel {
+    #registerMessage .btn-prima,
+    #registerMessage .btn-cancel {
         width: 48%;
     }
 }
