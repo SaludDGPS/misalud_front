@@ -502,9 +502,9 @@ var GobMXMiSalud    = {
                     showModalAlert();
                 } else {
                     $('#registerMessage .modal-body p').text('').append('' +
-                        '<span>¡Hola! Para finalizar tu inscripción en Facebook manda un mensaje privado con la palabra ' + word + ' a <a href="https://m.me/' + facebookUser + '" target="_blank">' + facebookUser + '</a>. </span>')
+                        '<span>¡Hola! Para finalizar tu inscripción en Facebook manda un mensaje privado con la palabra ' + word + ' a <a href="http://m.me/' + facebookUser + '" target="_blank">' + facebookUser + '</a>. </span>')
                         ;
-                    $('#registerMessage.modal a.btn-prima').attr('href', 'https://m.me/' + facebookUser);
+                    $('#registerMessage.modal a.btn-prima').attr('href', 'http://m.me/' + facebookUser);
                     $('#registerMessage').modal('show');
                     $('#registerMessage .btn-prima').on('click', function (e) {
                         e.stopPropagation();
@@ -518,10 +518,10 @@ var GobMXMiSalud    = {
                     showModalAlert();
                 } else {
                     $('#registerMessage .modal-body p').text('').append('' +
-                        '<span>¡Hola! Para finalizar tu inscripción en Twitter manda un mensaje privado (DM) con la palabra ' + word + ' a <a href="https://twitter.com/' + twitterUser + '" target="_blank">@' + twitterUser + '</a>. </span>' +
+                        '<span>¡Hola! Para finalizar tu inscripción en Twitter manda un mensaje privado (DM) con la palabra ' + word + ' a <a href="http://twitter.com/' + twitterUser + '" target="_blank">@' + twitterUser + '</a>. </span>' +
                         '<span>No es necesario que nos sigas para hacerlo.</span>')
                         ;
-                    $('#registerMessage.modal a.btn-prima').attr('href', 'https://twitter.com/' + twitterUser);
+                    $('#registerMessage.modal a.btn-prima').attr('href', 'http://twitter.com/' + twitterUser);
                     $('#registerMessage').modal('show');
                     $('#registerMessage .btn-prima').on('click', function (e) {
                         e.stopPropagation();
