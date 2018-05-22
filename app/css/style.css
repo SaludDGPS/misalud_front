@@ -581,8 +581,11 @@ iframe { width: 100%; }
         left: 12%;
     }
     #material-section { padding: 0 0 40px 0; }
+    .hide-on-desktop { display: none !important; }
 }
 @media (max-width: 374px) {
+    h1 { font-size: 21px; }
+
     .control-calendar {
         width: 100%;
     }
@@ -650,7 +653,6 @@ iframe { width: 100%; }
     #mobile-messages {
         display: none;
     }
-    .hide-on-desktop { display: none !important; }
     .separator-o { padding: 16px 0; }
 }
 /* Posicionamiento relativo del botón de registro */
