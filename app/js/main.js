@@ -251,7 +251,12 @@ var GobMXMiSalud    = {
                                     e.preventDefault();
                                     var response    = $( '#chat-input' ).val();
 
-                                    if ( response && response != '' ) {
+                                    // Validate scripting
+                                    if (response.indexOf("</") > -1 || response.indexOf("javascript:") > -1) {
+                                        messages.append($('<div class="message error"><p>Texto no válido</p></div>'));
+                                        $('#chat-input').val('');
+                                    }
+                                    else if ( response && response != '' ) {
                                         var evaluated   = false;
                                         messages.append( $( '<div class="message response-message"><p>' + response + '</p></div>' ) );
                                         $( '#chat-input' ).val( '' );
